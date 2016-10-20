@@ -1,0 +1,5 @@
+D:\VVPos\VVPOSWS\VVPosWS\bin\VVPosWS.dll
+D:\VVPos\VVPOSWS\VVPosWS\bin\VVPosWS.pdb
+D:\VVPos\VVPOSWS\VVPosWS\obj\Release\VVPosWS.dll
+D:\VVPos\VVPOSWS\VVPosWS\obj\Release\VVPosWS.pdb
+D:\VVPos\VVPOSWS\VVPosWS\obj\Release\VVPosWS.csprojResolveAssemblyReference.cache
