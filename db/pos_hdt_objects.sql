@@ -14,7 +14,7 @@ MySQL - 5.6.16 : Database - vvpos
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`vvpos` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
 
-USE `vvpos`;
+USE `pos_hdt`;
 
 /*Table structure for table `objects` */
 
