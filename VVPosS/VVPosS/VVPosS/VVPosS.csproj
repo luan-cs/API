@@ -1,0 +1,840 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{80773EF9-9CF3-4E33-97E6-314B4E643D45}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VVPosS</RootNamespace>
+    <AssemblyName>VVPosS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>VV-POS-Q7-S.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AnalogClockControl">
+      <HintPath>..\..\..\..\..\GrandSpaNEw\DesktopPOS\DesktopPOS\bin\Debug\AnalogClockControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel">
+      <HintPath>..\..\..\..\..\DUNG\TEMP\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\..\GrandSpaNEw\DesktopPOS\DesktopPOS\bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity">
+      <HintPath>..\..\..\..\..\GrandSpaNEw\DesktopPOS\DesktopPOS\bin\Debug\MySql.Data.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLayer\BankCardBLL.cs" />
+    <Compile Include="BusinessLayer\CommonCodeBLL.cs" />
+    <Compile Include="BusinessLayer\EmployeeBLL.cs" />
+    <Compile Include="BusinessLayer\OrderDetailBLL.cs" />
+    <Compile Include="BusinessLayer\OrderBLL.cs" />
+    <Compile Include="BusinessLayer\ProductPriceBLL.cs" />
+    <Compile Include="BusinessLayer\DeskBLL.cs" />
+    <Compile Include="BusinessLayer\IObjectBLL.cs" />
+    <Compile Include="BusinessLayer\ObjectBLL.cs" />
+    <Compile Include="BusinessLayer\ProductsBLL.cs" />
+    <Compile Include="BusinessLayer\ReceiptsBLL.cs" />
+    <Compile Include="BusinessLayer\RolesBLL.cs" />
+    <Compile Include="BusinessLayer\UsersBLL.cs" />
+    <Compile Include="Classes\HtmlEditorEvents.cs" />
+    <Compile Include="Classes\HtmlEnumerations.cs" />
+    <Compile Include="Classes\HtmlFontProperty.cs" />
+    <Compile Include="Classes\HtmlTableProperty.cs" />
+    <Compile Include="Classes\IOleCommandTarget.cs" />
+    <Compile Include="Common\clsLanguages.cs" />
+    <Compile Include="Common\clsRegistry.cs" />
+    <Compile Include="Common\Config.cs" />
+    <Compile Include="Common\Messages.cs" />
+    <Compile Include="Common\TotalHour.cs" />
+    <Compile Include="Common\Utility.cs" />
+    <Compile Include="Common\Validation.cs" />
+    <Compile Include="Controls\DelayTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomMessageBox\ColorCodedCheckedListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomMessageBox\ColorCodedCheckedListBox.designer.cs">
+      <DependentUpon>ColorCodedCheckedListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomMessageBox\MessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomMessageBox\MessageBox.designer.cs">
+      <DependentUpon>MessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomMessageBox\PassMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomMessageBox\PassMessageBox.designer.cs">
+      <DependentUpon>PassMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CommonCode.cs" />
+    <Compile Include="Entities\CommonType.cs" />
+    <Compile Include="Entities\OrderObject.cs" />
+    <Compile Include="Entities\Desk.cs" />
+    <Compile Include="Entities\Employees.cs" />
+    <Compile Include="Entities\Members.cs" />
+    <Compile Include="Entities\MemberScore.cs" />
+    <Compile Include="Entities\Objects.cs" />
+    <Compile Include="Entities\OrderDetails.cs" />
+    <Compile Include="Entities\OrderReceipt.cs" />
+    <Compile Include="Entities\Orders.cs" />
+    <Compile Include="Entities\ProductPrice.cs" />
+    <Compile Include="Entities\Products.cs" />
+    <Compile Include="Entities\Promotions.cs" />
+    <Compile Include="Entities\PrromotionDetails.cs" />
+    <Compile Include="Entities\ReceiptDetails.cs" />
+    <Compile Include="Entities\ReceiptInfo.cs" />
+    <Compile Include="Entities\ReceiptMember.cs" />
+    <Compile Include="Entities\Receipts.cs" />
+    <Compile Include="Entities\Roles.cs" />
+    <Compile Include="Entities\SplashScreen.cs" />
+    <Compile Include="Entities\UserActionHistory.cs" />
+    <Compile Include="Entities\Users.cs" />
+    <Compile Include="Forms\EditHtmlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditHtmlForm.designer.cs">
+      <DependentUpon>EditHtmlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EnterHrefForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EnterHrefForm.designer.cs">
+      <DependentUpon>EnterHrefForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EnterImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EnterImageForm.designer.cs">
+      <DependentUpon>EnterImageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FindReplaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FindReplaceForm.designer.cs">
+      <DependentUpon>FindReplaceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FontAttributeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FontAttributeForm.designer.cs">
+      <DependentUpon>FontAttributeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TablePropertyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TablePropertyForm.designer.cs">
+      <DependentUpon>TablePropertyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLanguages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLanguages.designer.cs">
+      <DependentUpon>frmLanguages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUtility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUtility.Designer.cs">
+      <DependentUpon>frmUtility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\Members\frmMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\Members\frmMember.Designer.cs">
+      <DependentUpon>frmMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\Members\frmUpdateMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\Members\frmUpdateMember.designer.cs">
+      <DependentUpon>frmUpdateMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\frmBankingCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\frmBankingCard.designer.cs">
+      <DependentUpon>frmBankingCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\frmBankingCard_bk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\frmBankingCard_bk.designer.cs">
+      <DependentUpon>frmBankingCard_bk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\frmEditDetailReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\frmEditDetailReceipt.designer.cs">
+      <DependentUpon>frmEditDetailReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\frmInputPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\frmInputPrice.Designer.cs">
+      <DependentUpon>frmInputPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\frmManageBankCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\frmManageBankCard.designer.cs">
+      <DependentUpon>frmManageBankCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\frmManageDesk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\frmManageDesk.Designer.cs">
+      <DependentUpon>frmManageDesk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\frmMemberReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\frmMemberReceipt.designer.cs">
+      <DependentUpon>frmMemberReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\frmMoveTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\frmMoveTable.Designer.cs">
+      <DependentUpon>frmMoveTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\frmOrderList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\frmOrderList.Designer.cs">
+      <DependentUpon>frmOrderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\frmReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\frmReceipt.Designer.cs">
+      <DependentUpon>frmReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\frmShowOrderTemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\frmShowOrderTemp.designer.cs">
+      <DependentUpon>frmShowOrderTemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\frmServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\frmServices.Designer.cs">
+      <DependentUpon>frmServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\frmDesk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\frmDesk.designer.cs">
+      <DependentUpon>frmDesk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\PayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\PayForm.Designer.cs">
+      <DependentUpon>PayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Temp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Temp.Designer.cs">
+      <DependentUpon>Temp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\VVPosService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CustomMessageBox\MessageBox.resx">
+      <DependentUpon>MessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomMessageBox\PassMessageBox.resx">
+      <DependentUpon>PassMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditHtmlForm.resx">
+      <DependentUpon>EditHtmlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EnterHrefForm.resx">
+      <DependentUpon>EnterHrefForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EnterImageForm.resx">
+      <DependentUpon>EnterImageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FindReplaceForm.resx">
+      <DependentUpon>FindReplaceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FontAttributeForm.resx">
+      <DependentUpon>FontAttributeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TablePropertyForm.resx">
+      <DependentUpon>TablePropertyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLanguages.resx">
+      <DependentUpon>frmLanguages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.vi-VN.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUtility.resx">
+      <DependentUpon>frmUtility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\Members\frmMember.resx">
+      <DependentUpon>frmMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\Members\frmUpdateMember.resx">
+      <DependentUpon>frmUpdateMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\frmBankingCard.resx">
+      <DependentUpon>frmBankingCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\frmBankingCard_bk.resx">
+      <DependentUpon>frmBankingCard_bk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\frmEditDetailReceipt.resx">
+      <DependentUpon>frmEditDetailReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\frmInputPrice.resx">
+      <DependentUpon>frmInputPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\frmManageBankCard.resx">
+      <DependentUpon>frmManageBankCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\frmManageDesk.resx">
+      <DependentUpon>frmManageDesk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\frmMemberReceipt.resx">
+      <DependentUpon>frmMemberReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\frmMoveTable.resx">
+      <DependentUpon>frmMoveTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\frmOrderList.resx">
+      <DependentUpon>frmOrderList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\frmReceipt.resx">
+      <DependentUpon>frmReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\frmShowOrderTemp.resx">
+      <DependentUpon>frmShowOrderTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\frmServices.resx">
+      <DependentUpon>frmServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\frmDesk.resx">
+      <DependentUpon>frmDesk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\PayForm.resx">
+      <DependentUpon>PayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Temp.resx">
+      <DependentUpon>Temp.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\LangResource.xls" />
+    <None Include="Res\LangResource.xls" />
+    <None Include="Web References\VVPosService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\VVPosService\VVPosService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grandspa_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accept.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thoat.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thanhvien.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thanhtoan.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dichvu.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quanly.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thaydoimatkhau.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\language.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timekeeping1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\United-States-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Japan-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vietnam-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table-empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\martini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\1404805397_519574-070_Minus.png" />
+    <Content Include="Resources\all-icon.png" />
+    <Content Include="Resources\backgroud.jpg" />
+    <Content Include="Resources\ban-black-icon.png" />
+    <Content Include="Resources\bandadung-ghichu.png" />
+    <Content Include="Resources\bandadung-ghichu1.png" />
+    <Content Include="Resources\bg-chonban.jpg" />
+    <Content Include="Resources\bg-number.jpg" />
+    <Content Include="Resources\bg.jpg" />
+    <Content Include="Resources\bg01.png" />
+    <Content Include="Resources\bg02.png" />
+    <Content Include="Resources\BG05.png" />
+    <Content Include="Resources\BG06.png" />
+    <None Include="Resources\bg1.png" />
+    <Content Include="Resources\button number-CE.png" />
+    <Content Include="Resources\button number.png" />
+    <Content Include="Resources\button-basic-01.png" />
+    <Content Include="Resources\button-basic-02.png" />
+    <Content Include="Resources\card-icon.png" />
+    <Content Include="Resources\change pass-button.png" />
+    <Content Include="Resources\check icon.png" />
+    <Content Include="Resources\chonban-icon.png" />
+    <Content Include="Resources\chuyenban-icon-black.png" />
+    <Content Include="Resources\chuyenban-icon.png" />
+    <Content Include="Resources\dangky-icon.png" />
+    <Content Include="Resources\delete-icon.png" />
+    <Content Include="Resources\ds-all-button.png" />
+    <Content Include="Resources\ds-order-button.png" />
+    <Content Include="Resources\ds-order-icon.png" />
+    <Content Include="Resources\ds-tamtinh-icon.png" />
+    <None Include="Resources\error.png" />
+    <Content Include="Resources\icon-cauhinh.png" />
+    <None Include="Resources\information.jpg" />
+    <None Include="Resources\infomation.png" />
+    <Content Include="Resources\japan.png" />
+    <Content Include="Resources\khac-icon.png" />
+    <Content Include="Resources\member-icon.png" />
+    <Content Include="Resources\naplai-icon.png" />
+    <Content Include="Resources\next button.png" />
+    <Content Include="Resources\next icon.png" />
+    <Content Include="Resources\ngonngu-icon.png" />
+    <Content Include="Resources\previous-icon.png" />
+    <Content Include="Resources\print icon.png" />
+    <Content Include="Resources\reser icon.png" />
+    <Content Include="Resources\sale icon.png" />
+    <Content Include="Resources\saleoff-button.png" />
+    <Content Include="Resources\save button.png" />
+    <Content Include="Resources\save-delete-cancel-button.png" />
+    <Content Include="Resources\save-icon.png" />
+    <Content Include="Resources\select number.png" />
+    <Content Include="Resources\shape order.png" />
+    <Content Include="Resources\tamtinh-icon.png" />
+    <Content Include="Resources\thanhtoan-icon.png" />
+    <Content Include="Resources\thanhtoan-icon1.png" />
+    <Content Include="Resources\them-icon.png" />
+    <Content Include="Resources\thoat-button-reciept.png" />
+    <Content Include="Resources\thoat-button2.png" />
+    <Content Include="Resources\thoat-icon-black.png" />
+    <Content Include="Resources\thoat-icon.png" />
+    <Content Include="Resources\thucan-icon.png" />
+    <Content Include="Resources\thucuong-icon.png" />
+    <Content Include="Resources\tinkiem-icon.png" />
+    <Content Include="Resources\us.png" />
+    <Content Include="Resources\user image.png" />
+    <Content Include="Resources\vietnam.jpg" />
+    <Content Include="Resources\VV-POS-Q7.png" />
+    <None Include="Resources\warning.png" />
+    <Content Include="Resources\welcome.jpg" />
+    <Content Include="VV-POS-Q7-S.ico" />
+    <None Include="Web References\VVPosService\VVPosService.disco" />
+    <None Include="Resources\1404399124_shopping_cart10pt.png" />
+    <None Include="Resources\1404391920_languages.png" />
+    <None Include="Resources\1404399602_Bookkeeping.png" />
+    <None Include="Resources\1404399749_Conversion_of_currency.png" />
+    <None Include="Resources\1404399801_Refresh_key.png" />
+    <None Include="Resources\1404399851_exit.png" />
+    <None Include="Resources\1404400041_Refresh_key.png" />
+    <None Include="Resources\1404477760_f-cross_256.png" />
+    <None Include="Resources\1404477833_f-check_256.png" />
+    <None Include="Resources\1404478970_f-cross.png" />
+    <None Include="Resources\1404482291_aiga_currency_exchange.png" />
+    <None Include="Resources\1404482750_credit-card.png" />
+    <None Include="Resources\1404483264_black_2_audio_simple_repeat_2.png" />
+    <None Include="Resources\1404483093_icon-printer.png" />
+    <None Include="Resources\1404483877_common_logout_signout_exit.png" />
+    <Content Include="Resources\1404381785_save.png" />
+    <Content Include="Resources\1404381920_search.png" />
+    <Content Include="Resources\1404382137_meanicons_32.png" />
+    <Content Include="Resources\1404382347_icon-ios7-undo.png" />
+    <Content Include="Resources\1404382393_icon-ios7-undo.png" />
+    <Content Include="Resources\1404382724_common_logout_signout_exit.png" />
+    <Content Include="Resources\1404390233_table.png" />
+    <Content Include="Resources\1404390543_download10pt.png" />
+    <Content Include="Resources\1404390555_475334-backup.png" />
+    <Content Include="Resources\1404391113_all.png" />
+    <Content Include="Resources\1404391200_food.png" />
+    <Content Include="Resources\1404391256_drink_.png" />
+    <Content Include="Resources\1404391295_Streamline-97.png" />
+    <Content Include="Resources\1404391763_previous.png" />
+    <Content Include="Resources\1404391920_circle_next.png" />
+    <Content Include="Resources\1404391920_circle_previous.png" />
+    <None Include="Resources\1404482750_credit-card1.png" />
+    <None Include="Resources\1404482291_aiga_currency_exchange1.png" />
+    <None Include="Resources\1404483264_black_2_audio_simple_repeat_21.png" />
+    <None Include="Resources\1404483093_icon-printer1.png" />
+    <None Include="Resources\1404483877_common__exit.png" />
+    <None Include="Resources\1405436707_circle_add_plus.png" />
+    <Content Include="Resources\Account.ico" />
+    <Content Include="Resources\addEmp.png" />
+    <Content Include="Resources\App.ico" />
+    <Content Include="Resources\attach.png" />
+    <Content Include="Resources\background.PNG" />
+    <Content Include="Resources\background_grandspa.png" />
+    <Content Include="Resources\bg.png" />
+    <None Include="Resources\bg00.png" />
+    <Content Include="Resources\bground.jpg" />
+    <Content Include="Resources\braceletColorBlue.png" />
+    <Content Include="Resources\braceletColorRed.png" />
+    <Content Include="Resources\braceletColorYellow.png" />
+    <Content Include="Resources\calculate-icon.png" />
+    <Content Include="Resources\Card.png" />
+    <None Include="Resources\welcome1.png" />
+    <None Include="Resources\welcome.png" />
+    <None Include="Resources\Card1.png" />
+    <Content Include="Resources\Cash.png" />
+    <Content Include="Resources\change.ico" />
+    <Content Include="Resources\check.ico" />
+    <Content Include="Resources\check.png" />
+    <Content Include="Resources\Clock.ico" />
+    <Content Include="Resources\close.png" />
+    <Content Include="Resources\Complete1.png" />
+    <None Include="Resources\Complete11.png" />
+    <Content Include="Resources\complete2.png" />
+    <Content Include="Resources\Custom-Icon-Design-All-Country-Flag-Japan-Flag.ico" />
+    <Content Include="Resources\Custom-Icon-Design-Flag-3-United-States-Flag.ico" />
+    <Content Include="Resources\dangxuat.ico" />
+    <None Include="Resources\dangxuat.png" />
+    <Content Include="Resources\default.css" />
+    <Content Include="Resources\default.js" />
+    <Content Include="Resources\delete.ico" />
+    <Content Include="Resources\Download.ico" />
+    <Content Include="Resources\Download.png" />
+    <Content Include="Resources\edit.ico" />
+    <Content Include="Resources\employee.ico" />
+    <Content Include="Resources\Exit.png" />
+    <None Include="Resources\Exit1.png" />
+    <Content Include="Resources\firefox-icon.png" />
+    <Content Include="Resources\firefox-icon_small.png" />
+    <Content Include="Resources\GRAND SPA Logo.jpg" />
+    <Content Include="Resources\GrandSpaBG.png" />
+    <Content Include="Resources\history-icon.png" />
+    <Content Include="Resources\home.ico" />
+    <Content Include="Resources\HtmlEditor.bmp" />
+    <Content Include="Resources\HtmlEditor.ico" />
+    <Content Include="Resources\Icon_history.ico" />
+    <Content Include="Resources\ImageDemo.png" />
+    <Content Include="Resources\information.bmp" />
+    <Content Include="Resources\information1.ico" />
+    <Content Include="Resources\inout.png" />
+    <None Include="Resources\logout.png" />
+    <Content Include="Resources\male_avatar.png" />
+    <Content Include="Resources\managemember.ico" />
+    <Content Include="Resources\member.ico" />
+    <Content Include="Resources\membership.png" />
+    <None Include="Resources\membership1.png" />
+    <None Include="Resources\messagebox.png" />
+    <Content Include="Resources\no0.png" />
+    <None Include="Resources\no01.png" />
+    <Content Include="Resources\no1.png" />
+    <None Include="Resources\no11.png" />
+    <Content Include="Resources\no2.png" />
+    <None Include="Resources\no21.png" />
+    <Content Include="Resources\no3.png" />
+    <None Include="Resources\no31.png" />
+    <Content Include="Resources\no4.png" />
+    <None Include="Resources\no41.png" />
+    <Content Include="Resources\no5.png" />
+    <None Include="Resources\no51.png" />
+    <Content Include="Resources\no6.png" />
+    <None Include="Resources\no61.png" />
+    <Content Include="Resources\no7.png" />
+    <None Include="Resources\no71.png" />
+    <Content Include="Resources\no8.png" />
+    <None Include="Resources\no81.png" />
+    <Content Include="Resources\no9.png" />
+    <None Include="Resources\no91.png" />
+    <Content Include="Resources\noCE.png" />
+    <None Include="Resources\noCE1.png" />
+    <Content Include="Resources\open.png" />
+    <Content Include="Resources\order.ico" />
+    <Content Include="Resources\passmess.png" />
+    <Content Include="Resources\printer.png" />
+    <None Include="Resources\printer1.png" />
+    <Content Include="Resources\product.ico" />
+    <Content Include="Resources\promotion.ico" />
+    <Content Include="Resources\Refresh.png" />
+    <Content Include="Resources\Refresh1.png" />
+    <None Include="Resources\Refresh11.png" />
+    <Content Include="Resources\RoleInEmployee.ico" />
+    <Content Include="Resources\roles.ico" />
+    <Content Include="Resources\Search.ico" />
+    <Content Include="Resources\Semlabs-Web-Blog-Mail2-send.ico" />
+    <Content Include="Resources\sendmail.ico" />
+    <Content Include="Resources\service.ico" />
+    <Content Include="Resources\singup.ico" />
+    <None Include="Resources\splash4.png" />
+    <None Include="Resources\splash3.png" />
+    <None Include="Resources\splash5.png" />
+    <Content Include="Resources\splash1.png" />
+    <Content Include="Resources\splash2.png" />
+    <Content Include="Resources\statistic.ico" />
+    <Content Include="Resources\sum.ico" />
+    <Content Include="Resources\SupplierDebtIcon.png" />
+    <None Include="Resources\table_empty.png" />
+    <Content Include="Resources\thongke.ico" />
+    <Content Include="Resources\timekeeping.png" />
+    <Content Include="Resources\ToolbarBold.bmp" />
+    <Content Include="Resources\ToolbarCopy.bmp" />
+    <Content Include="Resources\ToolBarCut.bmp" />
+    <Content Include="Resources\ToolbarDelete.bmp" />
+    <Content Include="Resources\ToolbarFileOpen.bmp" />
+    <Content Include="Resources\ToolbarFileSave.bmp" />
+    <Content Include="Resources\ToolbarFind.bmp" />
+    <Content Include="Resources\ToolbarFontColor.bmp" />
+    <Content Include="Resources\ToolbarFontDown.bmp" />
+    <Content Include="Resources\ToolbarFontNormal.bmp" />
+    <Content Include="Resources\ToolbarFontStyle.bmp" />
+    <Content Include="Resources\ToolbarFontUp.bmp" />
+    <Content Include="Resources\ToolbarImage.bmp" />
+    <Content Include="Resources\ToolbarItalic.bmp" />
+    <Content Include="Resources\ToolbarJustifyCenter.bmp" />
+    <Content Include="Resources\ToolbarJustifyLeft.bmp" />
+    <Content Include="Resources\ToolbarJustifyRight.bmp" />
+    <Content Include="Resources\ToolbarLine.bmp" />
+    <Content Include="Resources\ToolbarListOrdered.bmp" />
+    <Content Include="Resources\ToolbarListUnordered.bmp" />
+    <Content Include="Resources\ToolbarPaste.bmp" />
+    <Content Include="Resources\ToolbarPrint.bmp" />
+    <Content Include="Resources\ToolbarProperties.bmp" />
+    <Content Include="Resources\ToolbarRedo.bmp" />
+    <Content Include="Resources\ToolbarTabInsert.bmp" />
+    <Content Include="Resources\ToolbarTable.bmp" />
+    <Content Include="Resources\ToolbarTabRemove.bmp" />
+    <Content Include="Resources\ToolbarUnderline.bmp" />
+    <Content Include="Resources\ToolbarUndo.bmp" />
+    <Content Include="Resources\ToolbarWebLink.bmp" />
+    <Content Include="Resources\TypeMember.ico" />
+    <Content Include="Resources\VietNam.ico" />
+    <None Include="Resources\logoVVNeew.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:62600/VVPosService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\VVPosService\</RelPath>
+      <UpdateFromURL>http://localhost:62600/VVPosService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>VVPosS_VVPosService_VVPosService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

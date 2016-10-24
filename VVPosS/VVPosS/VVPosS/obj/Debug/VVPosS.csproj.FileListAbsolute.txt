@@ -1,0 +1,338 @@
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe.config
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.pdb
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\vi-VN\VVPosS.resources.dll
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.MessageBox.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.PassMessageBox.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EditHtmlForm.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterHrefForm.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterImageForm.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FindReplaceForm.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FontAttributeForm.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.TablePropertyForm.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmChangePassword.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLanguages.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLogin.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Properties.Resources.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmMember.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmUpdateMember.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmManageDesk.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmShowOrderTemp.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmServices.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmDesk.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.SplashScreen.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.vi-VN.resources
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csproj.GenerateResource.Cache
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\vi-VN\VVPosS.resources.dll
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.exe
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.pdb
+E:\VVPOS\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csprojResolveAssemblyReference.cache
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe.config
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.exe
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.pdb
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csprojResolveAssemblyReference.cache
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.MessageBox.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.PassMessageBox.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EditHtmlForm.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterHrefForm.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterImageForm.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FindReplaceForm.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FontAttributeForm.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.TablePropertyForm.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmChangePassword.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLanguages.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLogin.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Properties.Resources.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmMember.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmUpdateMember.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmManageDesk.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmShowOrderTemp.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmServices.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmDesk.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.SplashScreen.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.vi-VN.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csproj.GenerateResource.Cache
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.pdb
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\vi-VN\VVPosS.resources.dll
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\vi-VN\VVPosS.resources.dll
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmBankingCard.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmEditDetailReceipt.resources
+E:\VietVang\Code\VVPos N\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmReceipt.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe.config
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.pdb
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\vi-VN\VVPosS.resources.dll
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.MessageBox.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.PassMessageBox.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EditHtmlForm.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterHrefForm.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterImageForm.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FindReplaceForm.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FontAttributeForm.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.TablePropertyForm.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmChangePassword.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLanguages.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLogin.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Properties.Resources.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmMember.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmUpdateMember.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmBankingCard.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmEditDetailReceipt.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmManageDesk.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmReceipt.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmShowOrderTemp.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmServices.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmDesk.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.SplashScreen.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.vi-VN.resources
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csproj.GenerateResource.Cache
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\vi-VN\VVPosS.resources.dll
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.exe
+E:\VVPOS1\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.pdb
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe.config
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.exe
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.pdb
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.pdb
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\vi-VN\VVPosS.resources.dll
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csprojResolveAssemblyReference.cache
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.MessageBox.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.PassMessageBox.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EditHtmlForm.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterHrefForm.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterImageForm.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FindReplaceForm.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FontAttributeForm.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.TablePropertyForm.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmChangePassword.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLanguages.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLogin.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Properties.Resources.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmMember.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmUpdateMember.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmBankingCard.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmEditDetailReceipt.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmManageDesk.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmReceipt.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmShowOrderTemp.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmServices.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmDesk.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.SplashScreen.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.vi-VN.resources
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csproj.GenerateResource.Cache
+E:\vvpos2\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\vi-VN\VVPosS.resources.dll
+E:\vvpos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmBankingCard.resources
+E:\vvpos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmEditDetailReceipt.resources
+E:\vvpos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmReceipt.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe.config
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.pdb
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\bin\Debug\vi-VN\VVPosS.resources.dll
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csprojResolveAssemblyReference.cache
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.MessageBox.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.PassMessageBox.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EditHtmlForm.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterHrefForm.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterImageForm.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FindReplaceForm.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FontAttributeForm.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.TablePropertyForm.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmChangePassword.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLanguages.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLogin.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Properties.Resources.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmMember.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmUpdateMember.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmBankingCard.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmBankingCard_bk.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmEditDetailReceipt.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmInputPrice.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmManageDesk.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmMemberReceipt.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmReceipt.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmShowOrderTemp.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmServices.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmDesk.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.SplashScreen.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.vi-VN.resources
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csproj.GenerateResource.Cache
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\vi-VN\VVPosS.resources.dll
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.exe
+D:\VVPos\VVPOSDesk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.pdb
+D:\VVPos\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe.config
+D:\VVPos\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.exe
+D:\VVPos\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.pdb
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\bin\Debug\VVPosS.exe.config
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\bin\Debug\VVPosS.exe
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\bin\Debug\VVPosS.pdb
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\bin\Debug\vi-VN\VVPosS.resources.dll
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.MessageBox.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.PassMessageBox.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.EditHtmlForm.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterHrefForm.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterImageForm.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.FindReplaceForm.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.FontAttributeForm.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.TablePropertyForm.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.frmChangePassword.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLanguages.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLogin.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.frmUtility.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Properties.Resources.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmMember.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmUpdateMember.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmBankingCard.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmBankingCard_bk.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmEditDetailReceipt.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmInputPrice.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmManageBankCard.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmManageDesk.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmMemberReceipt.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmMoveTable.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmOrderList.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmReceipt.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmShowOrderTemp.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmServices.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmDesk.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.SplashScreen.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.vi-VN.resources
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.csproj.GenerateResource.Cache
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\vi-VN\VVPosS.resources.dll
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.exe
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.pdb
+E:\Bach-VietVang\VVPOS\VVPosS\VVPosS\obj\Debug\VVPosS.csprojResolveAssemblyReference.cache
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe.config
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.exe
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.pdb
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csprojResolveAssemblyReference.cache
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.MessageBox.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.PassMessageBox.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EditHtmlForm.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterHrefForm.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterImageForm.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FindReplaceForm.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FontAttributeForm.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.TablePropertyForm.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmChangePassword.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLanguages.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLogin.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmUtility.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmMember.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmUpdateMember.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmBankingCard.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmBankingCard_bk.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmEditDetailReceipt.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmInputPrice.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmManageBankCard.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmManageDesk.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmMemberReceipt.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmMoveTable.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmOrderList.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmReceipt.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmShowOrderTemp.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmServices.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmDesk.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.SplashScreen.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.vi-VN.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csproj.GenerateResource.Cache
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.pdb
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\bin\Debug\vi-VN\VVPosS.resources.dll
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Properties.Resources.resources
+F:\SVN_Source\Projects_14042015\VVPOS\VVPOSDesk\VVPosStandard\VVPosS\VVPosS\VVPosS\obj\Debug\vi-VN\VVPosS.resources.dll
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe.config
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.exe
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.pdb
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.pdb
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\bin\Debug\vi-VN\VVPosS.resources.dll
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csprojResolveAssemblyReference.cache
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.MessageBox.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.PassMessageBox.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EditHtmlForm.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterHrefForm.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterImageForm.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FindReplaceForm.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FontAttributeForm.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.TablePropertyForm.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmChangePassword.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLanguages.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLogin.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmUtility.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Properties.Resources.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmMember.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmUpdateMember.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmBankingCard.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmBankingCard_bk.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmEditDetailReceipt.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmInputPrice.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmManageBankCard.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmManageDesk.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmMemberReceipt.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmMoveTable.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmOrderList.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmReceipt.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmShowOrderTemp.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmServices.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmDesk.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.SplashScreen.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.vi-VN.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csproj.GenerateResource.Cache
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\vi-VN\VVPosS.resources.dll
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.MainForm.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Temp.resources
+D:\TEMP\VVPOs\tmp\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.PayForm.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe.config
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.exe
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.pdb
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.exe
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\bin\Debug\VVPosS.pdb
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\bin\Debug\vi-VN\VVPosS.resources.dll
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\bin\Debug\MySql.Data.dll
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\bin\Debug\MySql.Data.Entity.dll
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csprojResolveAssemblyReference.cache
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.MessageBox.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.CustomMessageBox.PassMessageBox.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EditHtmlForm.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterHrefForm.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.EnterImageForm.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FindReplaceForm.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.FontAttributeForm.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.TablePropertyForm.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmChangePassword.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLanguages.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmLogin.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmUtility.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.MainForm.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Properties.Resources.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmMember.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.Members.frmUpdateMember.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmBankingCard.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmBankingCard_bk.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmEditDetailReceipt.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmInputPrice.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmManageBankCard.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmManageDesk.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmMemberReceipt.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmMoveTable.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmOrderList.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmReceipt.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmShowOrderTemp.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmServices.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.frmDesk.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Screen.POS.PayForm.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.SplashScreen.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.Temp.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.frmMain.vi-VN.resources
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\VVPosS.csproj.GenerateResource.Cache
+D:\PROJECT\C#\Services\trunk\VVPosS\VVPosS\VVPosS\obj\Debug\vi-VN\VVPosS.resources.dll
