@@ -1,7 +1,0 @@
-﻿smtp.gmail.com
-587
-true
-diepvietvang@gmail.com
-@VV123456
-admin@pos_spa.vn
-adminPosSpa
