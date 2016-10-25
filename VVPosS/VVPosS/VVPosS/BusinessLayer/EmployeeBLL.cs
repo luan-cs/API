@@ -70,7 +70,7 @@ namespace VVPosS.BusinessLayer
             {
                 Program.Username = pIdOrUsername;
                 Program.Password = pPassword;
-                Program.users = GetByIdOrUsername(pIdOrUsername);
+                //Program.users = GetByIdOrUsername(pIdOrUsername);
             }
 
             return ok;

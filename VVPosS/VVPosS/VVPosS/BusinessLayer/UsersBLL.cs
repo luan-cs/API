@@ -72,7 +72,7 @@ namespace VVPosS.BusinessLayer
             {
                 Program.Username = pIdOrUsername;
                 Program.Password = pPassword;
-                //Program.users = GetByIdOrUsername(pIdOrUsername);
+                Program.users = GetByIdOrUsername(pIdOrUsername);
             }
 
             return ok;
@@ -138,8 +138,6 @@ namespace VVPosS.BusinessLayer
                 user.ModifiedBy = dataset.Tables["x"].Rows[0]["ModifiedBy"].ToString();
                 user.ModifiedDate = dataset.Tables["x"].Rows[0]["ModifiedDate"].ToString();
                 user.RoleId = dataset.Tables["x"].Rows[0]["RoleId"].ToString();
-
-                
             }
             else
                 user = null;

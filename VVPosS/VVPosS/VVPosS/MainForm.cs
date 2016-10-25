@@ -22,13 +22,19 @@ namespace VVPosS
         public MainForm()
         {
             InitializeComponent();
+            SetUIChange();
         }
 
+        private void SetUIChange()
+        {
+            lbCompayInfor.Text = "";
+            this.pbImage.Image = Common.Utility.GetImageFromService("Users", Program.ImageUser);
+            lbFullname.Text = Program.FullName + "\nLast login: " + Program.users.LastLogin + "\nLast change password: " + Program.users.ModifiedDate;
+
+        }
         #region Controls Event
         private void MainForm_Load(object sender, EventArgs e)
         {
-            lbCompayInfor.Text = "ABC Company \nMST: 034442244 \nPhone: 0989 87 00 91";
-            lbFullname.Text = "Ho Hanh Nhi \nLast Login: 23-Oct-2016 \nHad changed password: 20-Jul-2016";
         }
 
         private void MainForm_ClientSizeChanged(object sender, EventArgs e)
@@ -102,6 +108,7 @@ namespace VVPosS
         }
 
         #region Do Printing
+        private DataTable rcAll;
         private bool DoPrinting()
         {
             PrintDocument pd = new PrintDocument();
@@ -112,9 +119,7 @@ namespace VVPosS
         }
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            ReceiptsBLL objBLL = new ReceiptsBLL();
-            // load data hoa don
-            DataTable rcAll = objBLL.GetReceipts();
+           
             int y_p = 0;
             int h_s = 0;
 
@@ -442,6 +447,19 @@ namespace VVPosS
 
         private void btnReport_Click(object sender, EventArgs e)
         {
+            ReceiptsBLL objBLL = new ReceiptsBLL();
+            // load data hoa don
+            DataTable rcAll = objBLL.GetReceipts();
+
+            if (rcAll == null)
+            {
+                DialogResult dr = CustomMessageBox.MessageBox.ShowCustomMessageBox("Hiện chưa có hóa đơn nào được xuất trong ngày",
+                       Common.clsLanguages.GetResource("Information"),
+                       Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
+                       Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                return;
+            }
+
             DoPrinting();
         }
     }

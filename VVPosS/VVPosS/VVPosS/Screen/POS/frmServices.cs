@@ -1362,7 +1362,7 @@ namespace VVPosS.Screen.POS
             {
                 //CloseForm();
                 //this.Visible = false;
-                payForm = new Screen.POS.PayForm(this);
+                payForm = new Screen.POS.PayForm(this, TotalMoney);
                 payForm.ShowDialog();
                 //AddFormToMainPanel(frmServices);
 

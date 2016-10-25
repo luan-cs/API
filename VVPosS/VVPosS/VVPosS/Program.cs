@@ -25,13 +25,15 @@ namespace VVPosS
         //public static DataTableCollection LangRes = VVPosS.Common.clsLanguages.ReadExcelFromURL(@"../../Res/LangResource.xls");
         public static DataTableCollection LangRes = VVPosS.Common.clsLanguages.ReadExcelFromURL(@"LangResource.xls");
         public static string urlImage = "";
-        public static Employees users = new Employees();
+        public static Users users = new Users();
         public static Roles roles = new Roles();
         public static string Username = "";
         public static string Password = "";
         public static string RoleId = "";
-        public static Image ImageUser;
+        public static string ImageUser = "";
         public static string FullName = "";
+        public static string LastLogin = "";
+        public static string LastModified = "";
         public static List<string> lstRole = new List<string>();
         public static List<OrderObject> lstTemp=new List<OrderObject>();
         public static List<OrderDetails> lstOrderDetail = new List<OrderDetails>();

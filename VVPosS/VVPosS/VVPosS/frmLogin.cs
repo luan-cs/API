@@ -158,30 +158,27 @@ namespace VVPosS
             try
             {
 
-                EmployeeBLL employeeBLL = new EmployeeBLL();
+                UsersBLL usersBLL = new UsersBLL();
                 string idOrUsername = txtUsername.Text;
                 string password = Program.ConvertStringToMD5(txtPassword.Text.Trim());
-                bool ok = employeeBLL.CheckLogin(idOrUsername, password);
+                bool ok = usersBLL.CheckLogin(idOrUsername, password);
 
                 if (ok)
                 {
                     // gán culture vào hệ thống
                     Common.clsLanguages.SetCulture(Common.clsLanguages.StrCulture);
-                    RolesBLL rolesBLL = new RolesBLL();
-                    Program.lstRole = rolesBLL.GetRoleOfUser(Program.users.EmployeeId);
-                    if (Program.lstRole.Contains("letan") || Program.lstRole.Contains("admin"))
+                    //RolesBLL rolesBLL = new RolesBLL();
+                    //Program.lstRole = rolesBLL.GetRoleOfUser(Program.users.EmployeeId);
+                    if (Program.users.RoleId == "letan" || Program.users.RoleId == "admin")
                     {
-                        if (string.IsNullOrEmpty(employeeBLL.ErrorString))
+                        if (string.IsNullOrEmpty(usersBLL.ErrorString))
                         {
 
-                            Program.FullName = Program.users.EmployeeName;
-                            //Begin - Chậm quá nên rào lại, tính sau.
-                            //if (!string.IsNullOrEmpty(Program.users.Image))
-                            //    Program.ImageUser = employeeBLL.GetImage(Program.users.EmployeeId);
-                            //else Program.ImageUser = global::VVPosS.Properties.Resources.user_image;
-                            //End - Chậm quá nên rào lại, tính sau.
+                            string _sObjectId = usersBLL.GetObjectIdByUserId(idOrUsername).Rows[0][0].ToString();
 
-                            Program.ImageUser = global::VVPosS.Properties.Resources.user_image;
+                            ObjectBLL objectBLL = new ObjectBLL();
+                            Program.FullName = objectBLL.GetObjectByObjectId(_sObjectId).Rows[0]["FullName"].ToString();
+                            Program.ImageUser = objectBLL.GetObjectByObjectId(_sObjectId).Rows[0]["Image"].ToString();
 
                             MainForm frm = new MainForm();
                             frm.Show();
@@ -192,7 +189,7 @@ namespace VVPosS
                             this.Hide();
                         }
                         else
-                            MessageBox.Show(employeeBLL.ErrorString, Common.clsLanguages.GetResource("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(usersBLL.ErrorString, Common.clsLanguages.GetResource("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {

@@ -20,17 +20,19 @@ namespace VVPosS.Screen.POS
 
         private ReceiptsBLL RptsBLL = new ReceiptsBLL();
         private string ReceiptID_Success;
+        private double TotalMoney = 0;
         public PayForm()
         {
             InitializeComponent();
             SettingControl();
         }
 
-        public PayForm(frmServices frmS)
+        public PayForm(frmServices frmS, double totalMoney)
         {
             InitializeComponent();
             SettingControl();
             frmServices = frmS;
+            TotalMoney = totalMoney;
         }
 
         #region Private Methods
