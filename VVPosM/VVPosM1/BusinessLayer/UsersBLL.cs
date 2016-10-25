@@ -165,7 +165,7 @@ namespace VVPosM1.BusinessLayer
             DataSet dataset = new DataSet();
             //hung 09-12-2014
             //  string queryStr = string.Format("SELECT * FROM users WHERE  UserId = '{0}'", pIdOrUsername);
-            string queryStr = string.Format("SELECT * FROM user WHERE  UserId = '{0}'", pIdOrUsername);
+            string queryStr = string.Format("SELECT * FROM users WHERE  UserId = '{0}'", pIdOrUsername);
             Program.destopService.DataQuery(Program.Username, Program.Password, queryStr, ref dataset, "x", ref errorString);
 
             if (!string.IsNullOrEmpty(errorString))

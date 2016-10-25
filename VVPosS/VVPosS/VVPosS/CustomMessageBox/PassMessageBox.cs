@@ -205,7 +205,7 @@ namespace VVPosS.CustomMessageBox
             bool res = false;
             string pas = txtPass.Text;
             string passMD5 = Program.ConvertStringToMD5(pas);
-            if (passMD5 == Program.users.Password)
+            if (passMD5 == Program.users.Pwd)
             {
                 res = true;
             }

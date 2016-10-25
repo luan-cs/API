@@ -79,12 +79,12 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>C:\Program Files\Microsoft Visual Studio 12.0\Visual Studio Tools for Office\PIA\Office15\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data">
-      <HintPath>..\..\..\..\..\GrandSpaNEw\DesktopPOS\DesktopPOS\bin\Debug\MySql.Data.dll</HintPath>
+      <HintPath>..\..\DLL\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data.Entity">
-      <HintPath>..\..\..\..\..\GrandSpaNEw\DesktopPOS\DesktopPOS\bin\Debug\MySql.Data.Entity.dll</HintPath>
+      <HintPath>..\..\DLL\MySql.Data.Entity.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -586,8 +586,6 @@
   <ItemGroup>
     <Content Include="bin\Debug\AnalogClockControl.dll" />
     <Content Include="bin\Debug\Excel.dll" />
-    <Content Include="bin\Debug\MySql.Data.dll" />
-    <Content Include="bin\Debug\MySql.Data.Entity.dll" />
     <Content Include="bin\Debug\vi-VN\VVPosM1.resources.dll" />
     <Content Include="bin\Debug\VVPosM1.exe" />
     <Content Include="bin\Debug\VVPosM1.pdb" />

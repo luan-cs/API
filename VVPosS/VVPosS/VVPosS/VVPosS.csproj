@@ -530,9 +530,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\information.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -561,6 +558,7 @@
     <Content Include="Resources\bg02.png" />
     <Content Include="Resources\BG05.png" />
     <Content Include="Resources\BG06.png" />
+    <None Include="Web References\VVPosService\VVPosService.disco" />
     <None Include="Resources\bg1.png" />
     <Content Include="Resources\button number-CE.png" />
     <Content Include="Resources\button number.png" />
@@ -617,7 +615,6 @@
     <None Include="Resources\warning.png" />
     <Content Include="Resources\welcome.jpg" />
     <Content Include="VV-POS-Q7-S.ico" />
-    <None Include="Web References\VVPosService\VVPosService.disco" />
     <None Include="Resources\1404399124_shopping_cart10pt.png" />
     <None Include="Resources\1404391920_languages.png" />
     <None Include="Resources\1404399602_Bookkeeping.png" />
@@ -798,7 +795,6 @@
     <Content Include="Resources\VietNam.ico" />
     <None Include="Resources\logoVVNeew.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
@@ -815,6 +811,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
     <WebReferenceUrl Include="http://localhost:62600/VVPosService.asmx">

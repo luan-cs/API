@@ -289,20 +289,11 @@ namespace VVPosM1
 
                 UsersBLL usersBLL = new UsersBLL();
                 string idOrUsername = txtUsername.Text;
-                //string password = Program.ConvertStringToMD5(txtPassword.Text);
                 string password = Program.ConvertStringToMD5(txtPassword.Text.Trim());
                 bool ok = usersBLL.CheckLogin(idOrUsername, password);
 
                 if (ok)
                 {
-                    RolesBLL rolesBLL = new RolesBLL();
-                    string userId = Program.user.UserId;
-                    DataTable dt = new DataTable();
-                    /*dt = usersBLL.CheckRole(userId);
-                    if (dt != null)
-                    {
-                        Program.RoleId = "admin";
-                    }*/
                     Program.RoleId = Program.user.RoleId;
 
                     //DataTable dt = rolesBLL.GetRoleOfUser(Program.users.RoleId);

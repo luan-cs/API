@@ -73,8 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Excel.dll" />
-    <Content Include="bin\MySql.Data.dll" />
-    <Content Include="bin\MySql.Data.Entity.dll" />
     <Content Include="bin\MySql.Web.dll" />
     <Content Include="bin\settingcode.xml" />
     <Content Include="bin\VVPosWS.dll" />

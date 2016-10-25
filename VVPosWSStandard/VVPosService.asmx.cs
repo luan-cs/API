@@ -90,9 +90,7 @@ namespace VVPosWS
         {
             Session["USERNAME"] = pUsername;
             DataSet dataset = new DataSet();
-            //Hung 09-12-2014
-            //string strQuery = string.Format("SELECT * FROM users WHERE Status='1' And UserId = '{0}' AND Pwd = '{1}'", pUsername, pPassword);
-            string strQuery = string.Format("SELECT * FROM employees WHERE UserName = '{0}' AND Password = '{1}'", pUsername, pPassword);
+            string strQuery = string.Format("SELECT * FROM users WHERE Status='1' And UserId = '{0}' AND Pwd = '{1}'", pUsername, pPassword);
             DataAccess.DataQuery(GetConnectionString(), strQuery, ref dataset, "x", ref pError);
 
             if (dataset.Tables["x"].Rows.Count > 0)
@@ -355,6 +353,21 @@ namespace VVPosWS
 
 
             DataAccess.Tran_Insert_Order(GetConnectionString(), ref pError, Lang, pPrinterName, parram, listParam, paramDesk, ref res, ref IsPrint, ref pOrderId);
+        }
+
+        [WebMethod(EnableSession = true)]
+        public void Tran_Insert_for_Order_Nodesk(string pUsernameOrId, string password, string Lang, string pPrinterName, string[][] parram, List<string[][]> listParam,
+           ref string pError, ref bool res, ref bool IsPrint, ref string pOrderId)
+        {
+            if (!IsAccept(ref pError))
+                return;
+
+            if (!IsUser(pUsernameOrId, password, ref pError))
+                return;
+
+
+
+            DataAccess.Tran_Insert_Order(GetConnectionString(), ref pError, Lang, pPrinterName, parram, listParam, ref res, ref IsPrint, ref pOrderId);
         }
 
         [WebMethod(EnableSession = true)]

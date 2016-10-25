@@ -131,7 +131,8 @@ namespace VVPosM1.Screen
                         // vị trí report và page nằm ngang
                         System.Drawing.Printing.PageSettings pg = new System.Drawing.Printing.PageSettings();
                         pg.Landscape = true;
-                        rptViewHour.SetPageSettings(pg);
+                        //TODO
+                        //rptViewHour.SetPageSettings(pg);
                         // rptViewTotalCustomer.SetDisplayMode(DisplayMode.PrintLayout);
                         //rptViewTotalCustomer.ZoomMode = ZoomMode.FullPage;
                         rptViewHour.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;

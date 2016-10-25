@@ -1,7 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VVPosWS", "VVPosWS.csproj", "{DE21B29A-1C4B-4422-8023-5D4C4D27146C}"
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VVPosS", "..\VVPosS\VVPosS\VVPosS\VVPosS.csproj", "{80773EF9-9CF3-4E33-97E6-314B4E643D45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VVPosM1", "..\VVPosM\VVPosM1\VVPosM1.csproj", "{E99705BE-3A72-47AC-9E64-EC8FE9640FEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VVPosWS", "..\VVPosWSStandard\VVPosWS.csproj", "{DE21B29A-1C4B-4422-8023-5D4C4D27146C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,6 +15,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80773EF9-9CF3-4E33-97E6-314B4E643D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80773EF9-9CF3-4E33-97E6-314B4E643D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80773EF9-9CF3-4E33-97E6-314B4E643D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80773EF9-9CF3-4E33-97E6-314B4E643D45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E99705BE-3A72-47AC-9E64-EC8FE9640FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E99705BE-3A72-47AC-9E64-EC8FE9640FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E99705BE-3A72-47AC-9E64-EC8FE9640FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E99705BE-3A72-47AC-9E64-EC8FE9640FEB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DE21B29A-1C4B-4422-8023-5D4C4D27146C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DE21B29A-1C4B-4422-8023-5D4C4D27146C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE21B29A-1C4B-4422-8023-5D4C4D27146C}.Release|Any CPU.ActiveCfg = Release|Any CPU

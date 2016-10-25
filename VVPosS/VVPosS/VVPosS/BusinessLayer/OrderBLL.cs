@@ -145,14 +145,16 @@ namespace VVPosS.BusinessLayer
                 new string[] {"tolal_Money",double.Parse(obj.TotalMoney).ToString()},
             };
 
-            string[][] paramDesk = {
-                new string[] {"_DeskId", int.Parse(desk.DeskId).ToString()},
-                new string[] {"_IsUsing", int.Parse(desk.IsUsing).ToString()},
+            //string[][] paramDesk = {
+            //    new string[] {"_DeskId", int.Parse(desk.DeskId).ToString()},
+            //    new string[] {"_IsUsing", int.Parse(desk.IsUsing).ToString()},
 
-            };
-            Program.destopService.Tran_Insert_for_Order(Program.Username, Program.Password, Common.clsLanguages.StrCulture,
-                ConfigurationManager.AppSettings["PrinterKitchen"], param, param1, paramDesk, ref errorString, ref res, ref Print, ref OrderId);
-            
+            //};
+            //Program.destopService.Tran_Insert_for_Order(Program.Username, Program.Password, Common.clsLanguages.StrCulture,
+            //    ConfigurationManager.AppSettings["PrinterKitchen"], param, param1, paramDesk, ref errorString, ref res, ref Print, ref OrderId);
+            Program.destopService.Tran_Insert_for_Order_Nodesk(Program.Username, Program.Password, Common.clsLanguages.StrCulture,
+               ConfigurationManager.AppSettings["PrinterKitchen"], param, param1, ref errorString, ref res, ref Print, ref OrderId);
+
         }
 
         public DataTable GetPaymentOfOrder(string OrderID)

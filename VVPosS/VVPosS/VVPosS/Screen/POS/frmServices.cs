@@ -676,7 +676,7 @@ namespace VVPosS.Screen.POS
                 ClearDataGridView();
                 if (!IsPrintServer && IsPrint)
                 {
-                    if (!DoPrinting()) {
+                    if (!DoPrintingKitchen()) {
                         CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("NotFoundPrintPleaseCheck"),
                               Common.clsLanguages.GetResource("Information"),
                               Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
@@ -692,8 +692,289 @@ namespace VVPosS.Screen.POS
 
 
         }
-        #region Do printing
+
+        #region Do Printing
         private bool DoPrinting()
+        {
+            PrintDocument pd = new PrintDocument();
+            //pd.PrinterSettings.PrinterName = ConfigurationManager.AppSettings["Printer"];
+            pd.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("A7", 300, 10000);
+            pd.PrintPage += new PrintPageEventHandler(this.printDocument1_PrintPage);
+
+            pd.Print();
+
+
+            return true;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            // load data hoa don
+            // load data hoa don
+            OrderAll rcAll = new OrderAll();
+            rcAll = orderBLL.GetOrderInfo(sOrderId);
+            int y_p = 0;
+            int h_s = 0;
+
+
+            /// 
+
+            StringFormat strfmt_Left = new StringFormat();
+            StringFormat strfmt_Center = new StringFormat();
+            StringFormat strfmt_Right = new StringFormat();
+            StringFormat strfmt_Left_Right = new StringFormat();
+            StringFormat strfmt_Center_Right = new StringFormat();
+            StringFormat strfmt_Right_Center = new StringFormat();
+            StringFormat strfmt_Left_Center = new StringFormat();
+
+            strfmt_Left.LineAlignment = StringAlignment.Near;
+            strfmt_Left.Alignment = StringAlignment.Near;
+
+            strfmt_Center.LineAlignment = StringAlignment.Center;
+            strfmt_Center.Alignment = StringAlignment.Center;
+
+            strfmt_Right.LineAlignment = StringAlignment.Far;
+            strfmt_Right.Alignment = StringAlignment.Far;
+
+            strfmt_Left_Right.LineAlignment = StringAlignment.Far;
+            strfmt_Left_Right.Alignment = StringAlignment.Near;
+
+            strfmt_Center_Right.LineAlignment = StringAlignment.Far;
+            strfmt_Center_Right.Alignment = StringAlignment.Center;
+
+            strfmt_Right_Center.LineAlignment = StringAlignment.Center;
+            strfmt_Right_Center.Alignment = StringAlignment.Far;
+
+            strfmt_Left_Center.LineAlignment = StringAlignment.Center;
+            strfmt_Left_Center.Alignment = StringAlignment.Near;
+
+            // Logo
+            var imgLogo = Common.Utility.GetImageFromService("ShopImg", "logoPrint.png");
+            Rectangle logo = new Rectangle(5, 10, 60, 40);
+            e.Graphics.DrawImage(imgLogo, logo);
+
+            Rectangle strHoaDon = new Rectangle(120, 5, 165, 20);
+            string data = Common.clsLanguages.GetResource("Receipt");//"HÓA ĐƠN";
+            e.Graphics.DrawString(data, new Font("Arial", 12, FontStyle.Bold), Brushes.DarkSlateBlue, strHoaDon, strfmt_Right);
+
+            //Ngày hóa đơn
+            Rectangle strRec = new Rectangle(80, 25, 200, 15);
+            data = Common.clsLanguages.GetResource("ReceiptDate") + rcAll.order.CreateDate; //"Ngày :"
+            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.DarkSlateBlue, strRec, strfmt_Right);
+
+
+            Rectangle RecLine1 = new Rectangle(110, 40, 170, 2);
+            var Line1 = Common.Utility.GetImageFromService("ShopImg", "line1.png");
+            e.Graphics.DrawImage(Line1, RecLine1);
+
+            Rectangle strRec1 = new Rectangle(145, 42, 135, 18);
+            string strSoHD = rcAll.order.OrderId;
+            int soHD = int.Parse(strSoHD.Substring(10));
+            data = Common.clsLanguages.GetResource("ReceiptNumber") + " : 10#" + soHD.ToString(); //"Số HĐ: "
+            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Italic), Brushes.DarkSlateBlue, strRec1, strfmt_Right);
+
+            //// Cty....
+            Rectangle strCty = new Rectangle(5, 50, 140, 40);//20
+            data = Common.clsLanguages.GetResource("MerchantName");// "Công ty CP Việt Vang";           
+            e.Graphics.DrawString(data, new Font("Arial", 9, FontStyle.Bold), Brushes.DarkSlateBlue, strCty, strfmt_Left);
+            //Địa chỉ Cty
+            Rectangle strDCCty = new Rectangle(5, 90, 290, 60);//50
+            data = Common.clsLanguages.GetResource("MerchantAddress") + "\n" + Common.clsLanguages.GetResource("MerchantTel") + "\n" + Common.clsLanguages.GetResource("MerchantWeb");
+            e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.DarkSlateBlue, strDCCty, strfmt_Left);
+
+            //Headers
+            Rectangle strHD_STT = new Rectangle(3, 150, 30, 18);
+            data = Common.clsLanguages.GetResource("No");// "STT";           
+            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Bold), Brushes.Black, strHD_STT, strfmt_Center);
+
+            Rectangle strHD_SP = new Rectangle(33, 150, 97, 18);
+            data = Common.clsLanguages.GetResource("Product");//"Sản phẩm ";           
+            e.Graphics.DrawString(data, new Font("Arial", 9, FontStyle.Bold), Brushes.Black, strHD_SP, strfmt_Left);
+
+            Rectangle strHD_SL = new Rectangle(130, 150, 30, 18);
+            data = Common.clsLanguages.GetResource("ReceiptProQty");//"SL";
+            e.Graphics.DrawString(data, new Font("Arial", 9, FontStyle.Bold), Brushes.Black, strHD_SL, strfmt_Center);
+
+            Rectangle strHD_DG = new Rectangle(160, 150, 60, 18);
+            data = Common.clsLanguages.GetResource("ReceiptProPrice");//"ĐG";
+            e.Graphics.DrawString(data, new Font("Arial", 9, FontStyle.Bold), Brushes.Black, strHD_DG, strfmt_Center);
+
+            Rectangle strHD_TT = new Rectangle(220, 150, 70, 18);
+            data = Common.clsLanguages.GetResource("ReceiptProTotal");//ReceiptProTotalAfterTax "TT + Thuế";
+            e.Graphics.DrawString(data, new Font("Arial", 9, FontStyle.Bold), Brushes.Black, strHD_TT, strfmt_Center);
+
+            Rectangle RecLine2 = new Rectangle(5, 168, 290, 2);
+            var Line2 = Common.Utility.GetImageFromService("ShopImg", "line2.png");
+            e.Graphics.DrawImage(Line2, RecLine2);
+
+            if (rcAll.lst_Detail != null && rcAll.lst_Detail.Count > 0)
+            {
+                y_p = 170;
+
+                int i = 0;
+                foreach (OrderDetails dtl in rcAll.lst_Detail)
+                {
+                    i++;
+                    //Headers
+                    h_s = 22;
+                    //Common.clsLanguages.GetResource("ProductID") + " " + dtl.ProductId + " - " +
+                    double _dbLength = (dtl.ProductName).Length;
+                    if (_dbLength > 97 / 5)
+                    {
+                        int _iCelling = (int)Math.Ceiling((_dbLength * 5) / 97);
+                        h_s = 14 * _iCelling + 12;
+                    }
+
+                    if (dtl.IsBuffet == "0" || (dtl.IsBuffet == "1" && double.Parse(dtl.Price) > 0))
+                    {
+                        Rectangle strCT_STT = new Rectangle(3, y_p, 30, h_s);
+                        data = i.ToString();
+                        e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, strCT_STT, strfmt_Center);
+
+                        Rectangle strCT_SP = new Rectangle(33, y_p, 97, h_s);
+                        data = dtl.ProductName;
+                        e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, strCT_SP, strfmt_Left_Center);
+
+                        Rectangle strCT_SL = new Rectangle(130, y_p, 30, h_s);
+                        data = dtl.Qty;
+                        e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, strCT_SL, strfmt_Center);
+
+                        Rectangle strTT_DG = new Rectangle(160, y_p, 60, h_s);
+                        //data = (double.Parse(dtl.Price) + (double.Parse(dtl.TaxAmount) / double.Parse(dtl.Qty))).ToString("0,0");
+                        data = dtl.Price;
+                        e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, strTT_DG, strfmt_Right_Center);
+
+                        Rectangle strTT_TT = new Rectangle(220, y_p, 60, h_s);
+                        data = dtl.AmmountBeforeTax;
+                        e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, strTT_TT, strfmt_Right_Center);
+
+                        y_p += h_s;
+                        Rectangle RecLineCT = new Rectangle(5, y_p, 290, 1);
+                        var LineCT = Common.Utility.GetImageFromService("ShopImg", "linect.png");
+                        e.Graphics.DrawImage(LineCT, RecLineCT);
+                    }
+                    else
+                    {
+                        Rectangle strCT_SP = new Rectangle(43, y_p, 147, h_s);//60
+                        data = dtl.ProductName;
+                        e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, strCT_SP, strfmt_Left_Center);
+
+                        Rectangle strCT_SL = new Rectangle(190, y_p, 30, h_s);
+                        data = dtl.Qty;
+                        e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, strCT_SL, strfmt_Right_Center);
+
+                        y_p += h_s;
+                        Rectangle RecLineCT = new Rectangle(43, y_p, 247, 1);
+                        var LineCT = Common.Utility.GetImageFromService("ShopImg", "linect.png");
+                        e.Graphics.DrawImage(LineCT, RecLineCT);
+
+                    }
+
+
+                }
+            }
+
+
+            ///Tổng tiền trước thuế /sau thuế
+            Rectangle RecTTST = new Rectangle(80, y_p, 120, 15);
+            data = Common.clsLanguages.GetResource("TotalAmount");
+            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, RecTTST, strfmt_Right);
+
+            Rectangle RecTTST_Val = new Rectangle(200, y_p, 80, 15);
+            data = rcAll.order.TotalAmountBeforeTax;
+            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Bold), Brushes.Black, RecTTST_Val, strfmt_Right);
+            y_p = y_p + 15;
+
+            ///phí dịch vụ
+            Rectangle RecPDV = new Rectangle(40, y_p, 160, 15);
+            data = Common.clsLanguages.GetResource("TaxAndServiceChange") + " (" + (int.Parse(ConfigurationManager.AppSettings["SeviceCostPercent"]) +
+                int.Parse(ConfigurationManager.AppSettings["VAT"])) + " %)"; //Common.clsLanguages.GetResource("TotalServiceCharge");//
+            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, RecPDV, strfmt_Right);
+
+            //Rectangle RecPDV_Val = new Rectangle(200, y_p, 80, 15);
+            //data = (double.Parse(rcAll.order.ServiceCostAmount) + double.Parse(rcAll.receipt.TotalTax)).ToString("0,0");
+            //e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Bold), Brushes.Black, RecPDV_Val, strfmt_Right);
+            //y_p = y_p + 15;
+
+            ///Giảm giá
+            Rectangle RecDIS = new Rectangle(80, y_p, 120, 15);
+            data = Common.clsLanguages.GetResource("TotalDiscountAmount");//"Giảm giá ";
+            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, RecDIS, strfmt_Right);
+
+            Rectangle RecDIS_Val = new Rectangle(200, y_p, 80, 15);
+            data = rcAll.order.DisCountAmount;
+            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Bold), Brushes.Black, RecDIS_Val, strfmt_Right);
+            y_p = y_p + 15;
+
+            ///Tổng tiền thanh toán
+            Rectangle RecPAY = new Rectangle(80, y_p, 120, 15);
+            data = Common.clsLanguages.GetResource("TotalMoney");//"TC Cần thanh toán";
+            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, RecPAY, strfmt_Right);
+
+            Rectangle RecPAY_Val = new Rectangle(200, y_p, 80, 15);
+            data = rcAll.order.TotalMoney;
+            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Bold), Brushes.Black, RecPAY_Val, strfmt_Right);
+            y_p = y_p + 15;
+
+            ////
+            Rectangle RecLine3 = new Rectangle(90, y_p, 200, 1);
+            var Line3 = Common.Utility.GetImageFromService("ShopImg", "line1.png");
+            e.Graphics.DrawImage(Line3, RecLine3);
+            y_p = y_p + 2;
+
+            /////Tổng tiền mặt
+            //Rectangle RecCASH = new Rectangle(80, y_p, 120, 15);
+            //data = Common.clsLanguages.GetResource("CashPayment");//Common.clsLanguages.GetResource("TotalCashCustomer");//"Tiền mặt khách đưa";
+            //e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, RecCASH, strfmt_Right);
+
+            //Rectangle RecCASH_Val = new Rectangle(200, y_p, 80, 15);
+            //data = rcAll.order.CashPayAmt;
+            //e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Bold), Brushes.Black, RecCASH_Val, strfmt_Right);
+            //y_p = y_p + 15;
+
+            /////Tổng tiền thẻ
+            //Rectangle RecCARD = new Rectangle(80, y_p, 120, 15);
+            //data = Common.clsLanguages.GetResource("CardPayment");//Common.clsLanguages.GetResource("TotalCardAmount");//"Tiền thẻ khách:";
+            //e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, RecCARD, strfmt_Right);
+
+            //Rectangle RecCARD_Val = new Rectangle(200, y_p, 80, 15);
+            //data = rcAll.receipt.CardPayAmt;
+            //e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Bold), Brushes.Black, RecCARD_Val, strfmt_Right);
+            //y_p = y_p + 15;
+
+            /////Số tiền thối lại
+            //Rectangle RecRefun = new Rectangle(80, y_p, 120, 15);
+            //data = Common.clsLanguages.GetResource("TotalReturnAmount");//Common.clsLanguages.GetResource("TotalCardAmount");//"Tiền thẻ khách:";
+            //e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, RecRefun, strfmt_Right);
+
+            //Rectangle RecRefun_Val = new Rectangle(200, y_p, 80, 15);
+            //data = rcAll.receipt.ReturnAmt;
+            //e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Bold), Brushes.Black, RecRefun_Val, strfmt_Right);
+            //y_p = y_p + 15;
+
+           
+
+            ////
+            Rectangle RecLine6 = new Rectangle(5, y_p, 290, 2);
+            var Line6 = Common.Utility.GetImageFromService("ShopImg", "line1.png");
+            e.Graphics.DrawImage(Line6, RecLine6);
+            y_p = y_p + 4;
+
+            Rectangle RecTK = new Rectangle(5, y_p, 290, 18);
+            data = Common.clsLanguages.GetResource("ReceiptFooterText"); //"Cám ơn & hẹn gặp lại quý khách !";
+            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Italic), Brushes.Black, RecTK, strfmt_Left);
+
+            //Rectangle RecPower = new Rectangle(200, y_p, 95, 47);
+            //var LineP = Common.Utility.GetImageFromService("VVImg", "powered by vv.emf");
+            //e.Graphics.DrawImage(LineP, RecPower);
+            //y_p = y_p + 47;
+
+        }
+
+        #endregion 
+
+        #region Do printing kitchen
+        private bool DoPrintingKitchen()
         {
             PrintDocument pd = new PrintDocument();
             //pd.PrinterSettings.PrinterName = ConfigurationManager.AppSettings["PrinterCard"];
@@ -1195,127 +1476,136 @@ namespace VVPosS.Screen.POS
                 return;
             }
 
-            if (_sOrderTemp != "")//has save temp
-            {
+            //if (_sOrderTemp != "")//has save temp
+            //{
 
-                int k = 0;
-                foreach (OrderObject obj in Program.lstTemp)
-                {
-                    if (obj.order.OrderId == _sOrderTemp)
-                    {
-                        obj.order.DeskId = _iDeskId.ToString();
-                        obj.order.DeskName = _sDeskName;
-                        obj.order.CreatedBy = Program.Username;
-                        obj.order.CreateDate = DateTime.Now.ToString();
-                        obj.order.Status = "0";
-                        obj.order.TotalAmmount = _TongtienAmount.ToString();
-                        obj.order.TotalAmountBeforeTax = _TotalAmountBeforeTax.ToString();//
-                        obj.order.TotalTax = _TotalTax.ToString();
-                        obj.order.DisCountAmount = txtDiscount.Text.Trim();
-                        obj.order.TotalMoney = TotalMoney.ToString();
-
-
-                        for (int i = obj.ListOrederDetail.Count - 1; i >= 0; i--)
-                        {
-                            if (obj.ListOrederDetail[i].OrderId == _sOrderTemp)
-                                obj.ListOrederDetail.RemoveAt(i);
-                        }
-                        double _dMoney = 0;
-                        foreach (DataGridViewRow r in DataGridView1.Rows)
-                        {
-                            OrderDetails odd = new OrderDetails();
-                            odd.OrderId = _sOrderTemp;
-                            odd.ProductId = r.Cells["ProductId"].Value.ToString();
-                            odd.ProductName = r.Cells["ProductName"].Value.ToString();
-                            odd.Qty = r.Cells["Qty"].Value.ToString();
-                            odd.Price = r.Cells["Price"].Value.ToString();
-                            odd.CreateBy = Program.Username;
-                            odd.CreateDate = DateTime.Today.ToString("yyyy-MM-dd hh:mm:ss");
-                            odd.Status = "0";
-                            odd.AmmountBeforeTax = r.Cells["AmountBeforeTax1"].Value.ToString();
-                            odd.TaxAmmount = r.Cells["VAT"].Value.ToString();
-                            odd.TotalAmount = r.Cells["TotalAmount"].Value.ToString();
-                            odd.Note = r.Cells["colNotes"].Value.ToString();
-                            odd.IsBuffet = r.Cells["colIsBuffet"].Value.ToString();
-                            //lstOrderDetail.Add(odd);
-                            obj.ListOrederDetail.Add(odd);
-
-                            _dMoney += double.Parse(r.Cells["TotalAmount"].Value.ToString());
-                        }
-                        //obj.order.TotalMoney = _dMoney.ToString();
-                    }
-                    //obj.ListOrederDetail = lstOrderDetail;
-                    /////////////
+            //    int k = 0;
+            //    foreach (OrderObject obj in Program.lstTemp)
+            //    {
+            //        if (obj.order.OrderId == _sOrderTemp)
+            //        {
+            //            obj.order.DeskId = _iDeskId.ToString();
+            //            obj.order.DeskName = _sDeskName;
+            //            obj.order.CreatedBy = Program.Username;
+            //            obj.order.CreateDate = DateTime.Now.ToString();
+            //            obj.order.Status = "0";
+            //            obj.order.TotalAmmount = _TongtienAmount.ToString();
+            //            obj.order.TotalAmountBeforeTax = _TotalAmountBeforeTax.ToString();//
+            //            obj.order.TotalTax = _TotalTax.ToString();
+            //            obj.order.DisCountAmount = txtDiscount.Text.Trim();
+            //            obj.order.TotalMoney = TotalMoney.ToString();
 
 
-                    k++;
-                }
-            }
-            else
-            {
-                if (_iDeskId == 0 && Program.IsRestaurant == 1)
-                {
-                    CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("PlsSelectTable"),
-                                    Common.clsLanguages.GetResource("Information"),
-                                    Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
-                                    Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
-                    return;
-                }
+            //            for (int i = obj.ListOrederDetail.Count - 1; i >= 0; i--)
+            //            {
+            //                if (obj.ListOrederDetail[i].OrderId == _sOrderTemp)
+            //                    obj.ListOrederDetail.RemoveAt(i);
+            //            }
+            //            double _dMoney = 0;
+            //            foreach (DataGridViewRow r in DataGridView1.Rows)
+            //            {
+            //                OrderDetails odd = new OrderDetails();
+            //                odd.OrderId = _sOrderTemp;
+            //                odd.ProductId = r.Cells["ProductId"].Value.ToString();
+            //                odd.ProductName = r.Cells["ProductName"].Value.ToString();
+            //                odd.Qty = r.Cells["Qty"].Value.ToString();
+            //                odd.Price = r.Cells["Price"].Value.ToString();
+            //                odd.CreateBy = Program.Username;
+            //                odd.CreateDate = DateTime.Today.ToString("yyyy-MM-dd hh:mm:ss");
+            //                odd.Status = "0";
+            //                odd.AmmountBeforeTax = r.Cells["AmountBeforeTax1"].Value.ToString();
+            //                odd.TaxAmmount = r.Cells["VAT"].Value.ToString();
+            //                odd.TotalAmount = r.Cells["TotalAmount"].Value.ToString();
+            //                odd.Note = r.Cells["colNotes"].Value.ToString();
+            //                odd.IsBuffet = r.Cells["colIsBuffet"].Value.ToString();
+            //                //lstOrderDetail.Add(odd);
+            //                obj.ListOrederDetail.Add(odd);
 
-                int stt = 1;
-                if (Program.lstTemp != null)
-                {
-                    stt = Program.lstTemp.Count + 1;
-                }
+            //                _dMoney += double.Parse(r.Cells["TotalAmount"].Value.ToString());
+            //            }
+            //            //obj.order.TotalMoney = _dMoney.ToString();
+            //        }
+            //        //obj.ListOrederDetail = lstOrderDetail;
+            //        /////////////
 
-                OrderObject oro = new OrderObject();
 
-                Orders master = new Orders();
-                master.OrderId = stt.ToString();
-                master.DeskId = _iDeskId.ToString();
-                master.DeskName = _sDeskName;
-                master.CreatedBy = Program.Username;
-                master.CreateDate = DateTime.Now.ToString();
-                master.Status = "0";
-                master.TotalAmmount = _TongtienAmount.ToString();
-                master.TotalAmountBeforeTax = _TotalAmountBeforeTax.ToString();
-                master.TotalTax = _TotalTax.ToString();
-                master.DisCountAmount = Discount.ToString();
-                master.TotalMoney = TotalMoney.ToString();
+            //        k++;
+            //    }
+            //}
+            //else
+            //{
+            //    if (_iDeskId == 0 && Program.IsRestaurant == 1)
+            //    {
+            //        CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("PlsSelectTable"),
+            //                        Common.clsLanguages.GetResource("Information"),
+            //                        Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
+            //                        Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+            //        return;
+            //    }
 
-                List<OrderDetails> lstOrderDetail = new List<OrderDetails>();
-                int i = 0;
-                foreach (DataGridViewRow r in DataGridView1.Rows)
-                {
-                    OrderDetails odd = new OrderDetails();
-                    odd.OrderId = stt.ToString();
-                    odd.ProductId = r.Cells["ProductId"].Value.ToString();
-                    odd.ProductName = r.Cells["ProductName"].Value.ToString();
-                    odd.Qty = r.Cells["Qty"].Value.ToString();
-                    odd.Price = r.Cells["Price"].Value.ToString();
-                    odd.CreateBy = Program.Username;
-                    odd.CreateDate = DateTime.Today.ToString("yyyy-MM-dd hh:mm:ss");
-                    odd.Status = "0";
-                    odd.AmmountBeforeTax = r.Cells["AmountBeforeTax1"].Value.ToString();
-                    odd.TaxAmmount = r.Cells["VAT"].Value.ToString();
-                    odd.TotalAmount = r.Cells["TotalAmount"].Value.ToString();
-                    odd.IsBuffet = r.Cells["colIsBuffet"].Value.ToString();
+            //    int stt = 1;
+            //    if (Program.lstTemp != null)
+            //    {
+            //        stt = Program.lstTemp.Count + 1;
+            //    }
 
-                    lstOrderDetail.Add(odd);
-                    i++;
-                }
+            //    OrderObject oro = new OrderObject();
 
-                oro.order = master;
-                oro.ListOrederDetail = lstOrderDetail;
-                /////////////
-                Program.lstTemp.Add(oro);
-            }
+            //    Orders master = new Orders();
+            //    master.OrderId = stt.ToString();
+            //    master.DeskId = _iDeskId.ToString();
+            //    master.DeskName = _sDeskName;
+            //    master.CreatedBy = Program.Username;
+            //    master.CreateDate = DateTime.Now.ToString();
+            //    master.Status = "0";
+            //    master.TotalAmmount = _TongtienAmount.ToString();
+            //    master.TotalAmountBeforeTax = _TotalAmountBeforeTax.ToString();
+            //    master.TotalTax = _TotalTax.ToString();
+            //    master.DisCountAmount = Discount.ToString();
+            //    master.TotalMoney = TotalMoney.ToString();
+
+            //    List<OrderDetails> lstOrderDetail = new List<OrderDetails>();
+            //    int i = 0;
+            //    foreach (DataGridViewRow r in DataGridView1.Rows)
+            //    {
+            //        OrderDetails odd = new OrderDetails();
+            //        odd.OrderId = stt.ToString();
+            //        odd.ProductId = r.Cells["ProductId"].Value.ToString();
+            //        odd.ProductName = r.Cells["ProductName"].Value.ToString();
+            //        odd.Qty = r.Cells["Qty"].Value.ToString();
+            //        odd.Price = r.Cells["Price"].Value.ToString();
+            //        odd.CreateBy = Program.Username;
+            //        odd.CreateDate = DateTime.Today.ToString("yyyy-MM-dd hh:mm:ss");
+            //        odd.Status = "0";
+            //        odd.AmmountBeforeTax = r.Cells["AmountBeforeTax1"].Value.ToString();
+            //        odd.TaxAmmount = r.Cells["VAT"].Value.ToString();
+            //        odd.TotalAmount = r.Cells["TotalAmount"].Value.ToString();
+            //        odd.IsBuffet = r.Cells["colIsBuffet"].Value.ToString();
+
+            //        lstOrderDetail.Add(odd);
+            //        i++;
+            //    }
+
+            //    oro.order = master;
+            //    oro.ListOrederDetail = lstOrderDetail;
+            //    /////////////
+            //    Program.lstTemp.Add(oro);
+            //}
             //clear DataGridView1
-            ClearDataGridView();
+            
+            //ClearDataGridView();
 
-            DoPrinting();
+            //DoPrinting();
             //Reset_Amount();
+
+
+            InsertOrder();
+
+            //print order 
+            DoPrinting();
         }
+
+
 
         private void bntDesk_Click(object sender, EventArgs e)
         {

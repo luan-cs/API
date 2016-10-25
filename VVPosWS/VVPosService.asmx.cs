@@ -29,7 +29,7 @@ namespace VVPosWS
             string connectionString = ConfigurationManager.ConnectionStrings["DataConnectionString"].ConnectionString;
 
             if (string.IsNullOrEmpty(connectionString))
-                connectionString = "server=192.168.1.99;User Id=root;password=1234;database=pos_spa;Allow Zero Datetime=True;Convert Zero Datetime=True";
+                connectionString = "server=localhost:1313;User Id=admin;password=123456789;database=pos_hdt;Allow Zero Datetime=True;Convert Zero Datetime=True";
 
             return connectionString;
         }
@@ -352,6 +352,20 @@ namespace VVPosWS
 
 
             DataAccess.Tran_Insert_Order(GetConnectionString(), ref pError, parram, listParam, paramDesk, ref res, ref IsPrint);
+        }
+
+        [WebMethod(EnableSession = true)]
+        public void Tran_Insert_for_Order_NoDesk(string pUsernameOrId, string password, string[][] parram, List<string[][]> listParam, ref string pError, ref bool res, ref bool IsPrint)
+        {
+            if (!IsAccept(ref pError))
+                return;
+
+            if (!IsUser(pUsernameOrId, password, ref pError))
+                return;
+
+
+
+            DataAccess.Tran_Insert_Order(GetConnectionString(), ref pError, parram, listParam, ref res, ref IsPrint);
         }
 
         [WebMethod(EnableSession = true)]

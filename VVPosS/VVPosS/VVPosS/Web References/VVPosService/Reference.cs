@@ -24,7 +24,7 @@ namespace VVPosS.VVPosService {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="VVPosServiceSoap", Namespace="http://tempuri.org/")]
@@ -65,6 +65,8 @@ namespace VVPosS.VVPosService {
         private System.Threading.SendOrPostCallback DataExecuteEdit_ForProductOperationCompleted;
         
         private System.Threading.SendOrPostCallback Tran_Insert_for_OrderOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Tran_Insert_for_Order_NodeskOperationCompleted;
         
         private System.Threading.SendOrPostCallback Tran_Insert_ReceiptOperationCompleted;
         
@@ -177,6 +179,9 @@ namespace VVPosS.VVPosService {
         
         /// <remarks/>
         public event Tran_Insert_for_OrderCompletedEventHandler Tran_Insert_for_OrderCompleted;
+        
+        /// <remarks/>
+        public event Tran_Insert_for_Order_NodeskCompletedEventHandler Tran_Insert_for_Order_NodeskCompleted;
         
         /// <remarks/>
         public event Tran_Insert_ReceiptCompletedEventHandler Tran_Insert_ReceiptCompleted;
@@ -967,6 +972,56 @@ namespace VVPosS.VVPosService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Tran_Insert_for_Order_Nodesk", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void Tran_Insert_for_Order_Nodesk(string pUsernameOrId, string password, string Lang, string pPrinterName, [System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString")] [System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=1)] string[][] parram, [System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfArrayOfString")] [System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString", NestingLevel=1)] [System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=2)] string[][][] listParam, ref string pError, ref bool res, ref bool IsPrint, ref string pOrderId) {
+            object[] results = this.Invoke("Tran_Insert_for_Order_Nodesk", new object[] {
+                        pUsernameOrId,
+                        password,
+                        Lang,
+                        pPrinterName,
+                        parram,
+                        listParam,
+                        pError,
+                        res,
+                        IsPrint,
+                        pOrderId});
+            pError = ((string)(results[0]));
+            res = ((bool)(results[1]));
+            IsPrint = ((bool)(results[2]));
+            pOrderId = ((string)(results[3]));
+        }
+        
+        /// <remarks/>
+        public void Tran_Insert_for_Order_NodeskAsync(string pUsernameOrId, string password, string Lang, string pPrinterName, string[][] parram, string[][][] listParam, string pError, bool res, bool IsPrint, string pOrderId) {
+            this.Tran_Insert_for_Order_NodeskAsync(pUsernameOrId, password, Lang, pPrinterName, parram, listParam, pError, res, IsPrint, pOrderId, null);
+        }
+        
+        /// <remarks/>
+        public void Tran_Insert_for_Order_NodeskAsync(string pUsernameOrId, string password, string Lang, string pPrinterName, string[][] parram, string[][][] listParam, string pError, bool res, bool IsPrint, string pOrderId, object userState) {
+            if ((this.Tran_Insert_for_Order_NodeskOperationCompleted == null)) {
+                this.Tran_Insert_for_Order_NodeskOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTran_Insert_for_Order_NodeskOperationCompleted);
+            }
+            this.InvokeAsync("Tran_Insert_for_Order_Nodesk", new object[] {
+                        pUsernameOrId,
+                        password,
+                        Lang,
+                        pPrinterName,
+                        parram,
+                        listParam,
+                        pError,
+                        res,
+                        IsPrint,
+                        pOrderId}, this.Tran_Insert_for_Order_NodeskOperationCompleted, userState);
+        }
+        
+        private void OnTran_Insert_for_Order_NodeskOperationCompleted(object arg) {
+            if ((this.Tran_Insert_for_Order_NodeskCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Tran_Insert_for_Order_NodeskCompleted(this, new Tran_Insert_for_Order_NodeskCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Tran_Insert_Receipt", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void Tran_Insert_Receipt(string pUsernameOrId, string password, ref string pError, [System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString")] [System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=1)] string[][] Receipt, [System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfArrayOfString")] [System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString", NestingLevel=1)] [System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=2)] string[][][] listReceiptDetail, [System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfArrayOfString")] [System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString", NestingLevel=1)] [System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=2)] string[][][] listReceiptCard, [System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString")] [System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=1)] string[][] ReceiptMember, [System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString")] [System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=1)] string[][] ReceiptInfo, ref bool res, ref string ReceiptID) {
             object[] results = this.Invoke("Tran_Insert_Receipt", new object[] {
@@ -1358,11 +1413,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void IsServiceReadyCompletedEventHandler(object sender, IsServiceReadyCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class IsServiceReadyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1384,11 +1439,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void IsDataReadyCompletedEventHandler(object sender, IsDataReadyCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class IsDataReadyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1410,11 +1465,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void IsUserCompletedEventHandler(object sender, IsUserCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class IsUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1444,11 +1499,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DataQueryCompletedEventHandler(object sender, DataQueryCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class DataQueryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1478,11 +1533,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DataStoreProcQueryCompletedEventHandler(object sender, DataStoreProcQueryCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class DataStoreProcQueryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1512,11 +1567,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DataStoreProcQuery_ParamCompletedEventHandler(object sender, DataStoreProcQuery_ParamCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class DataStoreProcQuery_ParamCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1546,11 +1601,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DataStoreProcExecuteCompletedEventHandler(object sender, DataStoreProcExecuteCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class DataStoreProcExecuteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1580,11 +1635,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DataStoreProceduceAndMultiQueryCompletedEventHandler(object sender, DataStoreProceduceAndMultiQueryCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class DataStoreProceduceAndMultiQueryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1614,11 +1669,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DataExecuteCompletedEventHandler(object sender, DataExecuteCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class DataExecuteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1640,11 +1695,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DataExecuteIdCompletedEventHandler(object sender, DataExecuteIdCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class DataExecuteIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1674,11 +1729,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DataMultiExecuteCompletedEventHandler(object sender, DataMultiExecuteCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class DataMultiExecuteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1700,11 +1755,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DataScalarCompletedEventHandler(object sender, DataScalarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class DataScalarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1734,11 +1789,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DataCommandBuilderUpdateCompletedEventHandler(object sender, DataCommandBuilderUpdateCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class DataCommandBuilderUpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1768,11 +1823,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DataSaveImageCompletedEventHandler(object sender, DataSaveImageCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class DataSaveImageCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1794,11 +1849,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DataReadImageCompletedEventHandler(object sender, DataReadImageCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class DataReadImageCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1828,11 +1883,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DataExecuteForProductCompletedEventHandler(object sender, DataExecuteForProductCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class DataExecuteForProductCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1854,11 +1909,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DataExecuteEdit_ForProductCompletedEventHandler(object sender, DataExecuteEdit_ForProductCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class DataExecuteEdit_ForProductCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1880,11 +1935,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void Tran_Insert_for_OrderCompletedEventHandler(object sender, Tran_Insert_for_OrderCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class Tran_Insert_for_OrderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1930,11 +1985,61 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void Tran_Insert_for_Order_NodeskCompletedEventHandler(object sender, Tran_Insert_for_Order_NodeskCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Tran_Insert_for_Order_NodeskCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Tran_Insert_for_Order_NodeskCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string pError {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool res {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsPrint {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[2]));
+            }
+        }
+        
+        /// <remarks/>
+        public string pOrderId {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[3]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void Tran_Insert_ReceiptCompletedEventHandler(object sender, Tran_Insert_ReceiptCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class Tran_Insert_ReceiptCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1972,11 +2077,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void SaveImage_IntoObjectCompletedEventHandler(object sender, SaveImage_IntoObjectCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SaveImage_IntoObjectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1998,11 +2103,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void SaveImage_IntoEmployeeCompletedEventHandler(object sender, SaveImage_IntoEmployeeCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SaveImage_IntoEmployeeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2024,11 +2129,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void SaveImage_IntoProductCompletedEventHandler(object sender, SaveImage_IntoProductCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SaveImage_IntoProductCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2050,11 +2155,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void Print_OrderCompletedEventHandler(object sender, Print_OrderCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class Print_OrderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2076,11 +2181,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void Update_DeskId_For_OrderCompletedEventHandler(object sender, Update_DeskId_For_OrderCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class Update_DeskId_For_OrderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2110,11 +2215,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void Update_Order_DetailCompletedEventHandler(object sender, Update_Order_DetailCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class Update_Order_DetailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2144,11 +2249,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetValueScoreExCompletedEventHandler(object sender, GetValueScoreExCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetValueScoreExCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2170,11 +2275,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetPriceScoreCompletedEventHandler(object sender, GetPriceScoreCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetPriceScoreCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2196,11 +2301,11 @@ namespace VVPosS.VVPosService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void Write_Score_ValueCompletedEventHandler(object sender, Write_Score_ValueCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class Write_Score_ValueCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {

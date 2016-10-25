@@ -721,6 +721,105 @@ namespace VVPosWS.DAL
             }
         }
 
+        public static void Tran_Insert_Order(string pConnectionString, ref string pError, string Lang, string pPrinterName, string[][] param,
+            List<string[][]> lstdt, ref bool result, ref bool IsPrint, ref string pOrderId)
+        {
+            string spName = "", StatusPrint = "0";
+            const int DB_TIMEOUT = 60;
+
+            ////////Tao OrderID o day;
+            string OrderId = CreateOrderid(); ////
+            MySqlConnection connection = new MySqlConnection(pConnectionString);
+            MySqlCommand command;
+            MySqlTransaction tx = null;
+            try
+            {
+                connection.Open();
+                command = new MySqlCommand("spInsert_Orders", connection);
+                spName = "spInsert_Orders";
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandTimeout = DB_TIMEOUT;
+                for (int i = 0; i < param.Length; i++)
+                {
+                    if (param[i][0] == "order_id")
+                    {
+                        command.Parameters.AddWithValue("order_id", OrderId);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue(param[i][0], param[i][1]);
+                    }
+                    //command.Parameters.AddWithValue(param[i][0], param[i][1]);
+                }
+                tx = connection.BeginTransaction();
+                command.Transaction = tx;
+                command.ExecuteNonQuery();
+                ////Inser Order detail
+                for (int i = 0; i < lstdt.Count; i++)
+                {
+                    command = new MySqlCommand("spInsert_OrderDetail", connection);
+                    spName = "spInsert_OrderDetail";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandTimeout = DB_TIMEOUT;
+                    for (int j = 0; j < lstdt[i].Length; j++)
+                    {
+                        string[][] pr = lstdt[i];
+                        if (pr[j][0] == "order_id")
+                        {
+                            command.Parameters.AddWithValue("order_id", OrderId);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue(pr[j][0], pr[j][1]);
+                        }
+                        //command.Parameters.AddWithValue(pr[j][0], pr[j][1]);
+
+                    }
+                    command.Transaction = tx;
+                    command.ExecuteNonQuery();
+                }
+
+                ////Update IsUsing Desk
+                //command = new MySqlCommand("spUpdate_Desk_IsUsing", connection);
+                //spName = "spUpdate_Desk_IsUsing";
+                //command.CommandType = CommandType.StoredProcedure;
+                //command.CommandTimeout = DB_TIMEOUT;
+                //for (int i = 0; i < paramDesk.Length; i++)
+                //{
+                //    command.Parameters.AddWithValue(paramDesk[i][0], paramDesk[i][1]);
+                //}
+                //command.Transaction = tx;
+                //command.ExecuteNonQuery();
+
+                tx.Commit();
+                command.Dispose();
+                result = true;
+                pError = "";
+                pOrderId = OrderId;
+                // goi ham in
+                if (IsPrint)
+                {
+                    //Print kitchen
+                    Print_Order(pConnectionString, OrderId, Lang, pPrinterName, StatusPrint, ref pError);
+                    if (!string.IsNullOrEmpty(pError))
+                    {
+                        pError = Common.clsLanguages.GetResource("NotPrintOrder", Lang);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (tx != null) tx.Rollback();
+                result = false;
+                pError = "Tran_Insert_Order with SP @ wrong is " + spName + " , Error is: " + ex.Message;
+                //pError = string.Format("{0}:\r\n{1}", "transaction_insert_order", ex.Message);
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+        }
+
         public static void Tran_Insert_Receipt(string pConnectionString, ref string pError,
             string[][] Receipt,
             List<string[][]> listReceiptDetail,

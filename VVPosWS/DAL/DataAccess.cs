@@ -710,6 +710,83 @@ namespace VVPosWS.DAL
             }
         }
 
+        public static void Tran_Insert_Order(string pConnectionString, ref string pError, string[][] param, List<string[][]> lstdt, ref bool result, ref bool IsPrint)
+        {
+            const int DB_TIMEOUT = 60;
+
+            ////////Tao OrderID o day;
+            string OrderId = CreateOrderid(); ////
+            MySqlConnection connection = new MySqlConnection(pConnectionString);
+            MySqlCommand command;
+            MySqlTransaction tx = null;
+            try
+            {
+                connection.Open();
+                command = new MySqlCommand("spInsert_Orders", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandTimeout = DB_TIMEOUT;
+                for (int i = 0; i < param.Length; i++)
+                {
+                    if (param[i][0] == "order_id")
+                    {
+                        command.Parameters.AddWithValue("order_id", OrderId);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue(param[i][0], param[i][1]);
+                    }
+                    //command.Parameters.AddWithValue(param[i][0], param[i][1]);
+                }
+                tx = connection.BeginTransaction();
+                command.Transaction = tx;
+                command.ExecuteNonQuery();
+                ////Inser Order detail
+                for (int i = 0; i < lstdt.Count; i++)
+                {
+                    command = new MySqlCommand("spInsert_OrderDetail", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandTimeout = DB_TIMEOUT;
+                    for (int j = 0; j < lstdt[i].Length; j++)
+                    {
+                        string[][] pr = lstdt[i];
+                        if (pr[j][0] == "order_id")
+                        {
+                            command.Parameters.AddWithValue("order_id", OrderId);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue(pr[j][0], pr[j][1]);
+                        }
+                        //command.Parameters.AddWithValue(pr[j][0], pr[j][1]);
+
+                    }
+                    command.Transaction = tx;
+                    command.ExecuteNonQuery();
+                }
+
+                tx.Commit();
+                command.Dispose();
+                result = true;
+                pError = "";
+
+                // goi ham in
+                if (IsPrint)
+                {
+                    IsPrint = Print_Rabep();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (tx != null) tx.Rollback();
+                result = false;
+                pError = string.Format("{0}:\r\n{1}", "transaction_insert_order", ex.Message);
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+        }
+
         public static bool Print_Rabep()
         {
             PrintDocument pd = new PrintDocument();
