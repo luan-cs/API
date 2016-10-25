@@ -36,6 +36,7 @@ namespace VVPosS
         public static string LastModified = "";
         public static List<string> lstRole = new List<string>();
         public static List<OrderObject> lstTemp=new List<OrderObject>();
+        public static OrderObject lstTempOrder = new OrderObject();
         public static List<OrderDetails> lstOrderDetail = new List<OrderDetails>();
 
         //Receipt

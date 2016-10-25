@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VVPosS.BusinessLayer;
+using VVPosS.Common;
 using VVPosS.Entities;
 
 namespace VVPosS.Screen.POS
@@ -20,19 +21,23 @@ namespace VVPosS.Screen.POS
 
         private ReceiptsBLL RptsBLL = new ReceiptsBLL();
         private string ReceiptID_Success;
-        private double TotalMoney = 0;
+        private string WhatFocusOn = "";
+        private double Discount = 0, _dbCashPayAmt = 0;
         public PayForm()
         {
             InitializeComponent();
             SettingControl();
         }
 
-        public PayForm(frmServices frmS, double totalMoney)
+        public PayForm(frmServices frmS)
         {
             InitializeComponent();
             SettingControl();
             frmServices = frmS;
-            TotalMoney = totalMoney;
+            //TotalMoney = totalMoney;
+            //TongTienSauThue = _TongtienAmount;
+            //TongTienTruocThue = _TotalAmountBeforeTax;
+            //TongTienThue = _TotalTax;
         }
 
         #region Private Methods
@@ -89,7 +94,13 @@ namespace VVPosS.Screen.POS
             this.lblMoneyVAT.Text = this.lblMoneyVAT.Text + " (" + ConfigurationManager.AppSettings["VAT"] + "%)";
             if (ConfigurationManager.AppSettings["DiscountPercent"] == "1")
                 this.lblDiscount.Text = this.lblDiscount.Text + " (%)";
+
+            lblAmt_TotalAmtBeforeTax.Text = double.Parse(Program.lstTempOrder.order.TotalAmountBeforeTax).ToString("0,0");
+            lblAmt_TotalTax.Text = double.Parse(Program.lstTempOrder.order.TotalTax).ToString("0,0");
+            lblAmt_TotalAfterTax.Text = double.Parse(Program.lstTempOrder.order.TotalAmmount).ToString("0,0");
+            lblAmt_TotalAmount.Text = double.Parse(Program.lstTempOrder.order.TotalMoney).ToString("0,0");
         }
+
         #endregion
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -102,20 +113,444 @@ namespace VVPosS.Screen.POS
         private void btnComplete_Click(object sender, EventArgs e)
         {
             //todo
+            double cash = double.Parse(txtCustomer.Text);
+            double card = double.Parse(lblAmt_Card.Text);
+
+            double total = double.Parse(lblAmt_TotalAmount.Text);
+            if (card == 0 && cash == 0)
+            {
+                CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("PleaseSelectMoneyCusomer"),
+                            Common.clsLanguages.GetResource("Information"),
+                            Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
+                            Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+
+            }
+            else
+            {
+                if (cash + card >= total)
+                {
+                    int i = InsertNewReceipt();
+                    if (i == 1)
+                    {
+                        CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("PleaseSelectReceiptandPrint"),
+                           Common.clsLanguages.GetResource("Information"),
+                           Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
+                           Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+
+                        if (!string.IsNullOrEmpty(ReceiptID_Success))
+                        {
+                            DoPrinting(null);
+                        }
+                    }
+                    else
+                    {
+                        CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("ErrOccurs") + ": " + RptsBLL.ErrorString,
+                        Common.clsLanguages.GetResource("Information"),
+                        Common.Config.CUSTOM_MESSAGEBOX_ICON.Error,
+                        Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                    }
+                }
+                else
+                {
+                    CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("PleaseMoneyandRecipt"),
+                       Common.clsLanguages.GetResource("Information"),
+                       Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
+                       Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                }
+            }
             //after success clear data order
-           if(frmServices != null)
+            if (frmServices != null)
                 frmServices.ClearDataGridView();
            this.Close();
         }
 
-        private void btnPrintTemp_Click(object sender, EventArgs e)
+        private void txtDiscount_TextChanged(object sender, EventArgs e)
         {
-            if (!DoPrinting("1"))
-                CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("NotFoundPrintPleaseCheck"),
-                      Common.clsLanguages.GetResource("Information"),
-                      Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
-                      Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+            //
+            if (txtDiscount.Text != "")
+            {
+                if (ConfigurationManager.AppSettings["DiscountPercent"] == "1")
+                {
+                    if (txtDiscount.TextLength > 3 || Common.Utility.ParseDouble(txtDiscount.Text.Trim()) > 99)
+                    {
+                        // Số tiền bạn nhập quá lớn, vui lòng kiểm tra lại ! - PleaseMoneyInformationagain
+                        CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("PrecentDiscountVeryBig"),
+                                              Common.clsLanguages.GetResource("Error"),
+                                              Common.Config.CUSTOM_MESSAGEBOX_ICON.Error,
+                                              Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                        txtDiscount.Text = "0";
+                        return;
+                    }
+                }
+                double Num;
+                bool isNum = double.TryParse(Common.Utility.ParseDouble(txtDiscount.Text.Trim()).ToString(), out Num);
+                if (isNum)
+                {
+                    //if (Convert.ToDouble(txtDiscount.Text.Trim()) <= Convert.ToDouble(lblAmt_TotalAmount.Text))
+                    //{
+                    Discount = double.Parse(txtDiscount.Text);
+                    txtDiscount.Text = Discount.ToString("###,###,##0");
+                    txtDiscount.SelectionStart = txtDiscount.Text.Length;
+                    //DanhLaiSTTGrid1();
+                    TinhToanLai();
+                    //TotalMoney = TotalMoney - Discount;
+                }
+                else
+                {
+                    Discount = 0;
+                    txtDiscount.Text = "0";
+                    CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("DiscountInputError"),
+                                Common.clsLanguages.GetResource("Error"),
+                                Common.Config.CUSTOM_MESSAGEBOX_ICON.Error,
+                                Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                    return;
+                }
+                //}
+            }
+            else
+            {
+                Discount = 0;
+                //txtDiscount.Text = "0";
+            }
         }
+
+        private void txtDiscount_MouseEnter(object sender, EventArgs e)
+        {
+            if (txtDiscount.Text == "0")
+                txtDiscount.Clear();
+        }
+
+        private void txtDiscount_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtDiscount.Text == "") txtDiscount.Text = "0";
+        }
+
+        private void txtDiscount_KeyDown(object sender, KeyEventArgs e)
+        {
+            Common.Utility.MaskDigit_keyDown(e);
+        }
+
+        private void txtDiscount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Common.Utility.MaskDigit(e);
+        }
+
+        private void txtDiscount_Leave(object sender, EventArgs e)
+        {
+            WhatFocusOn = "Discount";
+
+            //TinhToanLai();
+        }
+
+        private void txtCustomer_Leave(object sender, EventArgs e)
+        {
+            WhatFocusOn = "Customer";
+            //double ttAmt = double.Parse(lblAmt_TotalAmount.Text);
+            //double Card = double.Parse(lblAmt_Card.Text);
+            //double Cash = double.Parse(txtCustomer.Text);
+            //if (Card + Cash < ttAmt)
+            //{
+            //    MessageBox.Show("Tiền khách đưa không được ít hơn tiền thanh toán !!!");
+
+            //    txtCustomer.NumericValue = ttAmt;
+            //}                       
+        }
+
+        private void txtCustomer_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCustomer.Text != "")
+            {
+                if (txtCustomer.TextLength > 14)
+                {
+                    // Số tiền bạn nhập quá lớn, vui lòng kiểm tra lại ! - PleaseMoneyInformationagain
+                    CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("PleaseMoneyInformationagain"),
+                                          Common.clsLanguages.GetResource("Error"),
+                                          Common.Config.CUSTOM_MESSAGEBOX_ICON.Error,
+                                          Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                    txtCustomer.Text = "0";
+                    return;
+                }
+                double Num;
+                bool isNum = double.TryParse(txtCustomer.Text.Trim(), out Num);
+                if (isNum)
+                {
+                    _dbCashPayAmt = double.Parse(txtCustomer.Text);
+                    txtCustomer.Text = _dbCashPayAmt.ToString("###,###,##0");
+                    txtCustomer.SelectionStart = txtCustomer.Text.Length;
+                    TinhToanLai();
+                    //btnPayment.Enabled = false;
+                }
+                else
+                {
+                    _dbCashPayAmt = 0;
+                    txtCustomer.Text = "0";
+                    // Tiền khách đưa bạn nhập không đúng ! - ErrorCusmorMoney
+                    CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("ErrorCusmorMoney"),
+                                Common.clsLanguages.GetResource("Error"),
+                                Common.Config.CUSTOM_MESSAGEBOX_ICON.Error,
+                                Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                    return;
+                }
+            }
+            else
+            {
+                _dbCashPayAmt = 0;
+                //txtCustomer.Text = "0";
+            }
+
+            //TinhToanLai();
+        }
+
+        private void txtCustomer_MouseEnter(object sender, EventArgs e)
+        {
+            if (txtCustomer.Text == "0")
+                txtCustomer.Clear();
+        }
+
+        private void txtCustomer_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtCustomer.Text == "") txtCustomer.Text = "0";
+        }
+
+        private void TinhToanLai()
+        {
+            double TongTienTruocThue = double.Parse(lblAmt_TotalAmtBeforeTax.Text);
+            double TongTienThue = double.Parse(lblAmt_TotalTax.Text);
+            double TongTienSauThue = double.Parse(lblAmt_TotalAfterTax.Text);
+
+            double PhiDichVu = double.Parse(lblServiceChargeVal.Text);
+            //double discount = double.Parse(txtDiscount.Text);
+            //double TongTien = TongTienSauThue - discount;
+
+            if (ConfigurationManager.AppSettings["DiscountPercent"] == "1")
+            {
+                Discount = double.Parse(txtDiscount.Text) * TongTienTruocThue / 100;
+            }
+            else Discount = double.Parse(txtDiscount.Text);
+
+            double TongTien = TongTienSauThue + PhiDichVu - Discount;
+            lblAmt_TotalAmount.Text = TongTien.ToString("0,0");
+
+            double Cash_money = double.Parse(txtCustomer.Text);
+            double Card_money = double.Parse(lblAmt_Card.Text);
+            double tienThoi = 0;
+            //if (Cash_money + Card_money > TongTien && Cash_money > TongTien - Card_money)
+            //{
+            //    tienThoi = Cash_money + Card_money - TongTien;
+            //}
+            if (Cash_money + Card_money > TongTien && Cash_money > TongTien - Card_money)
+            {
+                if (Card_money >= TongTien) tienThoi = Cash_money;
+                else
+                    tienThoi = Cash_money + Card_money - TongTien;
+            }
+            else
+            {
+                tienThoi = 0;
+            }
+            lblAmt_ReturnAmt.Text = tienThoi.ToString("0,0");
+        }
+
+        #region Button Number
+
+        private void btnCE_Click(object sender, EventArgs e)
+        {
+            switch (WhatFocusOn)
+            {
+                case "Discount":
+                    {
+                        txtDiscount.Text = "0";
+                        break;
+                    }
+                case "Customer":
+                    {
+                        txtCustomer.Text = "0";
+                        break;
+                    }
+            }
+        }
+
+        private void AddNoUsingTouch(string no)
+        {
+            string str = "";
+
+            switch (WhatFocusOn)
+            {
+                case "Discount":
+                    {
+                        str = txtDiscount.Text;
+                        str = str + no;
+                        txtDiscount.Text = str;
+                        break;
+                    }
+                case "Customer":
+                    {
+                        str = txtCustomer.Text;
+                        str = str + no;
+                        txtCustomer.Text = str;
+                        break;
+                    }
+            }
+
+        }
+
+        private void btnNo0_Click(object sender, EventArgs e)
+        {
+            AddNoUsingTouch("0");
+        }
+
+        private void btnNo1_Click(object sender, EventArgs e)
+        {
+            AddNoUsingTouch("1");
+        }
+
+        private void btnNo2_Click(object sender, EventArgs e)
+        {
+            AddNoUsingTouch("2");
+        }
+
+        private void btnNo3_Click(object sender, EventArgs e)
+        {
+            AddNoUsingTouch("3");
+        }
+
+        private void btnNo4_Click(object sender, EventArgs e)
+        {
+            AddNoUsingTouch("4");
+        }
+
+        private void btnNo5_Click(object sender, EventArgs e)
+        {
+            AddNoUsingTouch("5");
+        }
+
+        private void btnNo6_Click(object sender, EventArgs e)
+        {
+            AddNoUsingTouch("6");
+        }
+
+        private void btnNo7_Click(object sender, EventArgs e)
+        {
+            AddNoUsingTouch("7");
+        }
+
+        private void btnNo8_Click(object sender, EventArgs e)
+        {
+            AddNoUsingTouch("8");
+        }
+
+        private void btnNo9_Click(object sender, EventArgs e)
+        {
+            AddNoUsingTouch("9");
+        }
+
+        private int InsertNewReceipt()
+        {
+            // 0 : Thất bại
+            // 1 : thành công
+            int res = 0;
+            ////
+            Receipts rcp = new Receipts();
+            rcp.ReceiptId = "";
+            rcp.Note = ""; // click nút info sẽ thêm vào
+            rcp.NoOfCustumers = ""; // click nút info sẽ thêm vào
+            rcp.Status = "1";
+            rcp.TotalAmountBeforeTax = lblAmt_TotalAmtBeforeTax.Text;
+            rcp.TotalTax = lblAmt_TotalTax.Text;
+            rcp.TotalAmount = lblAmt_TotalAfterTax.Text;
+            rcp.DiscountAmount = Discount.ToString();
+            rcp.TotalMoney = lblAmt_TotalAmount.Text;
+            rcp.CashPayAmt = txtCustomer.Text;
+            rcp.CardPayAmt = lblAmt_Card.Text;
+            rcp.ReturnAmt = lblAmt_ReturnAmt.Text;
+            rcp.CreatedBy = Program.Username;
+            rcp.CreatedDate = "";
+            rcp.ModifiedBy = "";
+            rcp.ModifiedDate = "";
+
+            rcp.ServiceCostAmount = lblServiceChargeVal.Text;
+
+            /////////////
+            List<ReceiptDetails> lst_rd = new List<ReceiptDetails>();
+            //for (int i = 0; i < dataGridViewReceiptDetail.RowCount; i++)
+            //{
+            //    ReceiptDetails rd = new ReceiptDetails();
+            //    rd.ReceiptId = "";
+            //    rd.RefOrderId = dataGridViewReceiptDetail.Rows[i].Cells[1].Value.ToString();
+            //    rd.ProductId = dataGridViewReceiptDetail.Rows[i].Cells[2].Value.ToString();
+            //    rd.PromotionId = "";
+            //    rd.Qty = dataGridViewReceiptDetail.Rows[i].Cells[5].Value.ToString();
+            //    rd.Price = dataGridViewReceiptDetail.Rows[i].Cells[6].Value.ToString();
+            //    rd.TotalAmountBeforeTax = dataGridViewReceiptDetail.Rows[i].Cells[7].Value.ToString();
+            //    rd.TaxAmount = dataGridViewReceiptDetail.Rows[i].Cells[8].Value.ToString();
+            //    rd.TotalAmount = dataGridViewReceiptDetail.Rows[i].Cells[9].Value.ToString();
+            //    rd.CreatedBy = Program.Username;
+            //    rd.DeskId = dataGridViewReceiptDetail.Rows[i].Cells["colDeskId"].Value.ToString();
+            //    lst_rd.Add(rd);
+            //}
+            foreach (OrderDetails odds in Program.lstTempOrder.ListOrederDetail)
+            {
+                ReceiptDetails rd = new ReceiptDetails();
+                rd.ReceiptId = "";
+                rd.RefOrderId = odds.OrderId;
+                rd.ProductId = odds.ProductId;
+                rd.PromotionId = "";
+                rd.Qty = odds.Qty;
+                rd.Price = odds.Price;
+                rd.TotalAmountBeforeTax = odds.AmmountBeforeTax;
+                rd.TaxAmount = odds.TaxAmmount;
+                rd.TotalAmount = odds.TotalAmount;
+                rd.CreatedBy = Program.Username;
+                rd.DeskId = "";
+                lst_rd.Add(rd);
+            }
+
+            if (Program.lstCard != null && Program.lstCard.Count > 0)
+            {
+                foreach (ReceiptsCard card in Program.lstCard)
+                {
+                    card.CreatedBy = Program.Username;
+                }
+            }
+            else
+            {
+                Program.lstCard = null;
+            }
+
+            //////////////////
+            if (Program.rep_mb != null && !string.IsNullOrEmpty(Program.rep_mb.MemberId))
+            {
+                Program.rep_mb.CreatedBy = Program.Username;
+            }
+            else
+            {
+                Program.rep_mb = null;
+            }
+
+
+            //////////////
+            if (Program.rep_info != null && !string.IsNullOrEmpty(Program.rep_info.Note))
+            {
+            }
+            else
+            {
+                Program.rep_info = null;
+            }
+
+            RptsBLL.AddNew(rcp, lst_rd, Program.lstCard, Program.rep_info, Program.rep_mb, ref ReceiptID_Success);
+            if (string.IsNullOrEmpty(RptsBLL.ErrorString))
+            {
+                res = 1;
+            }
+            else
+            {
+                res = 0;
+            }
+
+            return res;
+        }
+
+        #endregion
 
         #region Do Printing
         private bool DoPrinting(string Status)

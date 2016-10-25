@@ -856,12 +856,12 @@ namespace VVPosWS.DAL
                         command.Parameters.AddWithValue("p_" + Receipt[i][0], Receipt[i][1]);
                     }
 
-                    if (Receipt[i][0] == "TotalMoney"){
-                        Score = Int64.Parse(Receipt[i][1]);
-                        if (DataAccess.GetValueScoreEx() != "0")
-                            Score = (Int64) Math.Floor((double) Score / double.Parse(DataAccess.GetValueScoreEx()));
-                        else Score = 0;
-                    }
+                    //if (Receipt[i][0] == "TotalMoney"){
+                    //    Score = Int64.Parse(Receipt[i][1]);
+                    //    if (DataAccess.GetValueScoreEx() != "0")
+                    //        Score = (Int64) Math.Floor((double) Score / double.Parse(DataAccess.GetValueScoreEx()));
+                    //    else Score = 0;
+                    //}
                 }
                 tx = connection.BeginTransaction();
                 command.Transaction = tx;
@@ -898,10 +898,10 @@ namespace VVPosWS.DAL
                         {
                             ProductId = pr[j][1];
                         }
-                        if (pr[j][0] == "DeskId")
-                        {
-                            DeskId = pr[j][1];
-                        }
+                        //if (pr[j][0] == "DeskId")
+                        //{
+                        //    DeskId = pr[j][1];
+                        //}
                     }
                     command.Transaction = tx;
                     command.ExecuteNonQuery();
@@ -915,7 +915,7 @@ namespace VVPosWS.DAL
                         command.CommandTimeout = DB_TIMEOUT;
                         command.Parameters.AddWithValue("p_" + "OrderId", OrderId);
                         command.Parameters.AddWithValue("p_" + "ProductId", ProductId);
-                        command.Parameters.AddWithValue("p_" + "DeskId", DeskId);
+                        command.Parameters.AddWithValue("p_" + "DeskId", DBNull.Value);//DeskId??(object)DBNull.Value
                         command.Parameters.AddWithValue("p_" + "ModifiedBy", pUsernameOrId);
                         command.Transaction = tx;
                         command.ExecuteNonQuery();
@@ -923,96 +923,96 @@ namespace VVPosWS.DAL
                     }
                 }
                 //////// list the
-                if (listReceiptCard != null)
-                {
-                    for (int i = 0; i < listReceiptCard.Count; i++)
-                    {
-                        command = new MySqlCommand("spInsert_ReceiptCard", connection);
-                        spName = "spInsert_ReceiptCard";
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.CommandTimeout = DB_TIMEOUT;
+                //if (listReceiptCard != null)
+                //{
+                //    for (int i = 0; i < listReceiptCard.Count; i++)
+                //    {
+                //        command = new MySqlCommand("spInsert_ReceiptCard", connection);
+                //        spName = "spInsert_ReceiptCard";
+                //        command.CommandType = CommandType.StoredProcedure;
+                //        command.CommandTimeout = DB_TIMEOUT;
 
-                        for (int j = 0; j < listReceiptCard[i].Length; j++)
-                        {
-                            string[][] pr = listReceiptCard[i];
-                            if (pr[j][0] == "ReceiptId")
-                            {
-                                command.Parameters.AddWithValue("p_" + "ReceiptId", ReceiptId);
-                            }
-                            else
-                            {
-                                command.Parameters.AddWithValue("p_" + pr[j][0], pr[j][1]);
-                            }
+                //        for (int j = 0; j < listReceiptCard[i].Length; j++)
+                //        {
+                //            string[][] pr = listReceiptCard[i];
+                //            if (pr[j][0] == "ReceiptId")
+                //            {
+                //                command.Parameters.AddWithValue("p_" + "ReceiptId", ReceiptId);
+                //            }
+                //            else
+                //            {
+                //                command.Parameters.AddWithValue("p_" + pr[j][0], pr[j][1]);
+                //            }
 
 
 
-                        }
-                        command.Transaction = tx;
-                        command.ExecuteNonQuery();
+                //        }
+                //        command.Transaction = tx;
+                //        command.ExecuteNonQuery();
 
-                    }
-                }
+                //    }
+                //}
                 //// ReceiptInfo
-                if (ReceiptInfo != null)
-                {
-                    command = new MySqlCommand("spInsert_ReceiptInfo", connection);
-                    spName = "spInsert_ReceiptInfo";
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandTimeout = DB_TIMEOUT;
-                    for (int i = 0; i < ReceiptInfo.Length; i++)
-                    {
-                        if (ReceiptInfo[i][0] == "ReceiptId")
-                        {
-                            command.Parameters.AddWithValue("p_" + "ReceiptId", ReceiptId);
-                        }
-                        else
-                        {
-                            command.Parameters.AddWithValue("p_" + ReceiptInfo[i][0], ReceiptInfo[i][1]);
-                        }
-                    }
-                    command.Transaction = tx;
-                    command.ExecuteNonQuery();
-                }
+                //if (ReceiptInfo != null)
+                //{
+                //    command = new MySqlCommand("spInsert_ReceiptInfo", connection);
+                //    spName = "spInsert_ReceiptInfo";
+                //    command.CommandType = CommandType.StoredProcedure;
+                //    command.CommandTimeout = DB_TIMEOUT;
+                //    for (int i = 0; i < ReceiptInfo.Length; i++)
+                //    {
+                //        if (ReceiptInfo[i][0] == "ReceiptId")
+                //        {
+                //            command.Parameters.AddWithValue("p_" + "ReceiptId", ReceiptId);
+                //        }
+                //        else
+                //        {
+                //            command.Parameters.AddWithValue("p_" + ReceiptInfo[i][0], ReceiptInfo[i][1]);
+                //        }
+                //    }
+                //    command.Transaction = tx;
+                //    command.ExecuteNonQuery();
+                //}
                 //// RecieptMember
-                if (ReceiptMember != null)
-                {
-                    string MemberId = "";
-                    command = new MySqlCommand("spInsert_ReceiptMember", connection);
-                    spName = "spInsert_ReceiptMember";
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandTimeout = DB_TIMEOUT;
-                    for (int i = 0; i < ReceiptMember.Length; i++)
-                    {
-                        if (ReceiptMember[i][0] == "ReceiptId")
-                        {
-                            command.Parameters.AddWithValue("p_" + "ReceiptId", ReceiptId);
-                        }
-                        else
-                        {
-                            if (ReceiptMember[i][0] == "Score")
-                                command.Parameters.AddWithValue("p_" + "Score", Score);
-                            else
-                                command.Parameters.AddWithValue("p_" + ReceiptMember[i][0], ReceiptMember[i][1]);
-                        }
+                //if (ReceiptMember != null)
+                //{
+                //    string MemberId = "";
+                //    command = new MySqlCommand("spInsert_ReceiptMember", connection);
+                //    spName = "spInsert_ReceiptMember";
+                //    command.CommandType = CommandType.StoredProcedure;
+                //    command.CommandTimeout = DB_TIMEOUT;
+                //    for (int i = 0; i < ReceiptMember.Length; i++)
+                //    {
+                //        if (ReceiptMember[i][0] == "ReceiptId")
+                //        {
+                //            command.Parameters.AddWithValue("p_" + "ReceiptId", ReceiptId);
+                //        }
+                //        else
+                //        {
+                //            if (ReceiptMember[i][0] == "Score")
+                //                command.Parameters.AddWithValue("p_" + "Score", Score);
+                //            else
+                //                command.Parameters.AddWithValue("p_" + ReceiptMember[i][0], ReceiptMember[i][1]);
+                //        }
 
-                        if (ReceiptMember[i][0] == "MemberId")
-                            MemberId = ReceiptMember[i][1];
-                    }
-                    command.Transaction = tx;
-                    command.ExecuteNonQuery();
+                //        if (ReceiptMember[i][0] == "MemberId")
+                //            MemberId = ReceiptMember[i][1];
+                //    }
+                //    command.Transaction = tx;
+                //    command.ExecuteNonQuery();
 
-                    //Update Score Member
-                    if(!string.IsNullOrEmpty(MemberId)){
-                        command = new MySqlCommand("spUpdate_Score_Member", connection);
-                        spName = "spUpdate_Score_Member";
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.CommandTimeout = DB_TIMEOUT;
-                        command.Parameters.AddWithValue("p_" + "MemberId", MemberId);
-                        command.Parameters.AddWithValue("p_" + "Score", Score);
-                        command.Transaction = tx;
-                        command.ExecuteNonQuery();
-                    }
-                }
+                //    //Update Score Member
+                //    //if(!string.IsNullOrEmpty(MemberId)){
+                //    //    command = new MySqlCommand("spUpdate_Score_Member", connection);
+                //    //    spName = "spUpdate_Score_Member";
+                //    //    command.CommandType = CommandType.StoredProcedure;
+                //    //    command.CommandTimeout = DB_TIMEOUT;
+                //    //    command.Parameters.AddWithValue("p_" + "MemberId", MemberId);
+                //    //    command.Parameters.AddWithValue("p_" + "Score", Score);
+                //    //    command.Transaction = tx;
+                //    //    command.ExecuteNonQuery();
+                //    //}
+                //}
                 //// Update status cua Order
 
                 tx.Commit();

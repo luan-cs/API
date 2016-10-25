@@ -176,6 +176,7 @@
             this.btnNo0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNo0.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNo0.UseVisualStyleBackColor = false;
+            this.btnNo0.Click += new System.EventHandler(this.btnNo0_Click);
             // 
             // btnCE
             // 
@@ -196,6 +197,7 @@
             this.btnCE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCE.UseVisualStyleBackColor = false;
+            this.btnCE.Click += new System.EventHandler(this.btnCE_Click);
             // 
             // btnNo3
             // 
@@ -216,6 +218,7 @@
             this.btnNo3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNo3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNo3.UseVisualStyleBackColor = false;
+            this.btnNo3.Click += new System.EventHandler(this.btnNo3_Click);
             // 
             // btnNo2
             // 
@@ -236,6 +239,7 @@
             this.btnNo2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNo2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNo2.UseVisualStyleBackColor = false;
+            this.btnNo2.Click += new System.EventHandler(this.btnNo2_Click);
             // 
             // btnNo1
             // 
@@ -256,6 +260,7 @@
             this.btnNo1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNo1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNo1.UseVisualStyleBackColor = false;
+            this.btnNo1.Click += new System.EventHandler(this.btnNo1_Click);
             // 
             // btnNo6
             // 
@@ -276,6 +281,7 @@
             this.btnNo6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNo6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNo6.UseVisualStyleBackColor = false;
+            this.btnNo6.Click += new System.EventHandler(this.btnNo6_Click);
             // 
             // btnNo5
             // 
@@ -296,6 +302,7 @@
             this.btnNo5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNo5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNo5.UseVisualStyleBackColor = false;
+            this.btnNo5.Click += new System.EventHandler(this.btnNo5_Click);
             // 
             // btnNo4
             // 
@@ -316,6 +323,7 @@
             this.btnNo4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNo4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNo4.UseVisualStyleBackColor = false;
+            this.btnNo4.Click += new System.EventHandler(this.btnNo4_Click);
             // 
             // btnNo9
             // 
@@ -336,6 +344,7 @@
             this.btnNo9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNo9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNo9.UseVisualStyleBackColor = false;
+            this.btnNo9.Click += new System.EventHandler(this.btnNo9_Click);
             // 
             // btnNo8
             // 
@@ -356,6 +365,7 @@
             this.btnNo8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNo8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNo8.UseVisualStyleBackColor = false;
+            this.btnNo8.Click += new System.EventHandler(this.btnNo8_Click);
             // 
             // btnNo7
             // 
@@ -376,6 +386,7 @@
             this.btnNo7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNo7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNo7.UseVisualStyleBackColor = false;
+            this.btnNo7.Click += new System.EventHandler(this.btnNo7_Click);
             // 
             // lblAmt_Card
             // 
@@ -466,6 +477,10 @@
             this.txtCustomer.TabIndex = 109;
             this.txtCustomer.Text = "0";
             this.txtCustomer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCustomer.TextChanged += new System.EventHandler(this.txtCustomer_TextChanged);
+            this.txtCustomer.Leave += new System.EventHandler(this.txtCustomer_Leave);
+            this.txtCustomer.MouseEnter += new System.EventHandler(this.txtCustomer_MouseEnter);
+            this.txtCustomer.MouseLeave += new System.EventHandler(this.txtCustomer_MouseLeave);
             // 
             // lblReceiveMoney
             // 
@@ -532,6 +547,12 @@
             this.txtDiscount.TabIndex = 107;
             this.txtDiscount.Text = "0";
             this.txtDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
+            this.txtDiscount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDiscount_KeyDown);
+            this.txtDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiscount_KeyPress);
+            this.txtDiscount.Leave += new System.EventHandler(this.txtDiscount_Leave);
+            this.txtDiscount.MouseEnter += new System.EventHandler(this.txtDiscount_MouseEnter);
+            this.txtDiscount.MouseLeave += new System.EventHandler(this.txtDiscount_MouseLeave);
             // 
             // lblDiscount
             // 

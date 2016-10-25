@@ -1648,15 +1648,62 @@ namespace VVPosS.Screen.POS
                 return;
             }
 
+            SaveTempOrder();
+
             if (payForm == null || !Form.ActiveForm.Contains(payForm))
             {
                 //CloseForm();
                 //this.Visible = false;
-                payForm = new Screen.POS.PayForm(this, TotalMoney);
+                payForm = new Screen.POS.PayForm(this);
                 payForm.ShowDialog();
                 //AddFormToMainPanel(frmServices);
 
             }
+        }
+
+        private void SaveTempOrder()
+        {
+                OrderObject oro = new OrderObject();
+
+                Orders master = new Orders();
+                master.OrderId = stt.ToString();
+                master.DeskId = _iDeskId.ToString();
+                master.DeskName = _sDeskName;
+                master.CreatedBy = Program.Username;
+                master.CreateDate = DateTime.Now.ToString();
+                master.Status = "0";
+                master.TotalAmmount = _TongtienAmount.ToString();
+                master.TotalAmountBeforeTax = _TotalAmountBeforeTax.ToString();
+                master.TotalTax = _TotalTax.ToString();
+                master.DisCountAmount = Discount.ToString();
+                master.TotalMoney = TotalMoney.ToString();
+
+                List<OrderDetails> lstOrderDetail = new List<OrderDetails>();
+                int i = 0;
+                foreach (DataGridViewRow r in DataGridView1.Rows)
+                {
+                    OrderDetails odd = new OrderDetails();
+                    odd.OrderId = stt.ToString();
+                    odd.ProductId = r.Cells["ProductId"].Value.ToString();
+                    odd.ProductName = r.Cells["ProductName"].Value.ToString();
+                    odd.Qty = r.Cells["Qty"].Value.ToString();
+                    odd.Price = r.Cells["Price"].Value.ToString();
+                    odd.CreateBy = Program.Username;
+                    odd.CreateDate = DateTime.Today.ToString("yyyy-MM-dd hh:mm:ss");
+                    odd.Status = "0";
+                    odd.AmmountBeforeTax = r.Cells["AmountBeforeTax1"].Value.ToString();
+                    odd.TaxAmmount = r.Cells["VAT"].Value.ToString();
+                    odd.TotalAmount = r.Cells["TotalAmount"].Value.ToString();
+                    odd.IsBuffet = r.Cells["colIsBuffet"].Value.ToString();
+
+                    lstOrderDetail.Add(odd);
+                    i++;
+                }
+
+                oro.order = master;
+                oro.ListOrederDetail = lstOrderDetail;
+            /////////////
+            Program.lstTempOrder = oro;
         }
 
         #region Button show product
