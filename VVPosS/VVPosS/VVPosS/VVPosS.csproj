@@ -259,6 +259,12 @@
     <Compile Include="Screen\POS\frmBankingCard_bk.designer.cs">
       <DependentUpon>frmBankingCard_bk.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screen\POS\frmChangeOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\frmChangeOrder.Designer.cs">
+      <DependentUpon>frmChangeOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screen\POS\frmEditDetailReceipt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -409,6 +415,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screen\POS\frmBankingCard_bk.resx">
       <DependentUpon>frmBankingCard_bk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\frmChangeOrder.resx">
+      <DependentUpon>frmChangeOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screen\POS\frmEditDetailReceipt.resx">
       <DependentUpon>frmEditDetailReceipt.cs</DependentUpon>

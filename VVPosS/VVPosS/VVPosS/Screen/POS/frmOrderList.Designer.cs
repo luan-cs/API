@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrderList));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbUserText = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.lbUser = new System.Windows.Forms.Label();
@@ -47,20 +47,6 @@
             this.lbNotes = new System.Windows.Forms.Label();
             this.rtxtNotes = new System.Windows.Forms.RichTextBox();
             this.dataGridViewReceiptDetail = new System.Windows.Forms.DataGridView();
-            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPromotionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAmmountBeforeTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTaxAmmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotalAmmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbSelectOrder = new System.Windows.Forms.Label();
             this.dataGridViewListOrder = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -76,6 +62,20 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.bntFinish = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPromotionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAmmountBeforeTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTaxAmmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotalAmmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pNote.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReceiptDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListOrder)).BeginInit();
@@ -85,6 +85,7 @@
             // 
             this.lbUserText.AutoSize = true;
             this.lbUserText.BackColor = System.Drawing.Color.Transparent;
+            this.lbUserText.Enabled = false;
             this.lbUserText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUserText.Location = new System.Drawing.Point(326, 21);
             this.lbUserText.Name = "lbUserText";
@@ -95,6 +96,7 @@
             // txtUser
             // 
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUser.Enabled = false;
             this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.Location = new System.Drawing.Point(429, 20);
             this.txtUser.Name = "txtUser";
@@ -216,20 +218,20 @@
             this.colUpdate,
             this.colStatus,
             this.colNote});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewReceiptDetail.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewReceiptDetail.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewReceiptDetail.EnableHeadersVisualStyles = false;
             this.dataGridViewReceiptDetail.Location = new System.Drawing.Point(376, 254);
             this.dataGridViewReceiptDetail.Name = "dataGridViewReceiptDetail";
             this.dataGridViewReceiptDetail.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewReceiptDetail.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewReceiptDetail.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewReceiptDetail.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewReceiptDetail.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewReceiptDetail.RowTemplate.DividerHeight = 1;
@@ -241,110 +243,6 @@
             this.dataGridViewReceiptDetail.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewReceiptDetail_CellValidating);
             this.dataGridViewReceiptDetail.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewReceiptDetail_CellValueChanged);
             this.dataGridViewReceiptDetail.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewReceiptDetail_EditingControlShowing);
-            // 
-            // colNo
-            // 
-            this.colNo.HeaderText = "STT";
-            this.colNo.Name = "colNo";
-            this.colNo.ReadOnly = true;
-            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colNo.Width = 40;
-            // 
-            // colOrderId
-            // 
-            this.colOrderId.HeaderText = "Mã Order";
-            this.colOrderId.Name = "colOrderId";
-            this.colOrderId.ReadOnly = true;
-            this.colOrderId.Visible = false;
-            // 
-            // colProductId
-            // 
-            this.colProductId.HeaderText = "Mã SP";
-            this.colProductId.Name = "colProductId";
-            this.colProductId.ReadOnly = true;
-            this.colProductId.Visible = false;
-            // 
-            // colPromotionId
-            // 
-            this.colPromotionId.HeaderText = "PromotionId";
-            this.colPromotionId.Name = "colPromotionId";
-            this.colPromotionId.ReadOnly = true;
-            this.colPromotionId.Visible = false;
-            // 
-            // colProductName
-            // 
-            this.colProductName.HeaderText = "Sản phẩm";
-            this.colProductName.Name = "colProductName";
-            this.colProductName.ReadOnly = true;
-            this.colProductName.Width = 280;
-            // 
-            // colQty
-            // 
-            this.colQty.HeaderText = "SL";
-            this.colQty.MaxInputLength = 26;
-            this.colQty.Name = "colQty";
-            this.colQty.ReadOnly = true;
-            this.colQty.Width = 50;
-            // 
-            // colPrice
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle9;
-            this.colPrice.HeaderText = "DG";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            this.colPrice.Width = 90;
-            // 
-            // colAmmountBeforeTax
-            // 
-            this.colAmmountBeforeTax.HeaderText = "TT";
-            this.colAmmountBeforeTax.Name = "colAmmountBeforeTax";
-            this.colAmmountBeforeTax.ReadOnly = true;
-            this.colAmmountBeforeTax.Visible = false;
-            this.colAmmountBeforeTax.Width = 90;
-            // 
-            // colTaxAmmount
-            // 
-            this.colTaxAmmount.HeaderText = "Thuế";
-            this.colTaxAmmount.Name = "colTaxAmmount";
-            this.colTaxAmmount.ReadOnly = true;
-            this.colTaxAmmount.Visible = false;
-            this.colTaxAmmount.Width = 90;
-            // 
-            // colTotalAmmount
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.colTotalAmmount.DefaultCellStyle = dataGridViewCellStyle10;
-            this.colTotalAmmount.HeaderText = "TT + Thuế";
-            this.colTotalAmmount.Name = "colTotalAmmount";
-            this.colTotalAmmount.ReadOnly = true;
-            this.colTotalAmmount.Width = 90;
-            // 
-            // colDelete
-            // 
-            this.colDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colDelete.HeaderText = "Xóa";
-            this.colDelete.Name = "colDelete";
-            this.colDelete.Width = 47;
-            // 
-            // colUpdate
-            // 
-            this.colUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colUpdate.HeaderText = "Sửa";
-            this.colUpdate.Name = "colUpdate";
-            this.colUpdate.Width = 47;
-            // 
-            // colStatus
-            // 
-            this.colStatus.HeaderText = "Status";
-            this.colStatus.Name = "colStatus";
-            this.colStatus.Visible = false;
-            // 
-            // colNote
-            // 
-            this.colNote.HeaderText = "Notes";
-            this.colNote.Name = "colNote";
-            this.colNote.Visible = false;
             // 
             // lbSelectOrder
             // 
@@ -372,20 +270,20 @@
             this.Column4,
             this.colPrint,
             this.colDel});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewListOrder.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewListOrder.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewListOrder.EnableHeadersVisualStyles = false;
             this.dataGridViewListOrder.Location = new System.Drawing.Point(4, 98);
             this.dataGridViewListOrder.Name = "dataGridViewListOrder";
             this.dataGridViewListOrder.RowHeadersVisible = false;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewListOrder.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewListOrder.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewListOrder.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewListOrder.RowTemplate.Height = 50;
             this.dataGridViewListOrder.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -428,8 +326,8 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column5.HeaderText = "Tổng tiền";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -437,8 +335,8 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column4.HeaderText = "Ngày tạo";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -576,11 +474,118 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // colNo
+            // 
+            this.colNo.HeaderText = "STT";
+            this.colNo.Name = "colNo";
+            this.colNo.ReadOnly = true;
+            this.colNo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colNo.Width = 40;
+            // 
+            // colOrderId
+            // 
+            this.colOrderId.HeaderText = "Mã Order";
+            this.colOrderId.Name = "colOrderId";
+            this.colOrderId.ReadOnly = true;
+            this.colOrderId.Visible = false;
+            // 
+            // colProductId
+            // 
+            this.colProductId.HeaderText = "Mã SP";
+            this.colProductId.Name = "colProductId";
+            this.colProductId.ReadOnly = true;
+            this.colProductId.Visible = false;
+            // 
+            // colPromotionId
+            // 
+            this.colPromotionId.HeaderText = "PromotionId";
+            this.colPromotionId.Name = "colPromotionId";
+            this.colPromotionId.ReadOnly = true;
+            this.colPromotionId.Visible = false;
+            // 
+            // colProductName
+            // 
+            this.colProductName.HeaderText = "Sản phẩm";
+            this.colProductName.Name = "colProductName";
+            this.colProductName.ReadOnly = true;
+            this.colProductName.Width = 280;
+            // 
+            // colQty
+            // 
+            this.colQty.HeaderText = "SL";
+            this.colQty.MaxInputLength = 26;
+            this.colQty.Name = "colQty";
+            this.colQty.ReadOnly = true;
+            this.colQty.Width = 50;
+            // 
+            // colPrice
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colPrice.HeaderText = "DG";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            this.colPrice.Width = 90;
+            // 
+            // colAmmountBeforeTax
+            // 
+            this.colAmmountBeforeTax.HeaderText = "TT";
+            this.colAmmountBeforeTax.Name = "colAmmountBeforeTax";
+            this.colAmmountBeforeTax.ReadOnly = true;
+            this.colAmmountBeforeTax.Visible = false;
+            this.colAmmountBeforeTax.Width = 90;
+            // 
+            // colTaxAmmount
+            // 
+            this.colTaxAmmount.HeaderText = "Thuế";
+            this.colTaxAmmount.Name = "colTaxAmmount";
+            this.colTaxAmmount.ReadOnly = true;
+            this.colTaxAmmount.Visible = false;
+            this.colTaxAmmount.Width = 90;
+            // 
+            // colTotalAmmount
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.colTotalAmmount.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colTotalAmmount.HeaderText = "TT + Thuế";
+            this.colTotalAmmount.Name = "colTotalAmmount";
+            this.colTotalAmmount.ReadOnly = true;
+            this.colTotalAmmount.Width = 90;
+            // 
+            // colDelete
+            // 
+            this.colDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colDelete.HeaderText = "Xóa";
+            this.colDelete.Name = "colDelete";
+            this.colDelete.Visible = false;
+            this.colDelete.Width = 47;
+            // 
+            // colUpdate
+            // 
+            this.colUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colUpdate.HeaderText = "Sửa";
+            this.colUpdate.Name = "colUpdate";
+            this.colUpdate.Visible = false;
+            this.colUpdate.Width = 47;
+            // 
+            // colStatus
+            // 
+            this.colStatus.HeaderText = "Status";
+            this.colStatus.Name = "colStatus";
+            this.colStatus.Visible = false;
+            // 
+            // colNote
+            // 
+            this.colNote.HeaderText = "Notes";
+            this.colNote.Name = "colNote";
+            this.colNote.Visible = false;
+            // 
             // frmOrderList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.ControlBox = false;
             this.Controls.Add(this.dataGridViewListOrder);
             this.Controls.Add(this.lbSelectOrder);
             this.Controls.Add(this.btnDeskOrder);
@@ -600,7 +605,6 @@
             this.MinimizeBox = false;
             this.Name = "frmOrderList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmOrderList_Load);
             this.pNote.ResumeLayout(false);
             this.pNote.PerformLayout();

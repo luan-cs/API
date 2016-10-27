@@ -832,7 +832,7 @@ namespace VVPosWS.DAL
             const int DB_TIMEOUT = 60;
             ////////Tao recieptID o day;
             string ReceiptId = Tao_ReceiptID(); ////
-            Int64 Score = 0;
+            //Int64 Score = 0;
             //string[] arrDeskId = new string[listReceiptCard.Count];
 
             MySqlConnection connection = new MySqlConnection(pConnectionString);
@@ -866,6 +866,24 @@ namespace VVPosWS.DAL
                 tx = connection.BeginTransaction();
                 command.Transaction = tx;
                 command.ExecuteNonQuery();
+
+
+                //Insert Output
+                string _sOutputId = CreateOutputId();
+                if (!string.IsNullOrEmpty(ReceiptId))
+                {
+                    command = new MySqlCommand("spInsert_Output", connection);
+                    spName = "spInsert_Output";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandTimeout = DB_TIMEOUT;
+                    command.Parameters.AddWithValue("p_" + "ReceiptId", ReceiptId);
+                    command.Parameters.AddWithValue("p_" + "OutputId", _sOutputId);
+                    command.Parameters.AddWithValue("p_" + "CreatedBy", pUsernameOrId);
+                    command.Transaction = tx;
+                    command.ExecuteNonQuery();
+                    //OldOrderId = OrderId;
+                }
+
                 //// detail
                 int _i;
                 for ( _i = 0; _i < listReceiptDetail.Count; _i++)
@@ -876,7 +894,7 @@ namespace VVPosWS.DAL
                     command.CommandTimeout = DB_TIMEOUT;
                     string OrderId = "";
                     //string OldOrderId = "";
-                    string ProductId = "", DeskId = "";
+                    string ProductId = "";//, DeskId = "";
                     for (int j = 0; j < listReceiptDetail[_i].Length; j++)
                     {
                         string[][] pr = listReceiptDetail[_i];
@@ -902,9 +920,26 @@ namespace VVPosWS.DAL
                         //{
                         //    DeskId = pr[j][1];
                         //}
+                        
                     }
+
                     command.Transaction = tx;
                     command.ExecuteNonQuery();
+
+                    //Withdraw ingredient -> output detail spUpdate_OutPut_By_Reciept
+                    if (!string.IsNullOrEmpty(ReceiptId) && !string.IsNullOrEmpty(ProductId))
+                    {
+                        command = new MySqlCommand("spUpdate_OutPut_By_Reciept", connection);
+                        spName = "spUpdate_OutPut_By_Reciept";
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.CommandTimeout = DB_TIMEOUT;
+                        command.Parameters.AddWithValue("p_" + "OutputId", _sOutputId);
+                        command.Parameters.AddWithValue("p_" + "ReceiptId", ReceiptId);
+                        command.Parameters.AddWithValue("p_" + "ProductId", ProductId);
+                        command.Parameters.AddWithValue("p_" + "CreatedBy", pUsernameOrId);
+                        command.Transaction = tx;
+                        command.ExecuteNonQuery();
+                    }
 
                     //update Order Details
                     if (!string.IsNullOrEmpty(OrderId) && !string.IsNullOrEmpty(ProductId))
@@ -1037,81 +1072,94 @@ namespace VVPosWS.DAL
         #region Tạo số ReceiptID
         private static string Tao_ReceiptID()
         {
-            ///''11 [11] [YYMMDD] [000001]
-            ///- [11] : Mã cửa hàng
-            ///- [YYMMDD] : Ngày tháng năm tạo 
-            ///- [000001]: số chạy
-            string s_ngay, s_thang, s_nam;
-            string s_stt, so_SoDDH;
-            int ngay, thang, nam, stt;
-            ngay = DateTime.Now.Day;
-            if (ngay < 10)
-                s_ngay = "0" + ngay.ToString();
-            else
-                s_ngay = ngay.ToString();
-            thang = DateTime.Now.Month;
-            if (thang < 10)
-                s_thang = "0" + thang.ToString();
-            else
-                s_thang = thang.ToString();
-            nam = DateTime.Now.Year;
-            s_nam = (nam.ToString()).Substring(2);
+            string _sReceiptId = "";
 
-            so_SoDDH = "11" + "01" + s_nam + s_thang + s_ngay;
-            //MessageBox.Show(so_PX);
-            // doc STT tu CSDL            
-            stt = 0;
             string strErr = "";
             DataSet ds = new DataSet();
-            string[][] prm = { new string[] { "p_ID", so_SoDDH } };
-            DataStoreProcQuery_Param(GetConnectionString(), "spGet_ReceiptID", ref ds, prm, ref strErr);
-            if (ds != null && ds.Tables.Count > 0)
+            DataStoreProcQuery(GetConnectionString(), "spSelect_Receipts", ref ds, ref strErr);
+            if (string.IsNullOrEmpty(strErr) && ds.Tables[0].Rows.Count > 0)
             {
-                DataTable dt = ds.Tables[0];
-                if (dt.Rows.Count > 0)
-                {
-                    int i;
-                    for (i = 0; i < dt.Rows.Count; i++)
-                    {
-                        DataRow d = dt.Rows[i];
-                        stt = int.Parse((d["Code"].ToString()).Substring(12));//////////////
-                        if (stt != i + 1)
-                        {
-                            stt = i + 1;
-                            break;
-                        }
-                    }
-                    // MessageBox.Show(i.ToString());
-                    if (i == dt.Rows.Count)
-                    {
-                        stt = dt.Rows.Count + 1;
-                    }
-                }
-                else
-                {
-                    stt = 1;
-                }
+                _sReceiptId = ds.Tables[0].Rows[0][0].ToString();
+                Int64 iOrderId = Int64.Parse(_sReceiptId) + 1;
+                _sReceiptId = iOrderId.ToString();
             }
-            else
-            {
-                stt = 1;
-            }
-            if (stt < 10)
-                s_stt = "00000" + stt.ToString();
-            else if ((stt < 100) && (stt >= 10))
-                s_stt = "0000" + stt.ToString();
-            else if ((stt < 1000) && (stt >= 100))
-                s_stt = "000" + stt.ToString();
-            else if ((stt < 10000) && (stt >= 1000))
-                s_stt = "00" + stt.ToString();
-            else if ((stt < 100000) && (stt >= 10000))
-                s_stt = "0" + stt.ToString();
-            else
-                s_stt = stt.ToString();
+            else _sReceiptId = "11" + DateTime.Today.ToString("yyyyMMdd") + "00001";
+            return _sReceiptId;
+            /////''11 [11] [YYMMDD] [000001]
+            /////- [11] : Mã cửa hàng
+            /////- [YYMMDD] : Ngày tháng năm tạo 
+            /////- [000001]: số chạy
+            //string s_ngay, s_thang, s_nam;
+            //string s_stt, so_SoDDH;
+            //int ngay, thang, nam, stt;
+            //ngay = DateTime.Now.Day;
+            //if (ngay < 10)
+            //    s_ngay = "0" + ngay.ToString();
+            //else
+            //    s_ngay = ngay.ToString();
+            //thang = DateTime.Now.Month;
+            //if (thang < 10)
+            //    s_thang = "0" + thang.ToString();
+            //else
+            //    s_thang = thang.ToString();
+            //nam = DateTime.Now.Year;
+            //s_nam = (nam.ToString()).Substring(2);
 
-            so_SoDDH += s_stt;
+            //so_SoDDH = "11" + "01" + s_nam + s_thang + s_ngay;
+            ////MessageBox.Show(so_PX);
+            //// doc STT tu CSDL            
+            //stt = 0;
+            //string strErr = "";
+            //DataSet ds = new DataSet();
+            //string[][] prm = { new string[] { "p_ID", so_SoDDH } };
+            //DataStoreProcQuery_Param(GetConnectionString(), "spGet_ReceiptID", ref ds, prm, ref strErr);
+            //if (ds != null && ds.Tables.Count > 0)
+            //{
+            //    DataTable dt = ds.Tables[0];
+            //    if (dt.Rows.Count > 0)
+            //    {
+            //        int i;
+            //        for (i = 0; i < dt.Rows.Count; i++)
+            //        {
+            //            DataRow d = dt.Rows[i];
+            //            stt = int.Parse((d["Code"].ToString()).Substring(12));//////////////
+            //            if (stt != i + 1)
+            //            {
+            //                stt = i + 1;
+            //                break;
+            //            }
+            //        }
+            //        // MessageBox.Show(i.ToString());
+            //        if (i == dt.Rows.Count)
+            //        {
+            //            stt = dt.Rows.Count + 1;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        stt = 1;
+            //    }
+            //}
+            //else
+            //{
+            //    stt = 1;
+            //}
+            //if (stt < 10)
+            //    s_stt = "00000" + stt.ToString();
+            //else if ((stt < 100) && (stt >= 10))
+            //    s_stt = "0000" + stt.ToString();
+            //else if ((stt < 1000) && (stt >= 100))
+            //    s_stt = "000" + stt.ToString();
+            //else if ((stt < 10000) && (stt >= 1000))
+            //    s_stt = "00" + stt.ToString();
+            //else if ((stt < 100000) && (stt >= 10000))
+            //    s_stt = "0" + stt.ToString();
+            //else
+            //    s_stt = stt.ToString();
 
-            return so_SoDDH;
+            //so_SoDDH += s_stt;
+
+            //return so_SoDDH;
         }
 
         //Tao OrderId
@@ -1131,6 +1179,24 @@ namespace VVPosWS.DAL
             }
             else _sOrderId = "10" + DateTime.Today.ToString("yyyyMMdd") + "00001";
             return _sOrderId;
+        }
+
+        private static string CreateOutputId()
+        {
+            string _sOutputId = "";
+
+            string strErr = "";
+            DataSet ds = new DataSet();
+            string sql = "SELECT `OutputId` FROM `output` WHERE SUBSTRING(`OutputId`, 3, 8) = CURDATE() + 0 ORDER BY `OutputId` DESC LIMIT 0,1; ";
+            DataQuery(GetConnectionString(), sql, ref ds, "x", ref strErr);
+            if (string.IsNullOrEmpty(strErr) && ds.Tables[0].Rows.Count > 0)
+            {
+                _sOutputId = ds.Tables[0].Rows[0][0].ToString();
+                Int64 iOrderId = Int64.Parse(_sOutputId) + 1;
+                _sOutputId = iOrderId.ToString();
+            }
+            else _sOutputId = "99" + DateTime.Today.ToString("yyyyMMdd") + "00001";
+            return _sOutputId;
         }
 
         private static string GetConnectionString()

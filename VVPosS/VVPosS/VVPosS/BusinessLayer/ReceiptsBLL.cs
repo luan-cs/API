@@ -515,5 +515,75 @@ namespace VVPosS.BusinessLayer
             return res;
         }
 
+        public string GetCurDateServer()
+        {
+            DataTable dt = new DataTable();
+            string query = "SELECT DAYOFMONTH(CURDATE()) as day, MONTH(CURDATE()) as month, YEAR(CURDATE()) as year";
+            DataSet dataset = new DataSet();
+            Program.destopService.DataQuery(Program.Username, Program.Password, query, ref dataset, "X", ref errorString);
+
+            if (string.IsNullOrEmpty(errorString) && dataset.Tables[0].Rows.Count > 0)
+            {
+                dt = dataset.Tables["X"];
+            }
+            else
+            {
+                dt = null;
+            }
+            string middleId = "";
+            if (dt != null)
+            {
+                middleId = dt.Rows[0]["year"].ToString().Substring(2, 2)
+                    + (Int32.Parse(dt.Rows[0]["month"].ToString()) <= 9 ? "0" + dt.Rows[0]["month"].ToString()
+                    : dt.Rows[0]["month"].ToString())
+                    + (Int32.Parse(dt.Rows[0]["day"].ToString()) <= 9 ? "0" + dt.Rows[0]["day"].ToString()
+                    : dt.Rows[0]["day"].ToString());
+            }
+            return middleId;
+        }
+
+        public bool GetReceiptById(string id)
+        {
+            bool blag = false;
+            DataSet ds = new DataSet();
+            string query = @"SELECT* FROM `receipts` WHERE `ReceiptId` = '" + id + "' AND `Status`='1'";
+
+            Program.destopService.DataQuery(Program.Username, Program.Password, query, ref ds, "X", ref errorString);
+            if (string.IsNullOrEmpty(errorString))
+            {
+                if (ds != null)
+                {
+                    if (ds.Tables[0] != null)
+                    {
+                        if (ds.Tables[0].Rows.Count != 0)
+                        {
+                            blag = true;
+                        }
+                    }
+                }
+            }
+            return blag;
+        }
+
+        public DataTable CancelReceipt(string id, string notes)
+        {
+            DataTable dt = new DataTable();
+            DataSet ds = new DataSet();
+            string[][] param ={
+                new string[] {"p_Id", id},
+                new string[] {"p_Notes", notes},
+                new string[] {"p_User", Program.Username}
+            };
+            Program.destopService.DataStoreProcQuery_Param(Program.Username, Program.Password, "spCancelReceipts", ref ds, param, ref errorString);
+            if (String.IsNullOrEmpty(errorString))
+            {
+                dt = ds.Tables[0];
+            }
+            else
+            {
+                dt = null;
+            }
+            return dt;
+        }
     }
 }

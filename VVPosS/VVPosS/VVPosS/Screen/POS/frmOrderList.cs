@@ -48,15 +48,15 @@ namespace VVPosS.Screen.POS
 
         private DataTable dt_OD = new DataTable("OD"), dt_O = new DataTable("O");
 
-        private bool IsAll = true, IsUpdate, IsUser, IsDelete, IsModifile, bHaveDiscount = false, IsDiscount = false, IsPrintServer = false, IsPrint = false;
+        private bool IsAll = true, IsUpdate, IsUser = false, IsDelete, IsModifile, bHaveDiscount = false, IsDiscount = false, IsPrintServer = false, IsPrint = false;
         private double dbThueSuat, dbTotalMoney;
-        private string sOrderId, sEmployeeId, str;
+        private string sOrderId, sEmployeeId = Program.Username, str;
 
         public frmOrderList()
         {
             InitializeComponent();
             SettingControl();
-
+            txtUser.Text = sEmployeeId;
         }
 
         private void SetUIChanges()
@@ -911,108 +911,108 @@ namespace VVPosS.Screen.POS
         private void bntFinish_Click(object sender, EventArgs e)
         {
             if (!CheckData()) return;
-            if (IsUser)
-            {
-                if (sOrderId != null)
-                {
-                    if (dataGridViewReceiptDetail.Rows.Count > 0)
-                    {
-                        if (!IsModifile && !IsDelete)
-                        {
-                            CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("NothingChange"),
-                                    Common.clsLanguages.GetResource("Information"),
-                                    Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
-                                    Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
-                            return;
-                        }
-                        /*
-                         * ------------------------------- Update Order ---------------------------
-                         */
-                        DataTable dt = new DataTable("ABC");
+            //if (!IsUser) // temp cheap code - must IsUser = true
+            //{
+                //if (sOrderId != null)
+                //{
+                //    if (dataGridViewReceiptDetail.Rows.Count > 0)
+                //    {
+                //        if (!IsModifile && !IsDelete)
+                //        {
+                //            CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("NothingChange"),
+                //                    Common.clsLanguages.GetResource("Information"),
+                //                    Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
+                //                    Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                //            return;
+                //        }
+                //        /*
+                //         * ------------------------------- Update Order ---------------------------
+                //         */
+                //        DataTable dt = new DataTable("ABC");
 
-                        //Add coulmns
-                        foreach (DataGridViewColumn dc in dataGridViewReceiptDetail.Columns)
-                        {
-                            dt.Columns.Add(dc.Name);
-                        }
-                        //Add Rows
-                        foreach (DataGridViewRow dr in dataGridViewReceiptDetail.Rows)
-                        {
-                            DataRow r = dt.NewRow();
-                            for (int iCol = 0; iCol < dataGridViewReceiptDetail.Columns.Count; iCol++)
-                            {
-                                r[iCol] = dr.Cells[iCol].Value;
-                                if (r[iCol].ToString() == "DISCOUNT") bHaveDiscount = true;
-                            }
-                            dt.Rows.Add(r);
-                        }
-                        dt.AcceptChanges();
-                        bntFinish.Cursor = Cursors.AppStarting;
-                        bool IsPrintServer = false;
-                        if (ConfigurationManager.AppSettings["IsPrintServer"] == "1") IsPrintServer = true;
-                        if (orderdetailBLL.UpdateOrderDetail(sEmployeeId, rtxtNotes.Text, sOrderId, bHaveDiscount, dt, IsPrintServer ? IsPrint : false, dbTotalMoney))
-                        {
-                            CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("UpdateSuccess"),
-                                        Common.clsLanguages.GetResource("Information"),
-                                        Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
-                                        Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
-                            if (!string.IsNullOrEmpty(orderdetailBLL.ErrorString))
-                                CustomMessageBox.MessageBox.ShowCustomMessageBox(orderdetailBLL.ErrorString,
-                                       Common.clsLanguages.GetResource("Warning"),
-                                       Common.Config.CUSTOM_MESSAGEBOX_ICON.Warning,//sua thanh Warning
-                                       Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
-                            //reset
-                            if (!IsPrintServer && IsPrint)
-                            {
-                                if (!DoPrinting(dataGridViewReceiptDetail.RowCount == 0 ? 2 : 3))//2 cancel, 3 update
-                                {
-                                    CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("NotFoundPrintPleaseCheck"),
-                                          Common.clsLanguages.GetResource("Information"),
-                                          Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
-                                          Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
-                                }
-                            }
-                            btnReset_Click(null, null);
-                        }
-                        else
-                        {
-                            if (orderdetailBLL.ErrorString == "DISCOUNT")
-                                CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("DiscountInputError"),
-                                       Common.clsLanguages.GetResource("Error"),
-                                       Common.Config.CUSTOM_MESSAGEBOX_ICON.Error,
-                                       Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
-                            else
-                                CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("UpdateFailed"),
-                                            Common.clsLanguages.GetResource("Information"),
-                                            Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
-                                            Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
-                        }
-                        bntFinish.Cursor = Cursors.Hand;
-                    }
-                }
-                else
-                {
-                    CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("NothingChange"),
-                                    Common.clsLanguages.GetResource("Information"),
-                                    Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
-                                    Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
-                }
-            }
-            else
-            {
-                CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("EmployeeCodeNotExist"),
-                                    Common.clsLanguages.GetResource("Error"),
-                                    Common.Config.CUSTOM_MESSAGEBOX_ICON.Error,
-                                    Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
-            }
-            dataGridViewListOrder.Enabled = true;
+                //        //Add coulmns
+                //        foreach (DataGridViewColumn dc in dataGridViewReceiptDetail.Columns)
+                //        {
+                //            dt.Columns.Add(dc.Name);
+                //        }
+                //        //Add Rows
+                //        foreach (DataGridViewRow dr in dataGridViewReceiptDetail.Rows)
+                //        {
+                //            DataRow r = dt.NewRow();
+                //            for (int iCol = 0; iCol < dataGridViewReceiptDetail.Columns.Count; iCol++)
+                //            {
+                //                r[iCol] = dr.Cells[iCol].Value;
+                //                if (r[iCol].ToString() == "DISCOUNT") bHaveDiscount = true;
+                //            }
+                //            dt.Rows.Add(r);
+                //        }
+                //        dt.AcceptChanges();
+                //        bntFinish.Cursor = Cursors.AppStarting;
+                //        bool IsPrintServer = false;
+                //        if (ConfigurationManager.AppSettings["IsPrintServer"] == "1") IsPrintServer = true;
+                //        if (orderdetailBLL.UpdateOrderDetail(sEmployeeId, rtxtNotes.Text, sOrderId, bHaveDiscount, dt, IsPrintServer ? IsPrint : false, dbTotalMoney))
+                //        {
+                //            CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("UpdateSuccess"),
+                //                        Common.clsLanguages.GetResource("Information"),
+                //                        Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
+                //                        Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                //            if (!string.IsNullOrEmpty(orderdetailBLL.ErrorString))
+                //                CustomMessageBox.MessageBox.ShowCustomMessageBox(orderdetailBLL.ErrorString,
+                //                       Common.clsLanguages.GetResource("Warning"),
+                //                       Common.Config.CUSTOM_MESSAGEBOX_ICON.Warning,//sua thanh Warning
+                //                       Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                //            //reset
+                //            if (!IsPrintServer && IsPrint)
+                //            {
+                //                if (!DoPrinting(dataGridViewReceiptDetail.RowCount == 0 ? 2 : 3))//2 cancel, 3 update
+                //                {
+                //                    CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("NotFoundPrintPleaseCheck"),
+                //                          Common.clsLanguages.GetResource("Information"),
+                //                          Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
+                //                          Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                //                }
+                //            }
+                //            btnReset_Click(null, null);
+                //        }
+                //        else
+                //        {
+                //            if (orderdetailBLL.ErrorString == "DISCOUNT")
+                //                CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("DiscountInputError"),
+                //                       Common.clsLanguages.GetResource("Error"),
+                //                       Common.Config.CUSTOM_MESSAGEBOX_ICON.Error,
+                //                       Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                //            else
+                //                CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("UpdateFailed"),
+                //                            Common.clsLanguages.GetResource("Information"),
+                //                            Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
+                //                            Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                //        }
+                //        bntFinish.Cursor = Cursors.Hand;
+                //    }
+                //}
+                //else
+                //{
+                //    CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("NothingChange"),
+                //                    Common.clsLanguages.GetResource("Information"),
+                //                    Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
+                //                    Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                //}
+            //}
+            //else
+            //{
+            //    CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("EmployeeCodeNotExist"),
+            //                        Common.clsLanguages.GetResource("Error"),
+            //                        Common.Config.CUSTOM_MESSAGEBOX_ICON.Error,
+            //                        Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+            //}
+            //dataGridViewListOrder.Enabled = true;
 
             //Payment
             if (payForm == null || !Form.ActiveForm.Contains(payForm))
             {
                 //CloseForm();
                 //this.Visible = false;
-                payForm = new Screen.POS.PayForm();
+                payForm = new Screen.POS.PayForm(sOrderId);
                 payForm.ShowDialog();
                 //AddFormToMainPanel(frmServices);
 

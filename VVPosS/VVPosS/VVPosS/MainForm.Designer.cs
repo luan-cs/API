@@ -119,7 +119,7 @@
             this.bntShowTemp.Name = "bntShowTemp";
             this.bntShowTemp.Size = new System.Drawing.Size(152, 114);
             this.bntShowTemp.TabIndex = 43;
-            this.bntShowTemp.Text = "DS tam tinh";
+            this.bntShowTemp.Text = "DS Order";
             this.bntShowTemp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bntShowTemp.UseVisualStyleBackColor = false;
             this.bntShowTemp.Click += new System.EventHandler(this.bntShowTemp_Click);
@@ -272,6 +272,7 @@
             this.btnConfig.Text = "Cấu hình";
             this.btnConfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConfig.UseVisualStyleBackColor = false;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
             // btnExit
             // 

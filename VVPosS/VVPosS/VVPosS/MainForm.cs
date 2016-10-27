@@ -18,6 +18,8 @@ namespace VVPosS
     {
         private frmServices frmServices;
         private frmChangePassword frmChangePassword;
+        private frmOrderList frmOrderList;
+        private frmChangeOrder frmChangeOrder;
 
         public MainForm()
         {
@@ -59,12 +61,19 @@ namespace VVPosS
 
         private void bntShowTemp_Click(object sender, EventArgs e)
         {
+            if (frmOrderList == null || !Form.ActiveForm.Contains(frmOrderList))
+            {
+                this.Visible = true;
+                frmOrderList = new Screen.POS.frmOrderList();
+                frmOrderList.ShowDialog();
 
+            }
         }
 
         private void btnCancelReceipt_Click(object sender, EventArgs e)
         {
-
+            frmChangeOrder f = new frmChangeOrder();
+            f.ShowDialog();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -461,6 +470,12 @@ namespace VVPosS
             }
 
             DoPrinting();
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            frmUtility f = new frmUtility();
+            f.ShowDialog();
         }
     }
 }

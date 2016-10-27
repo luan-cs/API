@@ -23,6 +23,8 @@ namespace VVPosS.Screen.POS
         private string ReceiptID_Success;
         private string WhatFocusOn = "";
         private double Discount = 0, _dbCashPayAmt = 0;
+        private string tempOrder = "";
+        private DataTable dtOrder = null;
         public PayForm()
         {
             InitializeComponent();
@@ -34,10 +36,14 @@ namespace VVPosS.Screen.POS
             InitializeComponent();
             SettingControl();
             frmServices = frmS;
-            //TotalMoney = totalMoney;
-            //TongTienSauThue = _TongtienAmount;
-            //TongTienTruocThue = _TotalAmountBeforeTax;
-            //TongTienThue = _TotalTax;
+        }
+
+        public PayForm(string _tempOrder)
+        {
+            InitializeComponent();
+            SettingControl();
+            tempOrder = _tempOrder;
+            
         }
 
         #region Private Methods
@@ -94,11 +100,22 @@ namespace VVPosS.Screen.POS
             this.lblMoneyVAT.Text = this.lblMoneyVAT.Text + " (" + ConfigurationManager.AppSettings["VAT"] + "%)";
             if (ConfigurationManager.AppSettings["DiscountPercent"] == "1")
                 this.lblDiscount.Text = this.lblDiscount.Text + " (%)";
-
-            lblAmt_TotalAmtBeforeTax.Text = double.Parse(Program.lstTempOrder.order.TotalAmountBeforeTax).ToString("0,0");
-            lblAmt_TotalTax.Text = double.Parse(Program.lstTempOrder.order.TotalTax).ToString("0,0");
-            lblAmt_TotalAfterTax.Text = double.Parse(Program.lstTempOrder.order.TotalAmmount).ToString("0,0");
-            lblAmt_TotalAmount.Text = double.Parse(Program.lstTempOrder.order.TotalMoney).ToString("0,0");
+            if (string.IsNullOrWhiteSpace(tempOrder))
+            {
+                lblAmt_TotalAmtBeforeTax.Text = double.Parse(Program.lstTempOrder.order.TotalAmountBeforeTax).ToString("0,0");
+                lblAmt_TotalTax.Text = double.Parse(Program.lstTempOrder.order.TotalTax).ToString("0,0");
+                lblAmt_TotalAfterTax.Text = double.Parse(Program.lstTempOrder.order.TotalAmmount).ToString("0,0");
+                lblAmt_TotalAmount.Text = double.Parse(Program.lstTempOrder.order.TotalMoney).ToString("0,0");
+            }
+            else
+            {
+                OrderBLL orderBLL = new OrderBLL();
+                dtOrder = orderBLL.GetLists(tempOrder);
+                lblAmt_TotalAmtBeforeTax.Text = double.Parse(dtOrder.Rows[0]["TotalAmountBeforeTax"].ToString()).ToString("0,0");
+                lblAmt_TotalTax.Text = double.Parse(dtOrder.Rows[0]["TotalTax"].ToString()).ToString("0,0");
+                lblAmt_TotalAfterTax.Text = double.Parse(dtOrder.Rows[0]["TotalAmmount"].ToString()).ToString("0,0");
+                lblAmt_TotalAmount.Text = double.Parse(dtOrder.Rows[0]["TotalMoney"].ToString()).ToString("0,0");
+            }
         }
 
         #endregion
@@ -488,6 +505,7 @@ namespace VVPosS.Screen.POS
             //    rd.DeskId = dataGridViewReceiptDetail.Rows[i].Cells["colDeskId"].Value.ToString();
             //    lst_rd.Add(rd);
             //}
+            
             foreach (OrderDetails odds in Program.lstTempOrder.ListOrederDetail)
             {
                 ReceiptDetails rd = new ReceiptDetails();
@@ -556,7 +574,7 @@ namespace VVPosS.Screen.POS
         private bool DoPrinting(string Status)
         {
             PrintDocument pd = new PrintDocument();
-            //pd.PrinterSettings.PrinterName = ConfigurationManager.AppSettings["Printer"];
+            pd.PrinterSettings.PrinterName = ConfigurationManager.AppSettings["Printer"];
             pd.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("A7", 300, 10000);
             if (Status == null)
                 pd.PrintPage += new PrintPageEventHandler(this.printDocument1_PrintPage);
@@ -938,7 +956,7 @@ namespace VVPosS.Screen.POS
             Rectangle strRec1 = new Rectangle(145, 42, 135, 18);
             string strSoHD = rcAll.receipt.ReceiptId;
             int soHD = int.Parse(strSoHD.Substring(10));
-            data = Common.clsLanguages.GetResource("ReceiptNumber") + " : 10#" + soHD.ToString(); //"Số HĐ: "
+            data = Common.clsLanguages.GetResource("ReceiptNumber") + " : 11#" + soHD.ToString(); //"Số HĐ: "
             e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Italic), Brushes.DarkSlateBlue, strRec1, strfmt_Right);
 
             //// Cty....

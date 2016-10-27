@@ -697,7 +697,7 @@ namespace VVPosS.Screen.POS
         private bool DoPrinting()
         {
             PrintDocument pd = new PrintDocument();
-            //pd.PrinterSettings.PrinterName = ConfigurationManager.AppSettings["Printer"];
+            pd.PrinterSettings.PrinterName = ConfigurationManager.AppSettings["Printer"];
             pd.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("A7", 300, 10000);
             pd.PrintPage += new PrintPageEventHandler(this.printDocument1_PrintPage);
 
@@ -977,7 +977,7 @@ namespace VVPosS.Screen.POS
         private bool DoPrintingKitchen()
         {
             PrintDocument pd = new PrintDocument();
-            //pd.PrinterSettings.PrinterName = ConfigurationManager.AppSettings["PrinterCard"];
+            pd.PrinterSettings.PrinterName = ConfigurationManager.AppSettings["PrinterKitchen"];
             pd.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("A7", 300, 10000);
 
             pd.PrintPage += new PrintPageEventHandler(this.printDocumentOrderKitchen_PrintPage);
