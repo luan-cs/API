@@ -207,12 +207,6 @@
     <Compile Include="frmLogin.designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMain.designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmUtility.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,23 +289,11 @@
     <Compile Include="Screen\POS\frmMemberReceipt.designer.cs">
       <DependentUpon>frmMemberReceipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screen\POS\frmMoveTable.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screen\POS\frmMoveTable.Designer.cs">
-      <DependentUpon>frmMoveTable.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screen\POS\frmOrderList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Screen\POS\frmOrderList.Designer.cs">
       <DependentUpon>frmOrderList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screen\POS\frmReceipt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screen\POS\frmReceipt.Designer.cs">
-      <DependentUpon>frmReceipt.cs</DependentUpon>
     </Compile>
     <Compile Include="Screen\POS\frmShowOrderTemp.cs">
       <SubType>Form</SubType>
@@ -387,12 +369,6 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.vi-VN.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmUtility.resx">
       <DependentUpon>frmUtility.cs</DependentUpon>
     </EmbeddedResource>
@@ -434,14 +410,8 @@
     <EmbeddedResource Include="Screen\POS\frmMemberReceipt.resx">
       <DependentUpon>frmMemberReceipt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screen\POS\frmMoveTable.resx">
-      <DependentUpon>frmMoveTable.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Screen\POS\frmOrderList.resx">
       <DependentUpon>frmOrderList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screen\POS\frmReceipt.resx">
-      <DependentUpon>frmReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screen\POS\frmShowOrderTemp.resx">
       <DependentUpon>frmShowOrderTemp.cs</DependentUpon>

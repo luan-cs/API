@@ -24,7 +24,7 @@ namespace VVPosS.Screen.POS
         private string WhatFocusOn = "";
         private double Discount = 0, _dbCashPayAmt = 0;
         private string tempOrder = "";
-        private DataTable dtOrder = null;
+        private OrderAll orAll;
         public PayForm()
         {
             InitializeComponent();
@@ -109,12 +109,13 @@ namespace VVPosS.Screen.POS
             }
             else
             {
+                
                 OrderBLL orderBLL = new OrderBLL();
-                dtOrder = orderBLL.GetLists(tempOrder);
-                lblAmt_TotalAmtBeforeTax.Text = double.Parse(dtOrder.Rows[0]["TotalAmountBeforeTax"].ToString()).ToString("0,0");
-                lblAmt_TotalTax.Text = double.Parse(dtOrder.Rows[0]["TotalTax"].ToString()).ToString("0,0");
-                lblAmt_TotalAfterTax.Text = double.Parse(dtOrder.Rows[0]["TotalAmmount"].ToString()).ToString("0,0");
-                lblAmt_TotalAmount.Text = double.Parse(dtOrder.Rows[0]["TotalMoney"].ToString()).ToString("0,0");
+                orAll = orderBLL.GetOrderInfo(tempOrder); 
+                lblAmt_TotalAmtBeforeTax.Text = double.Parse(orAll.order.TotalAmountBeforeTax).ToString("0,0");
+                lblAmt_TotalTax.Text = double.Parse(orAll.order.TotalTax).ToString("0,0");
+                lblAmt_TotalAfterTax.Text = double.Parse(orAll.order.TotalMoney).ToString("0,0");
+                lblAmt_TotalAmount.Text = double.Parse(orAll.order.TotalMoney).ToString("0,0");
             }
         }
 
@@ -505,24 +506,46 @@ namespace VVPosS.Screen.POS
             //    rd.DeskId = dataGridViewReceiptDetail.Rows[i].Cells["colDeskId"].Value.ToString();
             //    lst_rd.Add(rd);
             //}
-            
-            foreach (OrderDetails odds in Program.lstTempOrder.ListOrederDetail)
-            {
-                ReceiptDetails rd = new ReceiptDetails();
-                rd.ReceiptId = "";
-                rd.RefOrderId = odds.OrderId;
-                rd.ProductId = odds.ProductId;
-                rd.PromotionId = "";
-                rd.Qty = odds.Qty;
-                rd.Price = odds.Price;
-                rd.TotalAmountBeforeTax = odds.AmmountBeforeTax;
-                rd.TaxAmount = odds.TaxAmmount;
-                rd.TotalAmount = odds.TotalAmount;
-                rd.CreatedBy = Program.Username;
-                rd.DeskId = "";
-                lst_rd.Add(rd);
-            }
 
+            if (string.IsNullOrWhiteSpace(tempOrder))
+            {
+                foreach (OrderDetails odds in Program.lstTempOrder.ListOrederDetail)
+                {
+                    ReceiptDetails rd = new ReceiptDetails();
+                    rd.ReceiptId = "";
+                    rd.RefOrderId = odds.OrderId;
+                    rd.ProductId = odds.ProductId;
+                    rd.PromotionId = "";
+                    rd.Qty = odds.Qty;
+                    rd.Price = odds.Price;
+                    rd.TotalAmountBeforeTax = odds.AmmountBeforeTax;
+                    rd.TaxAmount = odds.TaxAmmount;
+                    rd.TotalAmount = odds.TotalAmount;
+                    rd.CreatedBy = Program.Username;
+                    rd.DeskId = "";
+                    lst_rd.Add(rd);
+                }
+            }
+            else
+            {
+                foreach (OrderDetails odds in orAll.lst_Detail)
+                {
+                    ReceiptDetails rd = new ReceiptDetails();
+                    rd.ReceiptId = "";
+                    rd.RefOrderId = odds.OrderId;
+                    rd.ProductId = odds.ProductId;
+                    rd.PromotionId = "";
+                    rd.Qty = odds.Qty;
+                    rd.Price = odds.Price;
+                    rd.TotalAmountBeforeTax = odds.AmmountBeforeTax;
+                    rd.TaxAmount = odds.TaxAmmount;
+                    rd.TotalAmount = odds.TotalAmount;
+                    rd.CreatedBy = Program.Username;
+                    rd.DeskId = "";
+
+                    lst_rd.Add(rd);
+                }
+            }
             if (Program.lstCard != null && Program.lstCard.Count > 0)
             {
                 foreach (ReceiptsCard card in Program.lstCard)

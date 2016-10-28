@@ -43,22 +43,19 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="Microsoft.ReportViewer.Common" version="11.0.0.0" publicKeyToken="89845DCD8080CC91" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Microsoft.ReportViewer.ProcessingObjectModel" version="9.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="Microsoft.ReportViewer.DataVisualization" version="11.0.0.0" publicKeyToken="89845DCD8080CC91" language="neutral" processorArchitecture="msil" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="Microsoft.ReportViewer.ProcessingObjectModel" version="11.0.0.0" publicKeyToken="89845DCD8080CC91" language="neutral" processorArchitecture="msil" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="Microsoft.ReportViewer.WinForms" version="11.0.0.0" publicKeyToken="89845DCD8080CC91" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ADODB.dll" size="126616">
+      <assemblyIdentity name="ADODB" version="7.0.3300.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>4+0YUGHR0QJdBz3ntxjvbw8IOkYX/RXojy2jjBEwWC8=</dsig:DigestValue>
+      </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
@@ -86,38 +83,62 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.SqlServer.Types.dll" size="387264">
-      <assemblyIdentity name="Microsoft.SqlServer.Types" version="11.0.0.0" publicKeyToken="89845DCD8080CC91" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Build.Utilities.v3.5.dll" size="94208">
+      <assemblyIdentity name="Microsoft.Build.Utilities.v3.5" version="3.5.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>J+g3hklX3iT7Q+Jz0BOyOjjTBtF9fevtiZPljJnVTJQ=</dsig:DigestValue>
+        <dsig:DigestValue>q0cX862QeYRDhIqqJeB0TKyIXZiy/RR8DOo66FhHkTY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.dll" size="388096">
-      <assemblyIdentity name="MySql.Data" version="6.5.7.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.ReportViewer.Common.dll" size="3649536">
+      <assemblyIdentity name="Microsoft.ReportViewer.Common" version="9.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vUwc+xlpxQBHaBu5iQdLmYBRVno7puYPEUFYpARjzIY=</dsig:DigestValue>
+        <dsig:DigestValue>EMToEUvHY/iGxsLRU9zEz1owj1MQsRaYbvRXyVGKmAg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.Entity.dll" size="280576">
-      <assemblyIdentity name="MySql.Data.Entity" version="6.5.7.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.ReportViewer.WinForms.dll" size="339968">
+      <assemblyIdentity name="Microsoft.ReportViewer.WinForms" version="9.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Rce5JNj6WSrE3HgRB/zLc+Qp7jOMZKJavuTa6WLxsIE=</dsig:DigestValue>
+        <dsig:DigestValue>njIBGfg+8OKrfZSsItYPfehjW2AAJz0ezXRBiQM1t+w=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.dll" size="438272">
+      <assemblyIdentity name="MySql.Data" version="6.7.4.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>sXi25+GR/+8DZ5xUdxFJHQgWF+JWOzMISRchLGvBjy8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.Entity.dll" size="308224">
+      <assemblyIdentity name="MySql.Data.Entity" version="6.7.4.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>M/LO705h8XscpD5UjKh11jG+U8o9KH/Jm8p1i9u/MQE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -129,7 +150,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DNDMIs6AYQnhPDVbk/9KeWfJUIuplq2pWSBSq2xw8cU=</dsig:DigestValue>
+        <dsig:DigestValue>68rXns/foX5By0EPmtnALJ/rSzXlcODq6ulQ2xI6dtc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -141,7 +162,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>I64PkwSzBjX+rLWQPHbasbVDvX2kY3U3uhkWTd5KXHc=</dsig:DigestValue>
+        <dsig:DigestValue>m6QivjkXyIus5C6VVhOXG8GjjqG/7O4MCGZYGqooMbg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -163,31 +184,13 @@
       <dsig:DigestValue>+nZDv0ZO4PJDXCSphjkjkn958D5koONj8NaWXau5uGA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="bin\Debug\MySql.Data.dll" size="388096">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>vUwc+xlpxQBHaBu5iQdLmYBRVno7puYPEUFYpARjzIY=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="bin\Debug\MySql.Data.Entity.dll" size="280576">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Rce5JNj6WSrE3HgRB/zLc+Qp7jOMZKJavuTa6WLxsIE=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="bin\Debug\vi-VN\VVPosM1.resources.dll" size="9216">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>skI0ZmHMc0LtwLDnYXAqiLyzJw489WaY7ndrWfLBuGg=</dsig:DigestValue>
+      <dsig:DigestValue>m6QivjkXyIus5C6VVhOXG8GjjqG/7O4MCGZYGqooMbg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="bin\Debug\VVPosM1.exe" size="12333568">
@@ -196,16 +199,16 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>m35F00xNKp4ciiD0j7neUiAlvsv/SiUcSw7bB8m0Cb8=</dsig:DigestValue>
+      <dsig:DigestValue>68rXns/foX5By0EPmtnALJ/rSzXlcODq6ulQ2xI6dtc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="bin\Debug\VVPosM1.pdb" size="1324544">
+  <file name="bin\Debug\VVPosM1.pdb" size="1328640">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>9ShueqrIrxPsiyP9FjNzdHBD7DHd1NWGn6lrf5C7Xy0=</dsig:DigestValue>
+      <dsig:DigestValue>hapOGwfEaGY5gsb7Fp8YKtYLtHxcOlT8QsJb6PMaYdE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="bin\Debug\VVPosM1.vshost.exe" size="22688">
@@ -241,16 +244,16 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>I64PkwSzBjX+rLWQPHbasbVDvX2kY3U3uhkWTd5KXHc=</dsig:DigestValue>
+      <dsig:DigestValue>m6QivjkXyIus5C6VVhOXG8GjjqG/7O4MCGZYGqooMbg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="obj\Debug\VVPosM1.csproj.FileListAbsolute.txt" size="17410">
+  <file name="obj\Debug\VVPosM1.csproj.FileListAbsolute.txt" size="22513">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>B17S3R10gN2Q7zm2OixagH6s2A0gbU5aEpfAfP/FW+o=</dsig:DigestValue>
+      <dsig:DigestValue>AGrT5eAWfdAxCMLCJXN7VOqHmN3/8fdkZQ81iyx/dzQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="obj\Debug\VVPosM1.exe" size="12333568">
@@ -259,7 +262,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>DNDMIs6AYQnhPDVbk/9KeWfJUIuplq2pWSBSq2xw8cU=</dsig:DigestValue>
+      <dsig:DigestValue>68rXns/foX5By0EPmtnALJ/rSzXlcODq6ulQ2xI6dtc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\accept.ico" size="432254">

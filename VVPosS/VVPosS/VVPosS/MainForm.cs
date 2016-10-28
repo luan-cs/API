@@ -121,6 +121,7 @@ namespace VVPosS
         private bool DoPrinting()
         {
             PrintDocument pd = new PrintDocument();
+            pd.PrinterSettings.PrinterName = ConfigurationManager.AppSettings["Printer"];
             pd.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("A7", 300, 10000);
             pd.PrintPage += new PrintPageEventHandler(this.printDocument1_PrintPage);
             pd.Print();
@@ -458,7 +459,7 @@ namespace VVPosS
         {
             ReceiptsBLL objBLL = new ReceiptsBLL();
             // load data hoa don
-            DataTable rcAll = objBLL.GetReceipts();
+            rcAll = objBLL.GetAllReceiptsToday();
 
             if (rcAll == null)
             {

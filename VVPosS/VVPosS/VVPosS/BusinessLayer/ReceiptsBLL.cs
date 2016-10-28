@@ -358,10 +358,12 @@ namespace VVPosS.BusinessLayer
             return res;
         }
 
-        public DataTable GetReceipts()
+        public DataTable GetAllReceiptsToday()
         {
             DataSet ds = new DataSet();
-            Program.destopService.DataStoreProcQuery(Program.Username, Program.Password, "spSelect_Receipts", ref ds, ref errorString);
+            string query = @"SELECT * FROM `receipts` WHERE SUBSTRING(`ReceiptId`,3,8) = CURDATE() + 0";
+
+            Program.destopService.DataQuery(Program.Username, Program.Password, query, ref ds, "X", ref errorString);
 
             if (string.IsNullOrEmpty(errorString) && ds.Tables[0].Rows.Count > 0)
             {
@@ -518,27 +520,17 @@ namespace VVPosS.BusinessLayer
         public string GetCurDateServer()
         {
             DataTable dt = new DataTable();
-            string query = "SELECT DAYOFMONTH(CURDATE()) as day, MONTH(CURDATE()) as month, YEAR(CURDATE()) as year";
+            string query = "SELECT CURDATE() + 0";
             DataSet dataset = new DataSet();
             Program.destopService.DataQuery(Program.Username, Program.Password, query, ref dataset, "X", ref errorString);
 
+            string middleId = "";
             if (string.IsNullOrEmpty(errorString) && dataset.Tables[0].Rows.Count > 0)
             {
                 dt = dataset.Tables["X"];
+                middleId = dt.Rows[0][0].ToString();
             }
-            else
-            {
-                dt = null;
-            }
-            string middleId = "";
-            if (dt != null)
-            {
-                middleId = dt.Rows[0]["year"].ToString().Substring(2, 2)
-                    + (Int32.Parse(dt.Rows[0]["month"].ToString()) <= 9 ? "0" + dt.Rows[0]["month"].ToString()
-                    : dt.Rows[0]["month"].ToString())
-                    + (Int32.Parse(dt.Rows[0]["day"].ToString()) <= 9 ? "0" + dt.Rows[0]["day"].ToString()
-                    : dt.Rows[0]["day"].ToString());
-            }
+            
             return middleId;
         }
 

@@ -14,17 +14,17 @@ MySQL - 5.6.26 : Database - pos_hdt
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`pos_hdt` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
 
-USE `pos_hdt`;
+USE `pos_luan`;
 
 /*Table structure for table `commoncode` */
 
 DROP TABLE IF EXISTS `commoncode`;
 
 CREATE TABLE `commoncode` (
-  `CommonTypeId` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `CommonId` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `StrValue1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `StrValue2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CommonTypeId` VARCHAR(20) COLLATE utf8_unicode_ci NOT NULL,
+  `CommonId` VARCHAR(20) COLLATE utf8_unicode_ci NOT NULL,
+  `StrValue1` VARCHAR(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `StrValue2` VARCHAR(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `NumValue1` decimal(20,0) DEFAULT NULL,
   `NumValue2` decimal(20,0) DEFAULT NULL,
   `CreatedBy` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,

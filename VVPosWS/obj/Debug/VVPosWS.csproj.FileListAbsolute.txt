@@ -24,3 +24,12 @@ D:\VVPos\VVPOSWS\VVPosWS\bin\VVPosWS.pdb
 D:\VVPos\VVPOSWS\VVPosWS\obj\Debug\VVPosWS.dll
 D:\VVPos\VVPOSWS\VVPosWS\obj\Debug\VVPosWS.pdb
 D:\VVPos\VVPOSWS\VVPosWS\obj\Debug\VVPosWS.csprojResolveAssemblyReference.cache
+D:\DATA\ABC\PROJECTs\POSStandard\trunk\VVPosWS\bin\VVPosWS.dll.config
+D:\DATA\ABC\PROJECTs\POSStandard\trunk\VVPosWS\bin\VVPosWS.dll
+D:\DATA\ABC\PROJECTs\POSStandard\trunk\VVPosWS\bin\VVPosWS.pdb
+D:\DATA\ABC\PROJECTs\POSStandard\trunk\VVPosWS\obj\Debug\VVPosWS.csprojResolveAssemblyReference.cache
+D:\DATA\ABC\PROJECTs\POSStandard\trunk\VVPosWS\obj\Debug\VVPosWS.dll
+D:\DATA\ABC\PROJECTs\POSStandard\trunk\VVPosWS\obj\Debug\VVPosWS.pdb
+D:\DATA\ABC\PROJECTs\POSStandard\trunk\VVPosWS\bin\Excel.dll
+D:\DATA\ABC\PROJECTs\POSStandard\trunk\VVPosWS\bin\MySql.Data.dll
+D:\DATA\ABC\PROJECTs\POSStandard\trunk\VVPosWS\bin\MySql.Data.Entity.dll

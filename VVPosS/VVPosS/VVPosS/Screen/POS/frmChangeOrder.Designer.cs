@@ -39,7 +39,7 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(64)))), ((int)(((byte)(75)))));
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
@@ -54,6 +54,7 @@
             // lblReceiptId
             // 
             this.lblReceiptId.AutoSize = true;
+            this.lblReceiptId.BackColor = System.Drawing.Color.Transparent;
             this.lblReceiptId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReceiptId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
             this.lblReceiptId.Location = new System.Drawing.Point(12, 88);
@@ -78,6 +79,7 @@
             // lblNotes
             // 
             this.lblNotes.AutoSize = true;
+            this.lblNotes.BackColor = System.Drawing.Color.Transparent;
             this.lblNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
             this.lblNotes.Location = new System.Drawing.Point(12, 139);
@@ -98,9 +100,12 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCancel.BackgroundImage = global::VVPosS.Properties.Resources.button_basic_01;
+            this.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(66)))), ((int)(((byte)(78)))));
+            this.btnCancel.Image = global::VVPosS.Properties.Resources.delete_icon;
             this.btnCancel.Location = new System.Drawing.Point(366, 304);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(177, 59);
@@ -113,9 +118,12 @@
             // btnOK
             // 
             this.btnOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnOK.BackgroundImage = global::VVPosS.Properties.Resources.button_basic_01;
+            this.btnOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(66)))), ((int)(((byte)(78)))));
+            this.btnOK.Image = global::VVPosS.Properties.Resources.check_icon;
             this.btnOK.Location = new System.Drawing.Point(183, 304);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(177, 59);
@@ -130,6 +138,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(136)))), ((int)(((byte)(161)))));
+            this.BackgroundImage = global::VVPosS.Properties.Resources.backgroud;
             this.ClientSize = new System.Drawing.Size(630, 375);
             this.Controls.Add(this.rtxtNotes);
             this.Controls.Add(this.lblNotes);

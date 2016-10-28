@@ -25,7 +25,7 @@ namespace VVPosS.Screen.POS
         {
             label1.Text = "Hủy Hóa Đơn";
             lblNotes.Text = clsLanguages.GetResource("Notes");
-            lblReceiptId.Text = clsLanguages.GetResource("ReceiptId1");
+            lblReceiptId.Text = clsLanguages.GetResource("ReceiptNumber");
             btnOK.Text = clsLanguages.GetResource("Agree");
             btnCancel.Text = clsLanguages.GetResource("Exit");
         }
@@ -72,32 +72,30 @@ namespace VVPosS.Screen.POS
                     int iId = Int32.Parse(txtReceiptId.Text.Trim());
                     if (iId < 10)
                     {
-                        strId = "00000" + iId;
+                        strId = "0000" + iId;
                     }
                     else if (iId >= 10 && iId <= 99)
                     {
-                        strId = "0000" + iId;
+                        strId = "000" + iId;
                     }
                     else if (iId >= 100 && iId <= 999)
                     {
-                        strId = "000" + iId;
+                        strId = "00" + iId;
                     }
                     else if (iId >= 1000 && iId <= 9999)
                     {
-                        strId = "00" + iId;
+                        strId = "0" + iId;
                     }
                     else if (iId >= 10000 && iId <= 99999)
                     {
-                        strId = "0" + iId;
-                    }
-                    else if (iId >= 100000 && iId <= 999999)
-                    {
                         strId = iId.ToString();
                     }
+                    
                     string notes = rtxtNotes.Text;
                     if (receiptBll.GetReceiptById(strFirst + strMiddle + strId))
                     {
                         receiptBll.CancelReceipt(strFirst + strMiddle + strId, notes);
+                        result = true;
                     }
                     else
                     {
@@ -109,7 +107,7 @@ namespace VVPosS.Screen.POS
                         return;
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
                     CustomMessageBox.MessageBox.ShowCustomMessageBox("Không thành công.",
                                     clsLanguages.GetResource("Information"),
