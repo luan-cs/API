@@ -70,12 +70,32 @@ namespace VVPosS.BusinessLayer
 
             if (ok == true)
             {
+                /// Cập nhật thời gian đăng nhập
+                UpdateLastLogin(pIdOrUsername);
+
                 Program.Username = pIdOrUsername;
                 Program.Password = pPassword;
                 Program.users = GetByIdOrUsername(pIdOrUsername);
             }
 
             return ok;
+        }
+
+        public int UpdateLastLogin(string id)
+        {
+            /// 1: update thành công
+            /// 0: Update ko thành công
+            int res = 0;
+            string queryStr = "UPDATE `users` SET ";
+            queryStr += " `LastLogin` = NOW()";
+            queryStr += string.Format(" WHERE UserId = '{0}'", id);
+
+            Program.destopService.DataExecute(Program.Username, Program.Password, queryStr, ref errorString);
+            if (string.IsNullOrEmpty(errorString))
+            {
+                res = 1;
+            }
+            return res;
         }
 
         public DataTable GetObjectIdByUserId(string userid) {
@@ -104,6 +124,7 @@ namespace VVPosS.BusinessLayer
                 new string[] {"p_Pwd",obj.Pwd},
             };
             Program.destopService.DataStoreProcExecute(Program.Username, Program.Password, "spChangePassword_User", ref errorString, param, ref res);
+
         }
 
 

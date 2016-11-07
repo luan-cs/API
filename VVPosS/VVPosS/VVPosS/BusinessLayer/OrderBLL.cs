@@ -248,7 +248,7 @@ namespace VVPosS.BusinessLayer
                     Orders rc = new Orders();
                     rc.OrderId = dr["OrderId"].ToString();
                     rc.CreatedBy = dr["CreatedBy"].ToString();
-                    rc.CreateDate = dr["CreatedDate"].ToString();
+                    rc.CreateDate = Convert.ToDateTime(dr["CreatedDate"].ToString()).ToString("dd/MM/yy H:s");
                     rc.TotalAmountBeforeTax = double.Parse(dr["TotalAmountBeforeTax"].ToString()).ToString("0,0");
                     rc.TotalTax = double.Parse(dr["TotalTax"].ToString()).ToString("0,0");
                     rc.TotalMoney = double.Parse(dr["TotalMoney"].ToString()).ToString("0,0");

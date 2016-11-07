@@ -80,11 +80,11 @@ namespace VVPosS
 
             try
             {
-                EmployeeBLL employeeBLL = new EmployeeBLL();
-                Employees employees = new Employees();
-                employees.UserName = Program.Username;
-                employees.Password = Program.ConvertStringToMD5(txtNewPassword.Text.Trim());
-                employeeBLL.ChangePassword(employees);
+                UsersBLL userBLL = new UsersBLL();
+                Users user = new Users();
+                user.UserId = Program.Username;
+                user.Pwd = Program.ConvertStringToMD5(txtNewPassword.Text.Trim());
+                userBLL.ChangePassword(user);
                 CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("ChangePasswordSuccess"),
                                 Common.clsLanguages.GetResource("Information"),
                                 Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
@@ -92,7 +92,7 @@ namespace VVPosS
                 frmLogin frm = (frmLogin)Application.OpenForms["frmLogin"];
                 frm.SetUIChanges();
                 frm.Show();
-                Application.OpenForms["frmMain"].Close();
+                Application.OpenForms["MainForm"].Close();
                 this.Close();
             }
             catch (Exception)

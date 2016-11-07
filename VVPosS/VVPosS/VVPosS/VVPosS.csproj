@@ -283,12 +283,6 @@
     <Compile Include="Screen\POS\frmManageDesk.Designer.cs">
       <DependentUpon>frmManageDesk.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screen\POS\frmMemberReceipt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screen\POS\frmMemberReceipt.designer.cs">
-      <DependentUpon>frmMemberReceipt.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screen\POS\frmOrderList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,6 +306,12 @@
     </Compile>
     <Compile Include="Screen\POS\frmDesk.designer.cs">
       <DependentUpon>frmDesk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\POS\NoteOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\POS\NoteOrderForm.Designer.cs">
+      <DependentUpon>NoteOrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Screen\POS\PayForm.cs">
       <SubType>Form</SubType>
@@ -407,9 +407,6 @@
     <EmbeddedResource Include="Screen\POS\frmManageDesk.resx">
       <DependentUpon>frmManageDesk.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screen\POS\frmMemberReceipt.resx">
-      <DependentUpon>frmMemberReceipt.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Screen\POS\frmOrderList.resx">
       <DependentUpon>frmOrderList.cs</DependentUpon>
     </EmbeddedResource>
@@ -422,6 +419,9 @@
     <EmbeddedResource Include="Screen\POS\frmDesk.resx">
       <DependentUpon>frmDesk.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screen\POS\NoteOrderForm.resx">
+      <DependentUpon>NoteOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screen\POS\PayForm.resx">
       <DependentUpon>PayForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -431,6 +431,12 @@
     <EmbeddedResource Include="Temp.resx">
       <DependentUpon>Temp.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\LangResource.xls" />
+    <None Include="bin\Debug\VVPosS.exe.config" />
+    <None Include="bin\Debug\VVPosS.vshost.exe.config" />
+    <None Include="bin\Release\LangResource.xls" />
+    <None Include="bin\Release\VVPosS.exe.config" />
+    <None Include="bin\Release\VVPosS.vshost.exe.config" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -524,6 +530,23 @@
     <None Include="Resources\martini.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\AnalogClockControl.dll" />
+    <Content Include="bin\Debug\Excel.dll" />
+    <Content Include="bin\Debug\MySql.Data.dll" />
+    <Content Include="bin\Debug\MySql.Data.Entity.dll" />
+    <Content Include="bin\Debug\vi-VN\VVPosS.resources.dll" />
+    <Content Include="bin\Debug\VVPosS.exe" />
+    <Content Include="bin\Debug\VVPosS.pdb" />
+    <Content Include="bin\Debug\VVPosS.vshost.exe" />
+    <Content Include="bin\Release\AnalogClockControl.dll" />
+    <Content Include="bin\Release\Excel.dll" />
+    <Content Include="bin\Release\MySql.Data.dll" />
+    <Content Include="bin\Release\MySql.Data.Entity.dll" />
+    <Content Include="bin\Release\vi-VN\VVPosS.resources.dll" />
+    <Content Include="bin\Release\VVPosS.exe" />
+    <Content Include="bin\Release\VVPosS.pdb" />
+    <Content Include="bin\Release\VVPosS.vshost.exe" />
+    <Content Include="bin\Release\VVPosS.XmlSerializers.dll" />
     <Content Include="Resources\1404805397_519574-070_Minus.png" />
     <Content Include="Resources\all-icon.png" />
     <Content Include="Resources\backgroud.jpg" />

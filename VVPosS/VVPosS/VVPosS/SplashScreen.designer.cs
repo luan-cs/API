@@ -61,7 +61,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::VVPosS.Properties.Resources.splash4;
             this.ClientSize = new System.Drawing.Size(425, 194);
             this.Controls.Add(this.lblInfor);
             this.Controls.Add(this.progressBar1);

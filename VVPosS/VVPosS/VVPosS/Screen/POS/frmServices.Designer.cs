@@ -33,6 +33,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pMTop = new System.Windows.Forms.Panel();
             this.pSubmenu = new System.Windows.Forms.Panel();
+            this.bntFinish = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.btnFrmPay = new System.Windows.Forms.Button();
             this.bntAll = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             this.btnGoNextMenu = new System.Windows.Forms.Button();
             this.btnGoPreMenu = new System.Windows.Forms.Button();
             this.pMBottom = new System.Windows.Forms.Panel();
+            this.bntFrmMain = new System.Windows.Forms.Button();
             this.linkNumber = new System.Windows.Forms.LinkLabel();
             this.btnGoNextPro = new System.Windows.Forms.Button();
             this.btnGoPrePro = new System.Windows.Forms.Button();
@@ -49,10 +51,10 @@
             this.pMCenter = new System.Windows.Forms.Panel();
             this.pTotal = new System.Windows.Forms.Panel();
             this.ckbIsPrint = new System.Windows.Forms.CheckBox();
-            this.txtDiscount = new System.Windows.Forms.TextBox();
-            this.lbDiscount = new System.Windows.Forms.Label();
             this.lbtotal = new System.Windows.Forms.Label();
             this.lbTotalLang = new System.Windows.Forms.Label();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
+            this.lbDiscount = new System.Windows.Forms.Label();
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
             this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stt = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,8 +70,6 @@
             this.colSub = new System.Windows.Forms.DataGridViewImageColumn();
             this.colIsBuffet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lstSp = new System.Windows.Forms.ListView();
-            this.bntFrmMain = new System.Windows.Forms.Button();
-            this.bntFinish = new System.Windows.Forms.Button();
             this.pMTop.SuspendLayout();
             this.pSubmenu.SuspendLayout();
             this.pMBottom.SuspendLayout();
@@ -109,6 +109,30 @@
             this.pSubmenu.Name = "pSubmenu";
             this.pSubmenu.Size = new System.Drawing.Size(1022, 82);
             this.pSubmenu.TabIndex = 20;
+            // 
+            // bntFinish
+            // 
+            this.bntFinish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bntFinish.BackColor = System.Drawing.Color.Transparent;
+            this.bntFinish.BackgroundImage = global::VVPosS.Properties.Resources.button_basic_02;
+            this.bntFinish.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bntFinish.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bntFinish.FlatAppearance.BorderSize = 0;
+            this.bntFinish.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.bntFinish.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.bntFinish.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.bntFinish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.bntFinish.ForeColor = System.Drawing.Color.Black;
+            this.bntFinish.Image = global::VVPosS.Properties.Resources.save_icon;
+            this.bntFinish.Location = new System.Drawing.Point(817, 11);
+            this.bntFinish.Name = "bntFinish";
+            this.bntFinish.Size = new System.Drawing.Size(100, 61);
+            this.bntFinish.TabIndex = 49;
+            this.bntFinish.Text = "Tam tinh";
+            this.bntFinish.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bntFinish.UseVisualStyleBackColor = false;
+            this.bntFinish.Click += new System.EventHandler(this.bntTamtinh_Click);
             // 
             // btnOrder
             // 
@@ -245,6 +269,30 @@
             this.pMBottom.Name = "pMBottom";
             this.pMBottom.Size = new System.Drawing.Size(1022, 72);
             this.pMBottom.TabIndex = 1;
+            // 
+            // bntFrmMain
+            // 
+            this.bntFrmMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bntFrmMain.BackColor = System.Drawing.Color.Transparent;
+            this.bntFrmMain.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bntFrmMain.BackgroundImage")));
+            this.bntFrmMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bntFrmMain.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bntFrmMain.FlatAppearance.BorderSize = 0;
+            this.bntFrmMain.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.bntFrmMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.bntFrmMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.bntFrmMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntFrmMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntFrmMain.ForeColor = System.Drawing.Color.Black;
+            this.bntFrmMain.Image = global::VVPosS.Properties.Resources.thoat_icon;
+            this.bntFrmMain.Location = new System.Drawing.Point(915, 6);
+            this.bntFrmMain.Name = "bntFrmMain";
+            this.bntFrmMain.Size = new System.Drawing.Size(105, 61);
+            this.bntFrmMain.TabIndex = 48;
+            this.bntFrmMain.Text = "Main";
+            this.bntFrmMain.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bntFrmMain.UseVisualStyleBackColor = false;
+            this.bntFrmMain.Click += new System.EventHandler(this.bntFrmMain_Click);
             // 
             // linkNumber
             // 
@@ -400,10 +448,10 @@
             this.pTotal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pTotal.Controls.Add(this.ckbIsPrint);
-            this.pTotal.Controls.Add(this.txtDiscount);
-            this.pTotal.Controls.Add(this.lbDiscount);
             this.pTotal.Controls.Add(this.lbtotal);
             this.pTotal.Controls.Add(this.lbTotalLang);
+            this.pTotal.Controls.Add(this.txtDiscount);
+            this.pTotal.Controls.Add(this.lbDiscount);
             this.pTotal.Location = new System.Drawing.Point(416, -1);
             this.pTotal.Margin = new System.Windows.Forms.Padding(0);
             this.pTotal.Name = "pTotal";
@@ -413,6 +461,7 @@
             // ckbIsPrint
             // 
             this.ckbIsPrint.BackColor = System.Drawing.Color.Transparent;
+            this.ckbIsPrint.Enabled = false;
             this.ckbIsPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbIsPrint.Location = new System.Drawing.Point(243, 76);
             this.ckbIsPrint.Name = "ckbIsPrint";
@@ -421,6 +470,29 @@
             this.ckbIsPrint.Text = "In ra bếp";
             this.ckbIsPrint.UseVisualStyleBackColor = false;
             this.ckbIsPrint.CheckedChanged += new System.EventHandler(this.ckbIsPrint_CheckedChanged);
+            // 
+            // lbtotal
+            // 
+            this.lbtotal.BackColor = System.Drawing.Color.White;
+            this.lbtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtotal.ForeColor = System.Drawing.Color.Red;
+            this.lbtotal.Location = new System.Drawing.Point(240, 12);
+            this.lbtotal.Name = "lbtotal";
+            this.lbtotal.Size = new System.Drawing.Size(258, 64);
+            this.lbtotal.TabIndex = 1;
+            this.lbtotal.Text = "0";
+            this.lbtotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbTotalLang
+            // 
+            this.lbTotalLang.BackColor = System.Drawing.Color.Transparent;
+            this.lbTotalLang.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalLang.Location = new System.Drawing.Point(47, 22);
+            this.lbTotalLang.Name = "lbTotalLang";
+            this.lbTotalLang.Size = new System.Drawing.Size(190, 41);
+            this.lbTotalLang.TabIndex = 0;
+            this.lbTotalLang.Text = "Tổng cộng";
+            this.lbTotalLang.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtDiscount
             // 
@@ -449,29 +521,6 @@
             this.lbDiscount.Text = "Discount";
             this.lbDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbDiscount.Visible = false;
-            // 
-            // lbtotal
-            // 
-            this.lbtotal.BackColor = System.Drawing.Color.White;
-            this.lbtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lbtotal.ForeColor = System.Drawing.Color.Red;
-            this.lbtotal.Location = new System.Drawing.Point(240, 41);
-            this.lbtotal.Name = "lbtotal";
-            this.lbtotal.Size = new System.Drawing.Size(258, 35);
-            this.lbtotal.TabIndex = 1;
-            this.lbtotal.Text = "0";
-            this.lbtotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbTotalLang
-            // 
-            this.lbTotalLang.BackColor = System.Drawing.Color.Transparent;
-            this.lbTotalLang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lbTotalLang.Location = new System.Drawing.Point(47, 34);
-            this.lbTotalLang.Name = "lbTotalLang";
-            this.lbTotalLang.Size = new System.Drawing.Size(190, 41);
-            this.lbTotalLang.TabIndex = 0;
-            this.lbTotalLang.Text = "Tổng cộng";
-            this.lbTotalLang.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // DataGridView1
             // 
@@ -608,54 +657,6 @@
             this.lstSp.TabIndex = 1;
             this.lstSp.UseCompatibleStateImageBehavior = false;
             this.lstSp.Click += new System.EventHandler(this.lstSp_Click);
-            // 
-            // bntFrmMain
-            // 
-            this.bntFrmMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bntFrmMain.BackColor = System.Drawing.Color.Transparent;
-            this.bntFrmMain.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bntFrmMain.BackgroundImage")));
-            this.bntFrmMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bntFrmMain.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bntFrmMain.FlatAppearance.BorderSize = 0;
-            this.bntFrmMain.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.bntFrmMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.bntFrmMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.bntFrmMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntFrmMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntFrmMain.ForeColor = System.Drawing.Color.Black;
-            this.bntFrmMain.Image = global::VVPosS.Properties.Resources.thoat_icon;
-            this.bntFrmMain.Location = new System.Drawing.Point(915, 6);
-            this.bntFrmMain.Name = "bntFrmMain";
-            this.bntFrmMain.Size = new System.Drawing.Size(105, 61);
-            this.bntFrmMain.TabIndex = 48;
-            this.bntFrmMain.Text = "Main";
-            this.bntFrmMain.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bntFrmMain.UseVisualStyleBackColor = false;
-            this.bntFrmMain.Click += new System.EventHandler(this.bntFrmMain_Click);
-            // 
-            // bntFinish
-            // 
-            this.bntFinish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bntFinish.BackColor = System.Drawing.Color.Transparent;
-            this.bntFinish.BackgroundImage = global::VVPosS.Properties.Resources.button_basic_02;
-            this.bntFinish.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bntFinish.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bntFinish.FlatAppearance.BorderSize = 0;
-            this.bntFinish.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.bntFinish.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.bntFinish.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.bntFinish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.bntFinish.ForeColor = System.Drawing.Color.Black;
-            this.bntFinish.Image = global::VVPosS.Properties.Resources.save_icon;
-            this.bntFinish.Location = new System.Drawing.Point(817, 11);
-            this.bntFinish.Name = "bntFinish";
-            this.bntFinish.Size = new System.Drawing.Size(100, 61);
-            this.bntFinish.TabIndex = 49;
-            this.bntFinish.Text = "Tam tinh";
-            this.bntFinish.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bntFinish.UseVisualStyleBackColor = false;
-            this.bntFinish.Click += new System.EventHandler(this.bntTamtinh_Click);
             // 
             // frmServices
             // 

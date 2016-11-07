@@ -155,6 +155,7 @@
             // 
             this.rdYes.AutoSize = true;
             this.rdYes.Checked = true;
+            this.rdYes.Enabled = false;
             this.rdYes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdYes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.rdYes.Location = new System.Drawing.Point(241, 177);

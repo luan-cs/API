@@ -63,7 +63,7 @@ namespace VVPosS.Screen.POS
         {
             this.ckbIsPrint.Text = Common.clsLanguages.GetResource("PrintAtTheKitchen");
             //button
-            this.btnExit.Text = Common.clsLanguages.GetResource("MHDichVu");
+            this.btnExit.Text = Common.clsLanguages.GetResource("Exit");
             this.bntFinish.Text = Common.clsLanguages.GetResource("Save");
             this.btnALlOrders.Text = Common.clsLanguages.GetResource("All");
             this.btnDeskOrder.Text = Common.clsLanguages.GetResource("SelectATable");
@@ -80,8 +80,8 @@ namespace VVPosS.Screen.POS
             //dataGridViewListOrder
             this.dataGridViewListOrder.Columns[0].HeaderText = Common.clsLanguages.GetResource("No");//
             this.dataGridViewListOrder.Columns[1].HeaderText = Common.clsLanguages.GetResource("OrderIDNo");
-            this.dataGridViewListOrder.Columns[2].HeaderText = Common.clsLanguages.GetResource("TableIDNo");
-            this.dataGridViewListOrder.Columns[3].HeaderText = Common.clsLanguages.GetResource("TableOrderingInfo");
+            //this.dataGridViewListOrder.Columns[2].HeaderText = "TT Khách hàng";//Common.clsLanguages.GetResource("TableIDNo");
+            this.dataGridViewListOrder.Columns[3].HeaderText = "TT Khách hàng";//Common.clsLanguages.GetResource("TableOrderingInfo");
             this.dataGridViewListOrder.Columns[4].HeaderText = Common.clsLanguages.GetResource("TotalMoney");//
             this.dataGridViewListOrder.Columns[5].HeaderText = Common.clsLanguages.GetResource("CreateDate");//
 
@@ -147,6 +147,7 @@ namespace VVPosS.Screen.POS
             // Grid
             dataGridViewListOrder.Rows.Clear();
             dataGridViewReceiptDetail.Rows.Clear();
+            rtxtNotes.Clear();
 
             //Loaddata Order
             DataTable dtOrder = orderBLL.GetOrders_For_Payment(Option);
@@ -160,20 +161,20 @@ namespace VVPosS.Screen.POS
                     dataGridViewListOrder.Rows[i].Cells[1].Value = dr["OrderId"].ToString(); // OrderId
                     dataGridViewListOrder.Rows[i].Cells[2].Value = dr["DeskId"].ToString();
                     //string str = "Mã bàn: "+dr["DeskId"].ToString() +"\n"; //TT Bàn 
-                    string str = ""; //TT Bàn 
-                    DataTable dtDesk = orderBLL.GetDeskInfo(dr["DeskId"].ToString());
-                    if (dtDesk != null)
-                    {
-                        if (dtDesk.Rows.Count == 1)
-                        {
-                            DataRow drr = dtDesk.Rows[0];
-                            str = str + Common.clsLanguages.GetResource("TableIDNo") + ": " + drr["DeskNo"].ToString() + "\n";
-                            str = str + Common.clsLanguages.GetResource("Description") + ": " + drr["Description"].ToString() + "\n";
-                            str = str + Common.clsLanguages.GetResource("Location") + ": " + drr["DeskLocation"].ToString() + "\n";
-                        }
-                    }
+                    //string str = ""; //TT Bàn 
+                    //DataTable dtDesk = orderBLL.GetDeskInfo(dr["DeskId"].ToString());
+                    //if (dtDesk != null)
+                    //{
+                    //    if (dtDesk.Rows.Count == 1)
+                    //    {
+                    //        DataRow drr = dtDesk.Rows[0];
+                    //        str = str + Common.clsLanguages.GetResource("TableIDNo") + ": " + drr["DeskNo"].ToString() + "\n";
+                    //        str = str + Common.clsLanguages.GetResource("Description") + ": " + drr["Description"].ToString() + "\n";
+                    //        str = str + Common.clsLanguages.GetResource("Location") + ": " + drr["DeskLocation"].ToString() + "\n";
+                    //    }
+                    //}
 
-                    dataGridViewListOrder.Rows[i].Cells[3].Value = str;
+                    dataGridViewListOrder.Rows[i].Cells[3].Value = dr["Note"].ToString();
                     string str1 = Common.clsLanguages.GetResource("bankCardTotalPayAmount") + ": " + double.Parse(dr["TotalMoney"].ToString()).ToString("0,0") + "\n";
                     DataTable dtOr = orderBLL.GetPaymentOfOrder(dr["OrderId"].ToString());
                     if (dtOr != null)
@@ -212,6 +213,7 @@ namespace VVPosS.Screen.POS
             dataGridViewReceiptDetail.Rows.Clear();
             dt_OD = orderdetailBLL.GetListsDetailForPayment(OrderID);
             dt_O = orderBLL.GetLists(OrderID);
+            rtxtNotes.Text = dt_O.Rows[0]["Note"].ToString();
             if (double.Parse(string.IsNullOrEmpty(dt_O.Rows[0]["DisCountAmount"].ToString()) ? "0" : dt_O.Rows[0]["DisCountAmount"].ToString()) > 0)
             {
                 bHaveDiscount = true;
@@ -716,7 +718,7 @@ namespace VVPosS.Screen.POS
 
         private void dataGridViewListOrder_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewListOrder.RowCount <= 0) return;
+            if (dataGridViewListOrder.RowCount <= 0 || e.RowIndex < 0) return;
             string id = dataGridViewListOrder.Rows[e.RowIndex].Cells[1].Value.ToString();
             sOrderId = id;
 
@@ -1014,6 +1016,10 @@ namespace VVPosS.Screen.POS
                 //this.Visible = false;
                 payForm = new Screen.POS.PayForm(sOrderId);
                 payForm.ShowDialog();
+
+                //Refresh Form
+                LoadData_Orders_And_Refresh(0);
+                IsAll = true;
                 //AddFormToMainPanel(frmServices);
 
             }

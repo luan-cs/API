@@ -172,7 +172,7 @@ namespace VVPosS.BusinessLayer
                     Receipts rc = new Receipts();
                     rc.ReceiptId = dr["ReceiptId"].ToString();
                     rc.CreatedBy = dr["CreatedBy"].ToString();
-                    rc.CreatedDate = dr["CreatedDate"].ToString();
+                    rc.CreatedDate = Convert.ToDateTime(dr["CreatedDate"].ToString()).ToString("dd/MM/yy H:s");
                     rc.TotalAmountBeforeTax = double.Parse(dr["TotalAmountBeforeTax"].ToString()).ToString("0,0");
                     rc.TotalTax = double.Parse(dr["TotalTax"].ToString()).ToString("0,0");
                     rc.TotalAmount = double.Parse(dr["TotalAmount"].ToString()).ToString("0,0");

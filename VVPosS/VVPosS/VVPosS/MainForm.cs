@@ -19,17 +19,27 @@ namespace VVPosS
         private frmServices frmServices;
         private frmChangePassword frmChangePassword;
         private frmOrderList frmOrderList;
-        private frmChangeOrder frmChangeOrder;
+        //private frmChangeOrder frmChangeOrder;
 
         public MainForm()
         {
             InitializeComponent();
             SetUIChange();
+
+            // Version
+            System.Reflection.Assembly a = System.Reflection.Assembly.GetExecutingAssembly();
+            System.Reflection.AssemblyName an = a.GetName();
+            //FileVersionInfo fv = System.Diagnostics.FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
+            //Version v = an.Version;
+            this.Text = "Point of View - Product of HD Tech - Version  Trial " /*+ an.Name*/ + " - v" + an.Version.Major + "." + an.Version.Minor + " - Update: " + System.IO.File.GetLastWriteTime(a.ManifestModule.ToString()).ToString("dd MMM yyyy");
         }
 
         private void SetUIChange()
         {
-            lbCompayInfor.Text = "";
+            lbCompayInfor.Text = Common.clsLanguages.GetResource("MerchantName")
+                + "\n" + Common.clsLanguages.GetResource("MerchantAddress")
+                + "\n" + Common.clsLanguages.GetResource("MerchantTel")
+                + "\n" + Common.clsLanguages.GetResource("MerchantWeb");
             this.pbImage.Image = Common.Utility.GetImageFromService("Users", Program.ImageUser);
             lbFullname.Text = Program.FullName + "\nLast login: " + Program.users.LastLogin + "\nLast change password: " + Program.users.ModifiedDate;
 

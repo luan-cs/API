@@ -42,7 +42,6 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.bntLogout = new System.Windows.Forms.Button();
             this.bntChangePass = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.pbImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -50,7 +49,6 @@
             this.splitContainer1.SuspendLayout();
             this.tblMain.SuspendLayout();
             this.tblUtil.SuspendLayout();
-            this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,10 +70,10 @@
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer1.Panel2.BackgroundImage = global::VVPosS.Properties.Resources.backgroud;
+            this.splitContainer1.Panel2.Controls.Add(this.pbImage);
             this.splitContainer1.Panel2.Controls.Add(this.lbCompayInfor);
             this.splitContainer1.Panel2.Controls.Add(this.lbFullname);
             this.splitContainer1.Panel2.Controls.Add(this.tblUtil);
-            this.splitContainer1.Panel2.Controls.Add(this.panel7);
             this.splitContainer1.Size = new System.Drawing.Size(919, 573);
             this.splitContainer1.SplitterDistance = 332;
             this.splitContainer1.TabIndex = 0;
@@ -113,14 +111,14 @@
             this.bntShowTemp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bntShowTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bntShowTemp.ForeColor = System.Drawing.Color.Black;
-            this.bntShowTemp.Image = global::VVPosS.Properties.Resources.ds_tamtinh_icon;
+            this.bntShowTemp.Image = global::VVPosS.Properties.Resources.ds_order_icon;
             this.bntShowTemp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.bntShowTemp.Location = new System.Drawing.Point(3, 122);
             this.bntShowTemp.Name = "bntShowTemp";
             this.bntShowTemp.Size = new System.Drawing.Size(152, 114);
             this.bntShowTemp.TabIndex = 43;
             this.bntShowTemp.Text = "DS Order";
-            this.bntShowTemp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bntShowTemp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.bntShowTemp.UseVisualStyleBackColor = false;
             this.bntShowTemp.Click += new System.EventHandler(this.bntShowTemp_Click);
             // 
@@ -224,7 +222,7 @@
             this.lbFullname.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lbFullname.Location = new System.Drawing.Point(463, 73);
             this.lbFullname.Name = "lbFullname";
-            this.lbFullname.Size = new System.Drawing.Size(283, 161);
+            this.lbFullname.Size = new System.Drawing.Size(306, 161);
             this.lbFullname.TabIndex = 24;
             this.lbFullname.Text = "label1";
             this.lbFullname.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -344,26 +342,17 @@
             this.bntChangePass.UseVisualStyleBackColor = false;
             this.bntChangePass.Click += new System.EventHandler(this.bntChangePass_Click);
             // 
-            // panel7
-            // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel7.BackColor = System.Drawing.Color.Transparent;
-            this.panel7.Controls.Add(this.pbImage);
-            this.panel7.Location = new System.Drawing.Point(752, 73);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(167, 161);
-            this.panel7.TabIndex = 24;
-            // 
             // pbImage
             // 
+            this.pbImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbImage.BackColor = System.Drawing.Color.Transparent;
             this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbImage.Image = global::VVPosS.Properties.Resources.user_image;
             this.pbImage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pbImage.InitialImage = null;
-            this.pbImage.Location = new System.Drawing.Point(22, 3);
+            this.pbImage.Location = new System.Drawing.Point(780, 70);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(123, 149);
+            this.pbImage.Size = new System.Drawing.Size(134, 149);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbImage.TabIndex = 23;
             this.pbImage.TabStop = false;
@@ -390,7 +379,6 @@
             this.splitContainer1.ResumeLayout(false);
             this.tblMain.ResumeLayout(false);
             this.tblUtil.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
 
@@ -403,7 +391,6 @@
         private System.Windows.Forms.Button btnCancelReceipt;
         private System.Windows.Forms.TableLayoutPanel tblMain;
         private System.Windows.Forms.Button bntShowTemp;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label lbFullname;
         private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.TableLayoutPanel tblUtil;

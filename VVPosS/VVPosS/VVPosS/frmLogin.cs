@@ -137,24 +137,24 @@ namespace VVPosS
                                 Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
                 return;
             }
-            if (chkAdvanced.Checked==true)
-            {
-                string tss = txtServer.Text;
-                tss = tss.Replace("http://", "");
-                tss = tss.Replace("/", "");
-                Program.urlImage = tss;
-                Program.destopService.Url = "http://" + tss + "/VVPosService/VVPosService.asmx";
+            //if (chkAdvanced.Checked == true)
+            //{
+            //    string tss = txtServer.Text;
+            //    tss = tss.Replace("http://", "");
+            //    tss = tss.Replace("/", "");
+            //    Program.urlImage = tss;
+            //    Program.destopService.Url = "http://" + tss + "/VVPosService.asmx";
 
-                Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                configuration.AppSettings.Settings["MyLastURL"].Value = tss;
-                configuration.Save();
+            //    Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            //    configuration.AppSettings.Settings["MyLastURL"].Value = tss;
+            //    configuration.Save();
 
-               ConfigurationManager.RefreshSection("appSettings");   
- 
-               string APPNODE = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + ".Properties.Settings";
-               string val = "http://" + txtServer.Text.Trim() + "/VVPosService/VVPosService.asmx";
-               Common.Utility.UpdateApplicationSettings(APPNODE, "VVPosS_VVPosService_VVPosService", val);
-            }
+            //    ConfigurationManager.RefreshSection("appSettings");
+
+            //    string APPNODE = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + ".Properties.Settings";
+            //    string val = "http://" + txtServer.Text.Trim() + "/VVPosService.asmx";
+            //    Common.Utility.UpdateApplicationSettings(APPNODE, "VVPosS_VVPosService_VVPosService", val);
+            //}
             try
             {
 
@@ -182,10 +182,10 @@ namespace VVPosS
 
                             MainForm frm = new MainForm();
                             frm.Show();
-                            //txtUsername.Clear();
-                            //txtPassword.Clear();
+                            txtUsername.Clear();
+                            txtPassword.Clear();
                             //cbbLanguage.SelectedIndex = -1;
-                            //txtUsername.Focus();
+                            txtUsername.Focus();
                             this.Hide();
                         }
                         else

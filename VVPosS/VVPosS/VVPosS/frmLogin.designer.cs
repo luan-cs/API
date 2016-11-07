@@ -149,6 +149,7 @@
             // chkAdvanced
             // 
             this.chkAdvanced.AutoSize = true;
+            this.chkAdvanced.Enabled = false;
             this.chkAdvanced.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkAdvanced.Location = new System.Drawing.Point(324, 104);
             this.chkAdvanced.Name = "chkAdvanced";
@@ -183,6 +184,7 @@
             // cbbLanguage
             // 
             this.cbbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbLanguage.Enabled = false;
             this.cbbLanguage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbLanguage.FormattingEnabled = true;
             this.cbbLanguage.Location = new System.Drawing.Point(324, 9);

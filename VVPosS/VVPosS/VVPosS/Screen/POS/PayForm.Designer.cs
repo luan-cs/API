@@ -124,7 +124,7 @@
             this.lblServiceCharge.BackColor = System.Drawing.Color.Transparent;
             this.lblServiceCharge.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblServiceCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServiceCharge.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblServiceCharge.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblServiceCharge.Location = new System.Drawing.Point(242, 72);
             this.lblServiceCharge.Name = "lblServiceCharge";
             this.lblServiceCharge.Size = new System.Drawing.Size(130, 16);
@@ -150,7 +150,7 @@
             this.lblTotalAfterTax.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalAfterTax.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblTotalAfterTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAfterTax.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblTotalAfterTax.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblTotalAfterTax.Location = new System.Drawing.Point(241, 50);
             this.lblTotalAfterTax.Name = "lblTotalAfterTax";
             this.lblTotalAfterTax.Size = new System.Drawing.Size(117, 16);
@@ -407,7 +407,7 @@
             this.lblCard.BackColor = System.Drawing.Color.Transparent;
             this.lblCard.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCard.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblCard.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblCard.Location = new System.Drawing.Point(241, 180);
             this.lblCard.Name = "lblCard";
             this.lblCard.Size = new System.Drawing.Size(154, 16);
@@ -488,7 +488,7 @@
             this.lblReceiveMoney.BackColor = System.Drawing.Color.Transparent;
             this.lblReceiveMoney.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblReceiveMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReceiveMoney.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblReceiveMoney.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblReceiveMoney.Location = new System.Drawing.Point(241, 156);
             this.lblReceiveMoney.Name = "lblReceiveMoney";
             this.lblReceiveMoney.Size = new System.Drawing.Size(117, 16);
@@ -501,7 +501,7 @@
             this.lblTotalPricePayment.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalPricePayment.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblTotalPricePayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPricePayment.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblTotalPricePayment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblTotalPricePayment.Location = new System.Drawing.Point(241, 128);
             this.lblTotalPricePayment.Name = "lblTotalPricePayment";
             this.lblTotalPricePayment.Size = new System.Drawing.Size(131, 16);
@@ -514,7 +514,7 @@
             this.lblReturnMoney.BackColor = System.Drawing.Color.Transparent;
             this.lblReturnMoney.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblReturnMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReturnMoney.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblReturnMoney.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblReturnMoney.Location = new System.Drawing.Point(241, 205);
             this.lblReturnMoney.Name = "lblReturnMoney";
             this.lblReturnMoney.Size = new System.Drawing.Size(87, 16);
@@ -527,7 +527,7 @@
             this.lblMoneyVAT.BackColor = System.Drawing.Color.Transparent;
             this.lblMoneyVAT.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblMoneyVAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMoneyVAT.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblMoneyVAT.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblMoneyVAT.Location = new System.Drawing.Point(241, 30);
             this.lblMoneyVAT.Name = "lblMoneyVAT";
             this.lblMoneyVAT.Size = new System.Drawing.Size(92, 16);
@@ -560,7 +560,7 @@
             this.lblDiscount.BackColor = System.Drawing.Color.Transparent;
             this.lblDiscount.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscount.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblDiscount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblDiscount.Location = new System.Drawing.Point(241, 95);
             this.lblDiscount.Name = "lblDiscount";
             this.lblDiscount.Size = new System.Drawing.Size(62, 16);
@@ -573,7 +573,7 @@
             this.lblTotalBeforeTax.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalBeforeTax.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblTotalBeforeTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalBeforeTax.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblTotalBeforeTax.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblTotalBeforeTax.Location = new System.Drawing.Point(241, 9);
             this.lblTotalBeforeTax.Name = "lblTotalBeforeTax";
             this.lblTotalBeforeTax.Size = new System.Drawing.Size(124, 16);
@@ -616,9 +616,9 @@
             this.btnCancel.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = global::VVPosS.Properties.Resources.delete_icon;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancel.Location = new System.Drawing.Point(356, 265);
+            this.btnCancel.Location = new System.Drawing.Point(376, 265);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(146, 61);
+            this.btnCancel.Size = new System.Drawing.Size(121, 61);
             this.btnCancel.TabIndex = 86;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

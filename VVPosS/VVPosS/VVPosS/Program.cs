@@ -34,6 +34,7 @@ namespace VVPosS
         public static string FullName = "";
         public static string LastLogin = "";
         public static string LastModified = "";
+        public static string PaperSizeName = ConfigurationManager.AppSettings["PaperSizeName"];
         public static List<string> lstRole = new List<string>();
         public static List<OrderObject> lstTemp=new List<OrderObject>();
         public static OrderObject lstTempOrder = new OrderObject();
