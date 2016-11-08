@@ -73,6 +73,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Excel.dll" />
+    <Content Include="bin\MySql.Data.dll" />
+    <Content Include="bin\MySql.Data.Entity.dll" />
     <Content Include="bin\MySql.Web.dll" />
     <Content Include="bin\settingcode.xml" />
     <Content Include="bin\VVPosWS.dll" />
@@ -80,6 +82,10 @@
     <Content Include="Image\Desks\table_empty.png" />
     <Content Include="Image\Desks\table_full.png" />
     <Content Include="Image\noimg.png" />
+    <Content Include="Image\Products\011408000002_141128153927.jpg" />
+    <Content Include="Image\Products\031611000001_161106152352.jpg" />
+    <Content Include="Image\Products\031611000001_161106152547.jpg" />
+    <Content Include="Image\Products\031611000001_161106153501.jpg" />
     <Content Include="Image\Products\canh_CaLoc.png" />
     <Content Include="Image\Products\canh_ChuaCa.png" />
     <Content Include="Image\Products\gesichtsbehandlung-wellnessurlaub.jpg" />
@@ -118,7 +124,6 @@
     <Content Include="Image\ShopImg\logo12.png" />
     <Content Include="Image\ShopImg\logo13.png" />
     <Content Include="Image\ShopImg\logo14.png" />
-    <Content Include="Image\ShopImg\logo2.png" />
     <Content Include="Image\ShopImg\logo3.png" />
     <Content Include="Image\ShopImg\logo4.png" />
     <Content Include="Image\ShopImg\logo5.png" />
@@ -127,6 +132,7 @@
     <Content Include="Image\ShopImg\logo8.png" />
     <Content Include="Image\ShopImg\logo9.png" />
     <Content Include="Image\ShopImg\logoprint.png" />
+    <Content Include="Image\ShopImg\logo_m.png" />
     <Content Include="Image\Users\admin.jpg" />
     <Content Include="Image\Users\admin.png" />
     <Content Include="Image\Users\doraemon.png" />
@@ -141,7 +147,6 @@
     <Content Include="Image\Users\user6.png" />
     <Content Include="Image\Users\user7.png" />
     <Content Include="Image\Users\user8.png" />
-    <Content Include="Image\Users\xuka.png" />
     <Content Include="Image\VVImg\powered by vv.png" />
     <Content Include="Image\VVImg\vv design.png" />
     <Content Include="VVPosService.asmx" />
@@ -169,6 +174,7 @@
   <ItemGroup>
     <Content Include="bin\LangResource.xls" />
     <Content Include="LangResource.xls" />
+    <Content Include="bin\VVPosWS.dll.config" />
     <None Include="Properties\PublishProfiles\VVPosWS.pubxml" />
     <None Include="Properties\PublishProfiles\VVPosWS1.pubxml" />
     <None Include="Web.Debug.config">
