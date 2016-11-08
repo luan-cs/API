@@ -599,6 +599,8 @@ namespace VVPosS.Screen.POS
             PrintDocument pd = new PrintDocument();
             pd.PrinterSettings.PrinterName = ConfigurationManager.AppSettings["Printer"];
             pd.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize(Program.PaperSizeName, 211, 10000);
+            //Margins margins = new Margins(0, 0, 5, 5);
+            //pd.DefaultPageSettings.Margins = margins;
             if (Status == null)
                 pd.PrintPage += new PrintPageEventHandler(this.printDocument1_PrintPage);
             //else pd.PrintPage += new PrintPageEventHandler(this.printDocumentTemp_PrintPage);
@@ -650,60 +652,60 @@ namespace VVPosS.Screen.POS
 
             // Logo
             var imgLogo = Common.Utility.GetImageFromService("ShopImg", "logoPrint.png");
-            Rectangle logo = new Rectangle(5, 10, 70, 40);
+            Rectangle logo = new Rectangle(0, 10, 70, 40);
             e.Graphics.DrawImage(imgLogo, logo);
 
-            Rectangle strHoaDon = new Rectangle(75, 5, 126, 20);
+            Rectangle strHoaDon = new Rectangle(70, 5, 120, 20);
             string data = Common.clsLanguages.GetResource("Receipt");//"HÓA ĐƠN";
             e.Graphics.DrawString(data, new Font("Arial", 10, FontStyle.Bold), Brushes.DarkSlateBlue, strHoaDon, strfmt_Right);
 
             //Ngày hóa đơn
-            Rectangle strRec = new Rectangle(75, 25, 126, 15);
+            Rectangle strRec = new Rectangle(70, 25, 120, 15);
             data = Common.clsLanguages.GetResource("ReceiptDate") + rcAll.receipt.CreatedDate; //"Ngày :"
-            e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.DarkSlateBlue, strRec, strfmt_Right);
+            e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Regular), Brushes.DarkSlateBlue, strRec, strfmt_Right);
 
 
-            Rectangle RecLine1 = new Rectangle(75, 40, 126, 2);
+            Rectangle RecLine1 = new Rectangle(70, 40, 120, 2);
             var Line1 = Common.Utility.GetImageFromService("ShopImg", "line1.png");
             e.Graphics.DrawImage(Line1, RecLine1);
 
-            Rectangle strRec1 = new Rectangle(110, 42, 91, 18);
+            Rectangle strRec1 = new Rectangle(100, 42, 90, 18);
             string strSoHD = rcAll.receipt.ReceiptId;
             int soHD = int.Parse(strSoHD.Substring(10));
             data = Common.clsLanguages.GetResource("ReceiptNumber") + " : 11#" + soHD.ToString(); //"Số HĐ: "
-            e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Italic), Brushes.DarkSlateBlue, strRec1, strfmt_Right);
+            e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Italic), Brushes.DarkSlateBlue, strRec1, strfmt_Right);
 
             //// Cty....
-            Rectangle strCty = new Rectangle(5, 50, 105, 40);//20
-            data = Common.clsLanguages.GetResource("MerchantName");// "Công ty CP Việt Vang";           
+            Rectangle strCty = new Rectangle(0, 50, 100, 40);//20
+            data = Common.clsLanguages.GetResource("MerchantName");// "HD Tech";           
             e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Bold), Brushes.DarkSlateBlue, strCty, strfmt_Left);
             //Địa chỉ Cty
-            Rectangle strDCCty = new Rectangle(5, 90, 201, 50);//50
+            Rectangle strDCCty = new Rectangle(0, 90, 190, 50);//50
             data = Common.clsLanguages.GetResource("MerchantAddress") + "\n" + Common.clsLanguages.GetResource("MerchantTel") + "\n" + Common.clsLanguages.GetResource("MerchantWeb");
             e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Regular), Brushes.DarkSlateBlue, strDCCty, strfmt_Left);
 
             //Headers
-            Rectangle strHD_STT = new Rectangle(3, 140, 15, 18);
+            Rectangle strHD_STT = new Rectangle(0, 140, 15, 18);
             data = Common.clsLanguages.GetResource("No");// "STT";           
-            e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Bold), Brushes.Black, strHD_STT, strfmt_Center);
+            e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Regular), Brushes.Black, strHD_STT, strfmt_Center);
 
-            Rectangle strHD_SP = new Rectangle(18, 140, 85, 18);
+            Rectangle strHD_SP = new Rectangle(16, 140, 79, 18);
             data = Common.clsLanguages.GetResource("Product");//"Sản phẩm ";           
-            e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Bold), Brushes.Black, strHD_SP, strfmt_Left);
+            e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Regular), Brushes.Black, strHD_SP, strfmt_Left_Center);
 
-            Rectangle strHD_SL = new Rectangle(103, 140, 15, 18);
+            Rectangle strHD_SL = new Rectangle(95, 140, 15, 18);
             data = Common.clsLanguages.GetResource("ReceiptProQty");//"SL";
-            e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Bold), Brushes.Black, strHD_SL, strfmt_Center);
+            e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Regular), Brushes.Black, strHD_SL, strfmt_Center);
 
-            Rectangle strHD_DG = new Rectangle(118, 140, 45, 18);
+            Rectangle strHD_DG = new Rectangle(110, 140, 40, 18);
             data = Common.clsLanguages.GetResource("ReceiptProPrice");//"ĐG";
-            e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Bold), Brushes.Black, strHD_DG, strfmt_Center);
+            e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Regular), Brushes.Black, strHD_DG, strfmt_Right_Center);
 
-            Rectangle strHD_TT = new Rectangle(163, 140, 45, 18);
+            Rectangle strHD_TT = new Rectangle(150, 140, 40, 18);
             data = Common.clsLanguages.GetResource("ReceiptProTotal");//ReceiptProTotalAfterTax "TT + Thuế";
-            e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Bold), Brushes.Black, strHD_TT, strfmt_Center);
+            e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Regular), Brushes.Black, strHD_TT, strfmt_Right_Center);
 
-            Rectangle RecLine2 = new Rectangle(5, 158, 201, 2);
+            Rectangle RecLine2 = new Rectangle(0, 158, 190, 2);
             var Line2 = Common.Utility.GetImageFromService("ShopImg", "line2.png");
             e.Graphics.DrawImage(Line2, RecLine2);
 
@@ -727,29 +729,29 @@ namespace VVPosS.Screen.POS
 
                     //if (dtl.IsBuffet == "0" || (dtl.IsBuffet == "1" && double.Parse(dtl.Price) > 0))
                     //{
-                        Rectangle strCT_STT = new Rectangle(3, y_p, 15, h_s);
+                        Rectangle strCT_STT = new Rectangle(0, y_p, 15, h_s);
                         data = i.ToString();
-                        e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Regular), Brushes.Black, strCT_STT, strfmt_Center);
+                        e.Graphics.DrawString(data, new Font("Arial", 5, FontStyle.Regular), Brushes.Black, strCT_STT, strfmt_Center);
 
-                        Rectangle strCT_SP = new Rectangle(18, y_p, 85, h_s);
+                        Rectangle strCT_SP = new Rectangle(15, y_p, 80, h_s);
                         data = dtl.ProductName;
-                        e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Regular), Brushes.Black, strCT_SP, strfmt_Left_Center);
+                        e.Graphics.DrawString(data, new Font("Arial", 5, FontStyle.Regular), Brushes.Black, strCT_SP, strfmt_Left_Center);
 
-                        Rectangle strCT_SL = new Rectangle(103, y_p, 15, h_s);
+                        Rectangle strCT_SL = new Rectangle(95, y_p, 15, h_s);
                         data = dtl.Qty;
-                        e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Regular), Brushes.Black, strCT_SL, strfmt_Center);
+                        e.Graphics.DrawString(data, new Font("Arial", 5, FontStyle.Regular), Brushes.Black, strCT_SL, strfmt_Center);
 
-                        Rectangle strTT_DG = new Rectangle(118, y_p, 45, h_s);
+                        Rectangle strTT_DG = new Rectangle(110, y_p, 40, h_s);
                         //data = (double.Parse(dtl.Price) + (double.Parse(dtl.TaxAmount) / double.Parse(dtl.Qty))).ToString("0,0");
                         data = dtl.Price;
-                        e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Regular), Brushes.Black, strTT_DG, strfmt_Right_Center);
+                        e.Graphics.DrawString(data, new Font("Arial", 5, FontStyle.Regular), Brushes.Black, strTT_DG, strfmt_Right_Center);
 
-                        Rectangle strTT_TT = new Rectangle(163, y_p, 45, h_s);
+                        Rectangle strTT_TT = new Rectangle(150, y_p, 40, h_s);
                         data = dtl.TotalAmountBeforeTax;
-                        e.Graphics.DrawString(data, new Font("Arial", 6, FontStyle.Regular), Brushes.Black, strTT_TT, strfmt_Right_Center);
+                        e.Graphics.DrawString(data, new Font("Arial", 5, FontStyle.Regular), Brushes.Black, strTT_TT, strfmt_Right_Center);
 
                         y_p += h_s;
-                        Rectangle RecLineCT = new Rectangle(5, y_p, 201, 1);
+                        Rectangle RecLineCT = new Rectangle(0, y_p, 190, 1);
                         var LineCT = Common.Utility.GetImageFromService("ShopImg", "linect.png");
                         e.Graphics.DrawImage(LineCT, RecLineCT);
                     //}
@@ -776,58 +778,58 @@ namespace VVPosS.Screen.POS
 
 
             ///Tổng tiền trước thuế /sau thuế
-            Rectangle RecTTST = new Rectangle(3, y_p, 138, 15);
+            Rectangle RecTTST = new Rectangle(0, y_p, 129, 15);
             data = Common.clsLanguages.GetResource("TotalAmount");
-            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, RecTTST, strfmt_Right);
+            e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, RecTTST, strfmt_Right);
 
-            Rectangle RecTTST_Val = new Rectangle(141, y_p, 67, 15);
+            Rectangle RecTTST_Val = new Rectangle(129, y_p, 61, 15);
             data = rcAll.receipt.TotalAmountBeforeTax;
-            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Bold), Brushes.Black, RecTTST_Val, strfmt_Right);
+            e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Bold), Brushes.Black, RecTTST_Val, strfmt_Right);
             y_p = y_p + 15;
 
             ///phí dịch vụ
-            Rectangle RecPDV = new Rectangle(3, y_p,138, 15);
+            Rectangle RecPDV = new Rectangle(0, y_p,129, 15);
             data = Common.clsLanguages.GetResource("TaxAndServiceChange") + " (" + (int.Parse(ConfigurationManager.AppSettings["SeviceCostPercent"]) +
                 int.Parse(ConfigurationManager.AppSettings["VAT"])) + " %)"; //Common.clsLanguages.GetResource("TotalServiceCharge");//
             e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, RecPDV, strfmt_Right);
 
-            Rectangle RecPDV_Val = new Rectangle(141, y_p, 67, 15);
+            Rectangle RecPDV_Val = new Rectangle(129, y_p, 61, 15);
             data = (double.Parse(rcAll.receipt.ServiceCostAmount) + double.Parse(rcAll.receipt.TotalTax)).ToString("0,0");
             e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Bold), Brushes.Black, RecPDV_Val, strfmt_Right);
             y_p = y_p + 15;
 
             ///Giảm giá
-            Rectangle RecDIS = new Rectangle(3, y_p, 138, 15);
+            Rectangle RecDIS = new Rectangle(0, y_p, 129, 15);
             data = Common.clsLanguages.GetResource("TotalDiscountAmount");//"Giảm giá ";
             e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, RecDIS, strfmt_Right);
 
-            Rectangle RecDIS_Val = new Rectangle(141, y_p, 67, 15);
+            Rectangle RecDIS_Val = new Rectangle(129, y_p, 61, 15);
             data = rcAll.receipt.DiscountAmount;
             e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Bold), Brushes.Black, RecDIS_Val, strfmt_Right);
             y_p = y_p + 15;
 
             ///Tổng tiền thanh toán
-            Rectangle RecPAY = new Rectangle(3, y_p, 138, 15);
+            Rectangle RecPAY = new Rectangle(0, y_p, 129, 15);
             data = Common.clsLanguages.GetResource("TotalMoney");//"TC Cần thanh toán";
-            e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, RecPAY, strfmt_Right);
+            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, RecPAY, strfmt_Right);
 
-            Rectangle RecPAY_Val = new Rectangle(141, y_p, 67, 15);
+            Rectangle RecPAY_Val = new Rectangle(129, y_p, 61, 15);
             data = rcAll.receipt.TotalMoney;
-            e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Bold), Brushes.Black, RecPAY_Val, strfmt_Right);
+            e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Bold), Brushes.Black, RecPAY_Val, strfmt_Right);
             y_p = y_p + 15;
 
             ////
-            Rectangle RecLine3 = new Rectangle(3, y_p, 201, 1);
+            Rectangle RecLine3 = new Rectangle(0, y_p, 190, 1);
             var Line3 = Common.Utility.GetImageFromService("ShopImg", "line1.png");
             e.Graphics.DrawImage(Line3, RecLine3);
             y_p = y_p + 2;
 
             ///Tổng tiền mặt
-            Rectangle RecCASH = new Rectangle(3, y_p, 138, 15);
+            Rectangle RecCASH = new Rectangle(0, y_p, 129, 15);
             data = Common.clsLanguages.GetResource("CashPayment");//Common.clsLanguages.GetResource("TotalCashCustomer");//"Tiền mặt khách đưa";
             e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, RecCASH, strfmt_Right);
 
-            Rectangle RecCASH_Val = new Rectangle(141, y_p, 67, 15);
+            Rectangle RecCASH_Val = new Rectangle(129, y_p, 61, 15);
             data = rcAll.receipt.CashPayAmt;
             e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Bold), Brushes.Black, RecCASH_Val, strfmt_Right);
             y_p = y_p + 15;
@@ -843,11 +845,11 @@ namespace VVPosS.Screen.POS
             //y_p = y_p + 15;
 
             ///Số tiền thối lại
-            Rectangle RecRefun = new Rectangle(3, y_p, 138, 15);
+            Rectangle RecRefun = new Rectangle(0, y_p, 129, 15);
             data = Common.clsLanguages.GetResource("TotalReturnAmount");//Common.clsLanguages.GetResource("TotalCardAmount");//"Tiền thẻ khách:";
             e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, RecRefun, strfmt_Right);
 
-            Rectangle RecRefun_Val = new Rectangle(141, y_p, 67, 15);
+            Rectangle RecRefun_Val = new Rectangle(129, y_p, 61, 15);
             data = rcAll.receipt.ReturnAmt;
             e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Bold), Brushes.Black, RecRefun_Val, strfmt_Right);
             y_p = y_p + 15;
@@ -881,12 +883,12 @@ namespace VVPosS.Screen.POS
             //}
 
             ////
-            Rectangle RecLine6 = new Rectangle(5, y_p, 201, 2);
+            Rectangle RecLine6 = new Rectangle(0, y_p, 190, 2);
             var Line6 = Common.Utility.GetImageFromService("ShopImg", "line1.png");
             e.Graphics.DrawImage(Line6, RecLine6);
             y_p = y_p + 4;
 
-            Rectangle RecTK = new Rectangle(5, y_p, 201, 18);
+            Rectangle RecTK = new Rectangle(0, y_p, 190, 18);
             data = Common.clsLanguages.GetResource("ReceiptFooterText"); //"Cám ơn & hẹn gặp lại quý khách !";
             e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Italic), Brushes.Black, RecTK, strfmt_Left);
 

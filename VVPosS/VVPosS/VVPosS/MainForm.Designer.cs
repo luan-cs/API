@@ -35,6 +35,7 @@
             this.btnRegisterService = new System.Windows.Forms.Button();
             this.btnCancelReceipt = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.lbCompayInfor = new System.Windows.Forms.Label();
             this.lbFullname = new System.Windows.Forms.Label();
             this.tblUtil = new System.Windows.Forms.TableLayoutPanel();
@@ -42,14 +43,13 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.bntLogout = new System.Windows.Forms.Button();
             this.bntChangePass = new System.Windows.Forms.Button();
-            this.pbImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tblMain.SuspendLayout();
-            this.tblUtil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            this.tblUtil.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -200,6 +200,21 @@
             this.btnReport.UseVisualStyleBackColor = false;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // pbImage
+            // 
+            this.pbImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbImage.BackColor = System.Drawing.Color.Transparent;
+            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbImage.Image = global::VVPosS.Properties.Resources.user_image;
+            this.pbImage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pbImage.InitialImage = null;
+            this.pbImage.Location = new System.Drawing.Point(780, 70);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(134, 149);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 23;
+            this.pbImage.TabStop = false;
+            // 
             // lbCompayInfor
             // 
             this.lbCompayInfor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -342,21 +357,6 @@
             this.bntChangePass.UseVisualStyleBackColor = false;
             this.bntChangePass.Click += new System.EventHandler(this.bntChangePass_Click);
             // 
-            // pbImage
-            // 
-            this.pbImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbImage.BackColor = System.Drawing.Color.Transparent;
-            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbImage.Image = global::VVPosS.Properties.Resources.user_image;
-            this.pbImage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pbImage.InitialImage = null;
-            this.pbImage.Location = new System.Drawing.Point(780, 70);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(134, 149);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbImage.TabIndex = 23;
-            this.pbImage.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -366,6 +366,7 @@
             this.ClientSize = new System.Drawing.Size(919, 573);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -378,8 +379,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tblMain.ResumeLayout(false);
-            this.tblUtil.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            this.tblUtil.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

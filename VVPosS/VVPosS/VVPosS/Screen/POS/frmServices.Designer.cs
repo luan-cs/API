@@ -266,6 +266,7 @@
             this.pMBottom.Controls.Add(this.bntDesk);
             this.pMBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pMBottom.Location = new System.Drawing.Point(0, 694);
+            this.pMBottom.MaximumSize = new System.Drawing.Size(0, 72);
             this.pMBottom.Name = "pMBottom";
             this.pMBottom.Size = new System.Drawing.Size(1022, 72);
             this.pMBottom.TabIndex = 1;

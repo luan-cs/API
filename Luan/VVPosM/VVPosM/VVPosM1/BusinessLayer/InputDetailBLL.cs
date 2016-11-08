@@ -45,23 +45,23 @@ namespace VVPosM1.BusinessLayer
             string queryStr = "UPDATE inputdetail SET ";
             if (!string.IsNullOrEmpty(obj.IngredientExpDate))
             {
-                queryStr += string.Format(" IngredientExpDate = '{0}',", obj.IngredientExpDate);
+                queryStr += string.Format(" IngredientExpDate = '{0}'", obj.IngredientExpDate);
             }
             if (!string.IsNullOrEmpty(obj.IngredientQty))
             {
-                queryStr += string.Format(" IngredientQty = '{0}',", obj.IngredientQty);
+                queryStr += string.Format(", IngredientQty = '{0}'", obj.IngredientQty);
             }
             if (!string.IsNullOrEmpty(obj.IngredientPrice))
             {
-                queryStr += string.Format(" IngredientPrice = '{0}',", obj.IngredientPrice);
+                queryStr += string.Format(", IngredientPrice = '{0}'", obj.IngredientPrice);
             }
             if (!string.IsNullOrEmpty(obj.IngredientVat))
             {
-                queryStr += string.Format(" IngredientVat = '{0}',", obj.IngredientVat);
+                queryStr += string.Format(", IngredientVat = '{0}'", obj.IngredientVat);
             }
             if (!string.IsNullOrEmpty(obj.IngredientDiscount))
             {
-                queryStr += string.Format(" IngredientDiscount = '{0}'", obj.IngredientDiscount);
+                queryStr += string.Format(", IngredientDiscount = '{0}'", obj.IngredientDiscount);
             }
             queryStr += string.Format(" WHERE InputId = '{0}' AND IngredientId = '{1}'", obj.InputId, obj.IngredientId);
 
@@ -84,61 +84,61 @@ namespace VVPosM1.BusinessLayer
             queryStr += " inputdetail (";
             if (!string.IsNullOrEmpty(obj.InputId))
             {
-                queryStr += "`InputId`,";
+                queryStr += "`InputId`";
             }
             if (!string.IsNullOrEmpty(obj.IngredientId))
             {
-                queryStr += "`IngredientId`,";
+                queryStr += ",`IngredientId`";
             }
             if (!string.IsNullOrEmpty(obj.IngredientExpDate))
             {
-                queryStr += "`IngredientExpDate`,";
+                queryStr += ",`IngredientExpDate`";
             }
             if (!string.IsNullOrEmpty(obj.IngredientQty))
             {
-                queryStr += "`IngredientQty`,";
+                queryStr += ",`IngredientQty`";
             }
             if (!string.IsNullOrEmpty(obj.IngredientPrice))
             {
-                queryStr += "`IngredientPrice`,";
+                queryStr += ",`IngredientPrice`";
             }
             if (!string.IsNullOrEmpty(obj.IngredientVat))
             {
-                queryStr += "`IngredientVat`,";
+                queryStr += ",`IngredientVat`";
             }
             if (!string.IsNullOrEmpty(obj.IngredientDiscount))
             {
-                queryStr += "`IngredientDiscount`";
+                queryStr += ",`IngredientDiscount`";
             }
             queryStr += ") VALUES (";
 
             if (!string.IsNullOrEmpty(obj.InputId))
             {
-                queryStr += string.Format("'{0}',", obj.InputId);
+                queryStr += string.Format("'{0}'", obj.InputId);
             }
             if (!string.IsNullOrEmpty(obj.IngredientId))
             {
-                queryStr += string.Format("'{0}',", obj.IngredientId);
+                queryStr += string.Format(",'{0}'", obj.IngredientId);
             }
             if (!string.IsNullOrEmpty(obj.IngredientExpDate))
             {
-                queryStr += string.Format("'{0}',", obj.IngredientExpDate);
+                queryStr += string.Format(",'{0}'", obj.IngredientExpDate);
             }
             if (!string.IsNullOrEmpty(obj.IngredientQty))
             {
-                queryStr += string.Format("'{0}',", obj.IngredientQty);
+                queryStr += string.Format(",'{0}'", obj.IngredientQty);
             }
             if (!string.IsNullOrEmpty(obj.IngredientPrice))
             {
-                queryStr += string.Format("'{0}',", obj.IngredientPrice);
+                queryStr += string.Format(",'{0}'", obj.IngredientPrice);
             }
             if (!string.IsNullOrEmpty(obj.IngredientVat))
             {
-                queryStr += string.Format("'{0}',", obj.IngredientVat);
+                queryStr += string.Format(",'{0}'", obj.IngredientVat);
             }
             if (!string.IsNullOrEmpty(obj.IngredientDiscount))
             {
-                queryStr += string.Format("'{0}'", obj.IngredientDiscount);
+                queryStr += string.Format(",'{0}'", obj.IngredientDiscount);
             }
             queryStr += ")";
             Program.destopService.DataExecute(Program.Username, Program.Password, queryStr, ref errorString);
