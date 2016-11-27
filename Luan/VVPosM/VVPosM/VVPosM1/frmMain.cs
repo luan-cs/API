@@ -589,6 +589,11 @@ namespace VVPosM1
         {
             this.ActivateForm<frmManageIngreadient>();
         }
+
+        private void baoCaoTônKhoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ActivateForm<frmRpt_Inventory>();
+        }
     }
 }
 

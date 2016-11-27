@@ -123,49 +123,50 @@ namespace VVPosM1.Screen
                 {
                     DataTable dtTong = byProductBLL.GetReportTong(productId, from, to);
                     dt = byProductBLL.GetReportSTT(productId, from, to);
-                  //  dt = AddTotalRecord(dt,dtTong);
+                    //  dt = AddTotalRecord(dt,dtTong);
                     if (dt.Rows.Count > 0)
                     {
-                    rptViewByProduct.LocalReport.DataSources.Clear();
-                    rptViewByProduct.ZoomMode = ZoomMode.PageWidth;
-                    rptViewByProduct.LocalReport.ReportEmbeddedResource = "VVPosM1.ReportView.rptByProduct.rdlc";
+                        rptViewByProduct.LocalReport.DataSources.Clear();
+                        rptViewByProduct.ZoomMode = ZoomMode.PageWidth;
+                        rptViewByProduct.LocalReport.ReportEmbeddedResource = "VVPosM1.ReportView.rptByProduct.rdlc";
 
-                    Microsoft.Reporting.WinForms.ReportDataSource ds = new Microsoft.Reporting.WinForms.ReportDataSource("DataRptByProduct", dt);
+                        Microsoft.Reporting.WinForms.ReportDataSource ds = new Microsoft.Reporting.WinForms.ReportDataSource("DataRptByProduct", dt);
 
-                    rptViewByProduct.LocalReport.DataSources.Add(ds);
+                        rptViewByProduct.LocalReport.DataSources.Add(ds);
 
-                    ds.Value = dt;
-                    //logo
-                    string templateImage = Common.Utility.GetUrlFromService("ShopImg", "logoprint.png");
-                    // gán parameters
-                    ReportParameter[] lstParams = new ReportParameter[13];
-                    lstParams[0] = new ReportParameter("TenCTy", Common.clsLanguages.GetResource("MerchantName"));
-                    lstParams[1] = new ReportParameter("DChiCTy", Common.clsLanguages.GetResource("MerchantAddress"));
-                    lstParams[2] = new ReportParameter("TieuDe1", Common.clsLanguages.GetResource("ReportByProduct"));
-                    lstParams[3] = new ReportParameter("Time1", Common.clsLanguages.GetResource("GetDateReport") + " " + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"));
-                    lstParams[4] = new ReportParameter("TimeS1", Common.clsLanguages.GetResource("FromDate") + " " + dtpTuNgay.Value.ToString("dd/MM/yyyy")+" "+ Common.clsLanguages.GetResource("ToDate") + " " + dtpDenNgay.Value.ToString("dd/MM/yyyy"));
-                    lstParams[5] = new ReportParameter("ImageName", templateImage);
-                    lstParams[6] = new ReportParameter("No", Common.clsLanguages.GetResource("No"));
-                    lstParams[7] = new ReportParameter("Information", Common.clsLanguages.GetResource("Information"));
-                    lstParams[8] = new ReportParameter("Qty", Common.clsLanguages.GetResource("Qty"));
-                    lstParams[9] = new ReportParameter("TotalAmountBeforeTax", Common.clsLanguages.GetResource("TotalAmountBeforeTax"));
-                    lstParams[10] = new ReportParameter("TaxAmount", Common.clsLanguages.GetResource("TaxAmount"));
-                    lstParams[11] = new ReportParameter("TotalAmount", Common.clsLanguages.GetResource("TotalAmount"));
-                    lstParams[12] = new ReportParameter("TotalAll", Common.clsLanguages.GetResource("TotalAll"));
+                        ds.Value = dt;
+                        //logo
+                        string templateImage = Common.Utility.GetUrlFromService("ShopImg", "logoprint.png");
+                        // gán parameters
+                        ReportParameter[] lstParams = new ReportParameter[13];
+                        lstParams[0] = new ReportParameter("TenCTy", Common.clsLanguages.GetResource("MerchantName"));
+                        lstParams[1] = new ReportParameter("DChiCTy", Common.clsLanguages.GetResource("MerchantAddress"));
+                        lstParams[2] = new ReportParameter("TieuDe1", Common.clsLanguages.GetResource("ReportByProduct"));
+                        lstParams[3] = new ReportParameter("Time1", Common.clsLanguages.GetResource("GetDateReport") + " " + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"));
+                        lstParams[4] = new ReportParameter("TimeS1", Common.clsLanguages.GetResource("FromDate") + " " + dtpTuNgay.Value.ToString("dd/MM/yyyy") + " " + Common.clsLanguages.GetResource("ToDate") + " " + dtpDenNgay.Value.ToString("dd/MM/yyyy"));
+                        lstParams[5] = new ReportParameter("ImageName", templateImage);
+                        lstParams[6] = new ReportParameter("No", Common.clsLanguages.GetResource("No"));
+                        lstParams[7] = new ReportParameter("Information", Common.clsLanguages.GetResource("Information"));
+                        lstParams[8] = new ReportParameter("Qty", Common.clsLanguages.GetResource("Qty"));
+                        lstParams[9] = new ReportParameter("TotalAmountBeforeTax", Common.clsLanguages.GetResource("TotalAmountBeforeTax"));
+                        lstParams[10] = new ReportParameter("TaxAmount", Common.clsLanguages.GetResource("TaxAmount"));
+                        lstParams[11] = new ReportParameter("TotalAmount", Common.clsLanguages.GetResource("TotalAmount"));
+                        lstParams[12] = new ReportParameter("TotalAll", Common.clsLanguages.GetResource("TotalAll"));
 
-                    rptViewByProduct.LocalReport.EnableExternalImages = true;
-                    this.rptViewByProduct.LocalReport.SetParameters(lstParams);
-                    rptViewByProduct.LocalReport.Refresh();
-                    rptViewByProduct.RefreshReport();
-                    
+                        rptViewByProduct.LocalReport.EnableExternalImages = true;
+                        this.rptViewByProduct.LocalReport.SetParameters(lstParams);
+                        rptViewByProduct.LocalReport.Refresh();
+                        rptViewByProduct.RefreshReport();
+
                     }
-                else {
-                    CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("DataNull"),
-                                  Common.clsLanguages.GetResource("Information"),
-                                  Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
-                                  Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
-                     }
-            }
+                    else
+                    {
+                        CustomMessageBox.MessageBox.ShowCustomMessageBox(Common.clsLanguages.GetResource("DataNull"),
+                                      Common.clsLanguages.GetResource("Information"),
+                                      Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
+                                      Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
+                    }
+                }
 
                     
                 

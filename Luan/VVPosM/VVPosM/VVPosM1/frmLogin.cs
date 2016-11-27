@@ -99,7 +99,7 @@ namespace VVPosM1
 
 
             }
-            catch (Exception)
+            catch (Exception exs)
             {
                 Entities.clsSplashScreen.UdpateStatusTextWithStatus("Currently the device is not connected to the network .", Entities.TypeOfMessage.Error);
                 Thread.Sleep(2000);

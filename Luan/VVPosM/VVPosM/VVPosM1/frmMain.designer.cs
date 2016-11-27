@@ -324,10 +324,10 @@
             // 
             // baoCaoTônKhoToolStripMenuItem
             // 
-            this.baoCaoTônKhoToolStripMenuItem.Enabled = false;
             this.baoCaoTônKhoToolStripMenuItem.Name = "baoCaoTônKhoToolStripMenuItem";
             this.baoCaoTônKhoToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
             this.baoCaoTônKhoToolStripMenuItem.Text = "Báo cáo tồn kho";
+            this.baoCaoTônKhoToolStripMenuItem.Click += new System.EventHandler(this.baoCaoTônKhoToolStripMenuItem_Click);
             // 
             // utilityToolStripMenuItem
             // 
