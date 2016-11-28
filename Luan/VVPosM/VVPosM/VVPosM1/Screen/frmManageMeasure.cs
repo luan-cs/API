@@ -20,6 +20,7 @@ namespace VVPosM1.Screen
         private double totalPage;
         private Measure measure;
         private Measure measureSea;
+        private bool isResetProductChanging = true;
         public frmManageMeasure()
         {
             InitializeComponent();
@@ -40,7 +41,10 @@ namespace VVPosM1.Screen
             dt = measureBLL.getProducts();
             if (dt != null)
             {
-
+                DataRow newRow = dt.NewRow();
+                newRow["Name"] = "";
+                newRow["ProductId"] = "";
+                dt.Rows.Add(newRow);
                 cboProduct.DataSource = dt;
                 cboProduct.DisplayMember = "Name";
                 cboProduct.ValueMember = "ProductId";
@@ -132,7 +136,11 @@ namespace VVPosM1.Screen
                 {
                     txtMeasureId.Text = ob.MeasureId;
                     rtbNote.Text = ob.MeasureNote;
-                    cboProduct.SelectedValue = ob.ProductId;
+                    if (!cboProduct.SelectedValue.ToString().Equals(ob.ProductId))
+                    {
+                        isResetProductChanging = false;
+                        cboProduct.SelectedValue = ob.ProductId;
+                    }
                     // get detail
                     LoadDetails(measureId);
                 }
@@ -360,7 +368,53 @@ namespace VVPosM1.Screen
 
         private void dgvDetail_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if(e.ColumnIndex == 5) //click delete
+            {
+                if (CustomMessageBox.MessageBox.ShowCustomMessageBox("Bạn có chắc muốn xóa nguyên liệu này?",
+                                    Common.clsLanguages.GetResource("Information"),
+                                    Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
+                                    Common.Config.CUSTOM_MESSAGEBOX_BUTTON.YESNO) == DialogResult.Yes)
+                {
+                    string ingredientId = dgvDetail.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    string measureId = dgv.Rows[dgv.SelectedCells[0].RowIndex].Cells[1].Value.ToString();
+                    measureBLL.XoaNguyenLieu(measureId, ingredientId);
 
+                    //xoa tren gridview
+                    dgvDetail.Rows.RemoveAt(e.RowIndex);
+                }
+            }
+        }
+
+        private void cboProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isResetProductChanging)
+            {
+                //reset
+                foreach (Control c in this.pInput.Controls)
+                {
+                    if (c is TextBox)
+                    {
+                        ((TextBox)c).Text = String.Empty;
+                    }
+                    if (c is RichTextBox)
+                    {
+                        ((RichTextBox)c).Text = String.Empty;
+                    }
+
+                    if (c is CheckBox)
+                    {
+                        ((CheckBox)c).Checked = false;
+                    }
+                    dgv.Rows.Clear();
+                    dgvDetail.Rows.Clear();
+                    lblTB1.Text = "...";
+                    lblTB.Text = "...";
+
+                }
+            }else
+            {
+                isResetProductChanging = true;
+            }
         }
     }
 }

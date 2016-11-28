@@ -270,5 +270,17 @@ namespace VVPosM1.BusinessLayer
             }
             return dt;
         }
+        //Xoa mot nguyen lieu
+        public bool XoaNguyenLieu(string measureId, string ingredientId)
+        {
+            bool res = true;
+            string queryStr = string.Format("DELETE FROM measuredetail WHERE MeasureId = '{0}' AND IngredientId = '{1}'", measureId, ingredientId);
+            Program.destopService.DataExecute(Program.Username, Program.Password, queryStr, ref errorString);
+            if (string.IsNullOrEmpty(errorString))
+            {
+                res = false;
+            }
+            return res;
+        }
     }
 }

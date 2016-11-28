@@ -62,11 +62,11 @@ namespace VVPosM1.Screen
                     MessageBox.Show("Vui Lòng chỉ nhập số");
                     return;
                 }
-                if (parsedValue > int.Parse(filteredRows[0].ItemArray[3].ToString()))
-                {
-                    MessageBox.Show(string.Format("Số lượng tồn kho không đủ. Vui lòng nhập nhỏ hơn {0}", filteredRows[0].ItemArray[3].ToString()));
-                    return;
-                }
+                //if (parsedValue > int.Parse(filteredRows[0].ItemArray[3].ToString()))
+                //{
+                //    MessageBox.Show(string.Format("Số lượng tồn kho không đủ. Vui lòng nhập nhỏ hơn {0}", filteredRows[0].ItemArray[3].ToString()));
+                //    return;
+                //}
             }
         }
 

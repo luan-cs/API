@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbNote = new System.Windows.Forms.Label();
             this.pInput = new System.Windows.Forms.Panel();
+            this.btnAddMeasure = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
             this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,13 +40,19 @@
             this.colIngredientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.rtbNote = new System.Windows.Forms.RichTextBox();
             this.cboProduct = new System.Windows.Forms.ComboBox();
+            this.btnExcel = new System.Windows.Forms.Button();
             this.lblTB1 = new System.Windows.Forms.Label();
             this.lblTB = new System.Windows.Forms.Label();
+            this.bntReset = new System.Windows.Forms.Button();
             this.linkNumber = new System.Windows.Forms.LinkLabel();
             this.bntNext = new System.Windows.Forms.Button();
             this.bntPre = new System.Windows.Forms.Button();
+            this.bntExit = new System.Windows.Forms.Button();
+            this.bntLuu = new System.Windows.Forms.Button();
+            this.bntSeach = new System.Windows.Forms.Button();
             this.txtMeasureId = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblMeasureId = new System.Windows.Forms.Label();
@@ -54,17 +61,10 @@
             this.MeasureId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnAddMeasure = new System.Windows.Forms.Button();
-            this.colDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnExcel = new System.Windows.Forms.Button();
-            this.bntReset = new System.Windows.Forms.Button();
-            this.bntExit = new System.Windows.Forms.Button();
-            this.bntLuu = new System.Windows.Forms.Button();
-            this.bntSeach = new System.Windows.Forms.Button();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.pInput.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -108,6 +108,22 @@
             this.pInput.Name = "pInput";
             this.pInput.Size = new System.Drawing.Size(1205, 331);
             this.pInput.TabIndex = 28;
+            // 
+            // btnAddMeasure
+            // 
+            this.btnAddMeasure.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnAddMeasure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMeasure.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btnAddMeasure.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnAddMeasure.Image = global::VVPosM1.Properties.Resources.add;
+            this.btnAddMeasure.Location = new System.Drawing.Point(746, 272);
+            this.btnAddMeasure.Name = "btnAddMeasure";
+            this.btnAddMeasure.Size = new System.Drawing.Size(165, 51);
+            this.btnAddMeasure.TabIndex = 68;
+            this.btnAddMeasure.Text = "Thêm Nguyên Liệu";
+            this.btnAddMeasure.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddMeasure.UseVisualStyleBackColor = false;
+            this.btnAddMeasure.Click += new System.EventHandler(this.btnAddMeasure_Click);
             // 
             // groupBox2
             // 
@@ -174,6 +190,15 @@
             this.colUnit.Name = "colUnit";
             this.colUnit.ReadOnly = true;
             // 
+            // colDelete
+            // 
+            this.colDelete.HeaderText = "Xóa";
+            this.colDelete.Image = global::VVPosM1.Properties.Resources._1404478970_f_cross;
+            this.colDelete.Name = "colDelete";
+            this.colDelete.ReadOnly = true;
+            this.colDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colDelete.Width = 50;
+            // 
             // rtbNote
             // 
             this.rtbNote.Location = new System.Drawing.Point(149, 112);
@@ -192,6 +217,24 @@
             this.cboProduct.Name = "cboProduct";
             this.cboProduct.Size = new System.Drawing.Size(439, 28);
             this.cboProduct.TabIndex = 4;
+            this.cboProduct.SelectedIndexChanged += new System.EventHandler(this.cboProduct_SelectedIndexChanged);
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btnExcel.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnExcel.Image = global::VVPosM1.Properties.Resources._1409729156_excel;
+            this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcel.Location = new System.Drawing.Point(359, 196);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(91, 51);
+            this.btnExcel.TabIndex = 11;
+            this.btnExcel.Text = "Xuất Excel";
+            this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExcel.UseVisualStyleBackColor = false;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // lblTB1
             // 
@@ -211,6 +254,22 @@
             this.lblTB.TabIndex = 61;
             this.lblTB.Text = "...";
             this.lblTB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bntReset
+            // 
+            this.bntReset.BackColor = System.Drawing.Color.ForestGreen;
+            this.bntReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.bntReset.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.bntReset.Image = global::VVPosM1.Properties.Resources._1404382393_icon_ios7_undo;
+            this.bntReset.Location = new System.Drawing.Point(266, 196);
+            this.bntReset.Name = "bntReset";
+            this.bntReset.Size = new System.Drawing.Size(91, 51);
+            this.bntReset.TabIndex = 9;
+            this.bntReset.Text = "Reset";
+            this.bntReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bntReset.UseVisualStyleBackColor = false;
+            this.bntReset.Click += new System.EventHandler(this.bntReset_Click);
             // 
             // linkNumber
             // 
@@ -250,189 +309,6 @@
             this.bntPre.TabIndex = 58;
             this.bntPre.Text = "<";
             this.bntPre.UseVisualStyleBackColor = false;
-            // 
-            // txtMeasureId
-            // 
-            this.txtMeasureId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMeasureId.Location = new System.Drawing.Point(149, 13);
-            this.txtMeasureId.Name = "txtMeasureId";
-            this.txtMeasureId.ReadOnly = true;
-            this.txtMeasureId.Size = new System.Drawing.Size(439, 29);
-            this.txtMeasureId.TabIndex = 0;
-            // 
-            // lblName
-            // 
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(2, 65);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(133, 16);
-            this.lblName.TabIndex = 13;
-            this.lblName.Text = "Tên sản phẩm *";
-            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblMeasureId
-            // 
-            this.lblMeasureId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMeasureId.Location = new System.Drawing.Point(13, 16);
-            this.lblMeasureId.Name = "lblMeasureId";
-            this.lblMeasureId.Size = new System.Drawing.Size(122, 16);
-            this.lblMeasureId.TabIndex = 12;
-            this.lblMeasureId.Text = "Mã Định Lượng";
-            this.lblMeasureId.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // dgv
-            // 
-            this.dgv.AllowDrop = true;
-            this.dgv.AllowUserToAddRows = false;
-            this.dgv.AllowUserToDeleteRows = false;
-            this.dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STT,
-            this.MeasureId,
-            this.ProductName,
-            this.colCreatedDate,
-            this.Delete});
-            this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv.EnableHeadersVisualStyles = false;
-            this.dgv.Location = new System.Drawing.Point(3, 22);
-            this.dgv.Name = "dgv";
-            this.dgv.ReadOnly = true;
-            this.dgv.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgv.Size = new System.Drawing.Size(1209, 357);
-            this.dgv.TabIndex = 24;
-            this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            this.STT.Width = 50;
-            // 
-            // MeasureId
-            // 
-            this.MeasureId.HeaderText = "Mã Định Lượng";
-            this.MeasureId.Name = "MeasureId";
-            this.MeasureId.ReadOnly = true;
-            this.MeasureId.Width = 150;
-            // 
-            // ProductName
-            // 
-            this.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProductName.HeaderText = "Tên sản phẩm";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // colCreatedDate
-            // 
-            this.colCreatedDate.HeaderText = "Ngày Tạo";
-            this.colCreatedDate.Name = "colCreatedDate";
-            this.colCreatedDate.ReadOnly = true;
-            this.colCreatedDate.Width = 200;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.groupBox1.Controls.Add(this.dgv);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 347);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1215, 382);
-            this.groupBox1.TabIndex = 27;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Danh sách sản phẩm";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Delete";
-            this.dataGridViewImageColumn1.Image = global::VVPosM1.Properties.Resources._1404478970_f_cross;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "Xóa";
-            this.dataGridViewImageColumn2.Image = global::VVPosM1.Properties.Resources._1404478970_f_cross;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn2.Width = 50;
-            // 
-            // btnAddMeasure
-            // 
-            this.btnAddMeasure.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnAddMeasure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMeasure.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnAddMeasure.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnAddMeasure.Image = global::VVPosM1.Properties.Resources.add;
-            this.btnAddMeasure.Location = new System.Drawing.Point(746, 272);
-            this.btnAddMeasure.Name = "btnAddMeasure";
-            this.btnAddMeasure.Size = new System.Drawing.Size(165, 51);
-            this.btnAddMeasure.TabIndex = 68;
-            this.btnAddMeasure.Text = "Thêm Nguyên Liệu";
-            this.btnAddMeasure.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddMeasure.UseVisualStyleBackColor = false;
-            this.btnAddMeasure.Click += new System.EventHandler(this.btnAddMeasure_Click);
-            // 
-            // colDelete
-            // 
-            this.colDelete.HeaderText = "Xóa";
-            this.colDelete.Image = global::VVPosM1.Properties.Resources._1404478970_f_cross;
-            this.colDelete.Name = "colDelete";
-            this.colDelete.ReadOnly = true;
-            this.colDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colDelete.Width = 50;
-            // 
-            // btnExcel
-            // 
-            this.btnExcel.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnExcel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnExcel.Image = global::VVPosM1.Properties.Resources._1409729156_excel;
-            this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcel.Location = new System.Drawing.Point(359, 196);
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(91, 51);
-            this.btnExcel.TabIndex = 11;
-            this.btnExcel.Text = "Xuất Excel";
-            this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExcel.UseVisualStyleBackColor = false;
-            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
-            // 
-            // bntReset
-            // 
-            this.bntReset.BackColor = System.Drawing.Color.ForestGreen;
-            this.bntReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.bntReset.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.bntReset.Image = global::VVPosM1.Properties.Resources._1404382393_icon_ios7_undo;
-            this.bntReset.Location = new System.Drawing.Point(266, 196);
-            this.bntReset.Name = "bntReset";
-            this.bntReset.Size = new System.Drawing.Size(91, 51);
-            this.bntReset.TabIndex = 9;
-            this.bntReset.Text = "Reset";
-            this.bntReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bntReset.UseVisualStyleBackColor = false;
-            this.bntReset.Click += new System.EventHandler(this.bntReset_Click);
             // 
             // bntExit
             // 
@@ -484,6 +360,100 @@
             this.bntSeach.UseVisualStyleBackColor = false;
             this.bntSeach.Click += new System.EventHandler(this.bntSeach_Click);
             // 
+            // txtMeasureId
+            // 
+            this.txtMeasureId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeasureId.Location = new System.Drawing.Point(149, 13);
+            this.txtMeasureId.Name = "txtMeasureId";
+            this.txtMeasureId.ReadOnly = true;
+            this.txtMeasureId.Size = new System.Drawing.Size(439, 29);
+            this.txtMeasureId.TabIndex = 0;
+            // 
+            // lblName
+            // 
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(2, 65);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(133, 16);
+            this.lblName.TabIndex = 13;
+            this.lblName.Text = "Tên sản phẩm *";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblMeasureId
+            // 
+            this.lblMeasureId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMeasureId.Location = new System.Drawing.Point(13, 16);
+            this.lblMeasureId.Name = "lblMeasureId";
+            this.lblMeasureId.Size = new System.Drawing.Size(122, 16);
+            this.lblMeasureId.TabIndex = 12;
+            this.lblMeasureId.Text = "Mã Định Lượng";
+            this.lblMeasureId.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dgv
+            // 
+            this.dgv.AllowDrop = true;
+            this.dgv.AllowUserToAddRows = false;
+            this.dgv.AllowUserToDeleteRows = false;
+            this.dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
+            this.MeasureId,
+            this.ProductName,
+            this.colCreatedDate,
+            this.Delete});
+            this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv.EnableHeadersVisualStyles = false;
+            this.dgv.Location = new System.Drawing.Point(3, 22);
+            this.dgv.Name = "dgv";
+            this.dgv.ReadOnly = true;
+            this.dgv.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv.Size = new System.Drawing.Size(1209, 357);
+            this.dgv.TabIndex = 24;
+            this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            this.STT.Width = 50;
+            // 
+            // MeasureId
+            // 
+            this.MeasureId.HeaderText = "Mã Định Lượng";
+            this.MeasureId.Name = "MeasureId";
+            this.MeasureId.ReadOnly = true;
+            this.MeasureId.Width = 150;
+            // 
+            // ProductName
+            // 
+            this.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProductName.HeaderText = "Tên sản phẩm";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // colCreatedDate
+            // 
+            this.colCreatedDate.HeaderText = "Ngày Tạo";
+            this.colCreatedDate.Name = "colCreatedDate";
+            this.colCreatedDate.ReadOnly = true;
+            this.colCreatedDate.Width = 200;
+            // 
             // Delete
             // 
             this.Delete.HeaderText = "Delete";
@@ -492,6 +462,37 @@
             this.Delete.ReadOnly = true;
             this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.groupBox1.Controls.Add(this.dgv);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.groupBox1.Location = new System.Drawing.Point(0, 347);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1215, 382);
+            this.groupBox1.TabIndex = 27;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Danh sách sản phẩm";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Delete";
+            this.dataGridViewImageColumn1.Image = global::VVPosM1.Properties.Resources._1404478970_f_cross;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "Xóa";
+            this.dataGridViewImageColumn2.Image = global::VVPosM1.Properties.Resources._1404478970_f_cross;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.Width = 50;
             // 
             // frmManageMeasure
             // 

@@ -90,5 +90,10 @@ namespace VVPosM1.Screen
                               Common.Config.CUSTOM_MESSAGEBOX_BUTTON.OK);
             }
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

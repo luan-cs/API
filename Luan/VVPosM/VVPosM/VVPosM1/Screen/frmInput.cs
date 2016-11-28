@@ -414,6 +414,8 @@ namespace VVPosM1.Screen
                 lblTB1.Text = "...";
                 lblTB.Text = "...";
 
+                //clear detail
+                dgvDetail.Rows.Clear();
             }
         }
 

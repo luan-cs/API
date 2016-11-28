@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.ReportInventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gb_SelectInformation = new System.Windows.Forms.GroupBox();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btn_ViewReport = new System.Windows.Forms.Button();
@@ -37,11 +38,14 @@
             this.cbNguyenLieu = new System.Windows.Forms.ComboBox();
             this.gb_ReportDetail = new System.Windows.Forms.GroupBox();
             this.rptViewInventory = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.ReportInventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ReportInventoryBindingSource)).BeginInit();
             this.gb_SelectInformation.SuspendLayout();
             this.gb_ReportDetail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ReportInventoryBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ReportInventoryBindingSource
+            // 
+            this.ReportInventoryBindingSource.DataSource = typeof(VVPosM1.Entities.ReportInventory);
             // 
             // gb_SelectInformation
             // 
@@ -71,6 +75,7 @@
             this.btnThoat.Text = "Thoát";
             this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btn_ViewReport
             // 
@@ -131,10 +136,6 @@
             this.rptViewInventory.Size = new System.Drawing.Size(1200, 538);
             this.rptViewInventory.TabIndex = 0;
             // 
-            // ReportInventoryBindingSource
-            // 
-            this.ReportInventoryBindingSource.DataSource = typeof(VVPosM1.Entities.ReportInventory);
-            // 
             // frmRpt_Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,9 +149,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo cáo tồn kho";
             this.Load += new System.EventHandler(this.frmRpt_Inventory_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ReportInventoryBindingSource)).EndInit();
             this.gb_SelectInformation.ResumeLayout(false);
             this.gb_ReportDetail.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ReportInventoryBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
