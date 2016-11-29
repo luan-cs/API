@@ -14,5 +14,6 @@ namespace VVPosM1.Entities
         public string IngredientMeasure { get; set; }
         public string IngredientExchange { get; set; }
         public string IngredientUnit { get; set; }
+        public string IntakeUnit { get; set; }
     }
 }

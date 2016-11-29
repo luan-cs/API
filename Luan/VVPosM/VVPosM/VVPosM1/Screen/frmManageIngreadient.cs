@@ -191,10 +191,11 @@ namespace VVPosM1.Screen
                     dgv.Rows[i].Cells[0].Value = (stt + 1).ToString();
                     dgv.Rows[i].Cells[1].Value = dr["IngredientId"].ToString();
                     dgv.Rows[i].Cells[2].Value = dr["IngredientName"].ToString();
-                    dgv.Rows[i].Cells[3].Value = dr["IngredientMeasure"].ToString();
-                    
-                    dgv.Rows[i].Cells[4].Value = dr["IngredientExchange"].ToString();
+                    dgv.Rows[i].Cells[3].Value = string.Format("{0} ({1})", dr["IngredientMeasure"].ToString(), dr["IntakeUnit"].ToString());
+
+                    dgv.Rows[i].Cells[4].Value = string.Format("{0} ({1})", dr["IngredientExchange"].ToString(), dr["IngredientUnit"].ToString());
                     dgv.Rows[i].Cells[5].Value = dr["IngredientUnit"].ToString();
+                    dgv.Rows[i].Cells[6].Value = dr["IntakeUnit"].ToString();
 
                     i++;
                     stt++;
@@ -290,6 +291,7 @@ namespace VVPosM1.Screen
             supSea.IngredientMeasure = txtMeasure.Text;
             supSea.IngredientExchange = txtExchange.Text;
             supSea.IngredientUnit = txtUnit.Text;
+            supSea.IntakeUnit = txtDonviGoc.Text;
 
 
             if (pro != null)
@@ -370,7 +372,7 @@ namespace VVPosM1.Screen
                     //txtAddress.Text = ob.SupplierAddress;
                     txtUnit.Text = ob.IngredientUnit;
                     txtMeasure.Text = ob.IngredientMeasure;
-                    
+                    txtDonviGoc.Text = ob.IntakeUnit;
                 }
 
                 //// Xóa

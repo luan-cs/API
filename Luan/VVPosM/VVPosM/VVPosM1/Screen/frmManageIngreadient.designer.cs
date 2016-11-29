@@ -40,13 +40,6 @@
             this.bntPre = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IngreadientId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IngreadientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IngreadientMeasure = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IngreadientExchange = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IngreadientUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.bntExit = new System.Windows.Forms.Button();
             this.bntLuu = new System.Windows.Forms.Button();
             this.bntSeach = new System.Windows.Forms.Button();
@@ -61,6 +54,16 @@
             this.txtMeasure = new System.Windows.Forms.TextBox();
             this.lbMeasure = new System.Windows.Forms.Label();
             this.lblUnit = new System.Windows.Forms.Label();
+            this.txtDonviGoc = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IngreadientId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IngreadientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IngreadientMeasure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IngreadientExchange = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IngreadientUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonViNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pInput.SuspendLayout();
@@ -169,7 +172,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox1.Location = new System.Drawing.Point(0, 288);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1202, 369);
+            this.groupBox1.Size = new System.Drawing.Size(1180, 369);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách NCC";
@@ -199,6 +202,7 @@
             this.IngreadientMeasure,
             this.IngreadientExchange,
             this.IngreadientUnit,
+            this.DonViNhap,
             this.Delete});
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.EnableHeadersVisualStyles = false;
@@ -209,60 +213,9 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv.Size = new System.Drawing.Size(1196, 344);
+            this.dgv.Size = new System.Drawing.Size(1174, 344);
             this.dgv.TabIndex = 24;
             this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            this.STT.Width = 50;
-            // 
-            // IngreadientId
-            // 
-            this.IngreadientId.HeaderText = "Mã Nguyên Liêu";
-            this.IngreadientId.Name = "IngreadientId";
-            this.IngreadientId.ReadOnly = true;
-            this.IngreadientId.Width = 150;
-            // 
-            // IngreadientName
-            // 
-            this.IngreadientName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IngreadientName.HeaderText = "Tên ";
-            this.IngreadientName.Name = "IngreadientName";
-            this.IngreadientName.ReadOnly = true;
-            // 
-            // IngreadientMeasure
-            // 
-            this.IngreadientMeasure.HeaderText = "Sô Lương";
-            this.IngreadientMeasure.Name = "IngreadientMeasure";
-            this.IngreadientMeasure.ReadOnly = true;
-            this.IngreadientMeasure.Width = 200;
-            // 
-            // IngreadientExchange
-            // 
-            this.IngreadientExchange.HeaderText = "Sô Lương Quy Đôi";
-            this.IngreadientExchange.Name = "IngreadientExchange";
-            this.IngreadientExchange.ReadOnly = true;
-            this.IngreadientExchange.Width = 150;
-            // 
-            // IngreadientUnit
-            // 
-            this.IngreadientUnit.HeaderText = "Đơn Vị";
-            this.IngreadientUnit.Name = "IngreadientUnit";
-            this.IngreadientUnit.ReadOnly = true;
-            this.IngreadientUnit.Width = 200;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Image = global::VVPosM1.Properties.Resources._1404478970_f_cross;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // bntExit
             // 
@@ -319,7 +272,7 @@
             this.txtExchange.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtExchange.Location = new System.Drawing.Point(617, 45);
             this.txtExchange.Name = "txtExchange";
-            this.txtExchange.Size = new System.Drawing.Size(335, 29);
+            this.txtExchange.Size = new System.Drawing.Size(159, 29);
             this.txtExchange.TabIndex = 44;
             this.txtExchange.Text = "0";
             // 
@@ -376,6 +329,8 @@
             // 
             this.pInput.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pInput.BackColor = System.Drawing.Color.Transparent;
+            this.pInput.Controls.Add(this.txtDonviGoc);
+            this.pInput.Controls.Add(this.label1);
             this.pInput.Controls.Add(this.txtUnit);
             this.pInput.Controls.Add(this.txtMeasure);
             this.pInput.Controls.Add(this.lbMeasure);
@@ -404,9 +359,9 @@
             // txtUnit
             // 
             this.txtUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnit.Location = new System.Drawing.Point(617, 78);
+            this.txtUnit.Location = new System.Drawing.Point(835, 45);
             this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(335, 29);
+            this.txtUnit.Size = new System.Drawing.Size(126, 29);
             this.txtUnit.TabIndex = 67;
             // 
             // txtMeasure
@@ -414,7 +369,7 @@
             this.txtMeasure.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMeasure.Location = new System.Drawing.Point(617, 12);
             this.txtMeasure.Name = "txtMeasure";
-            this.txtMeasure.Size = new System.Drawing.Size(241, 29);
+            this.txtMeasure.Size = new System.Drawing.Size(159, 29);
             this.txtMeasure.TabIndex = 66;
             this.txtMeasure.Text = "0";
             // 
@@ -431,18 +386,103 @@
             // lblUnit
             // 
             this.lblUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnit.Location = new System.Drawing.Point(508, 86);
+            this.lblUnit.Location = new System.Drawing.Point(781, 53);
             this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(96, 16);
+            this.lblUnit.Size = new System.Drawing.Size(48, 16);
             this.lblUnit.TabIndex = 17;
             this.lblUnit.Text = "Đơn vị";
             this.lblUnit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtDonviGoc
+            // 
+            this.txtDonviGoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDonviGoc.Location = new System.Drawing.Point(835, 11);
+            this.txtDonviGoc.Name = "txtDonviGoc";
+            this.txtDonviGoc.Size = new System.Drawing.Size(126, 29);
+            this.txtDonviGoc.TabIndex = 69;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(781, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 16);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "Đơn vị";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // STT
+            // 
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.STT.FillWeight = 33.11959F;
+            this.STT.HeaderText = "STT";
+            this.STT.MinimumWidth = 2;
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            // 
+            // IngreadientId
+            // 
+            this.IngreadientId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IngreadientId.FillWeight = 118.7066F;
+            this.IngreadientId.HeaderText = "Mã Nguyên Liêu";
+            this.IngreadientId.Name = "IngreadientId";
+            this.IngreadientId.ReadOnly = true;
+            // 
+            // IngreadientName
+            // 
+            this.IngreadientName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IngreadientName.FillWeight = 233.0959F;
+            this.IngreadientName.HeaderText = "Tên ";
+            this.IngreadientName.Name = "IngreadientName";
+            this.IngreadientName.ReadOnly = true;
+            // 
+            // IngreadientMeasure
+            // 
+            this.IngreadientMeasure.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IngreadientMeasure.FillWeight = 100.9762F;
+            this.IngreadientMeasure.HeaderText = "Sô Lương";
+            this.IngreadientMeasure.Name = "IngreadientMeasure";
+            this.IngreadientMeasure.ReadOnly = true;
+            // 
+            // IngreadientExchange
+            // 
+            this.IngreadientExchange.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IngreadientExchange.FillWeight = 83.64483F;
+            this.IngreadientExchange.HeaderText = "Sô Lương Quy Đôi";
+            this.IngreadientExchange.Name = "IngreadientExchange";
+            this.IngreadientExchange.ReadOnly = true;
+            // 
+            // IngreadientUnit
+            // 
+            this.IngreadientUnit.HeaderText = "Đơn Vị";
+            this.IngreadientUnit.Name = "IngreadientUnit";
+            this.IngreadientUnit.ReadOnly = true;
+            this.IngreadientUnit.Visible = false;
+            this.IngreadientUnit.Width = 200;
+            // 
+            // DonViNhap
+            // 
+            this.DonViNhap.HeaderText = "DVGoc";
+            this.DonViNhap.Name = "DonViNhap";
+            this.DonViNhap.ReadOnly = true;
+            this.DonViNhap.Visible = false;
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Delete.FillWeight = 30.45685F;
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Image = global::VVPosM1.Properties.Resources._1404478970_f_cross;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmManageIngreadient
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(1182, 637);
+            this.ClientSize = new System.Drawing.Size(1178, 633);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pInput);
@@ -486,12 +526,15 @@
         private System.Windows.Forms.Label lbMeasure;
         private System.Windows.Forms.TextBox txtUnit;
         private System.Windows.Forms.Label lblUnit;
+        private System.Windows.Forms.TextBox txtDonviGoc;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn IngreadientId;
         private System.Windows.Forms.DataGridViewTextBoxColumn IngreadientName;
         private System.Windows.Forms.DataGridViewTextBoxColumn IngreadientMeasure;
         private System.Windows.Forms.DataGridViewTextBoxColumn IngreadientExchange;
         private System.Windows.Forms.DataGridViewTextBoxColumn IngreadientUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonViNhap;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
     }
 }

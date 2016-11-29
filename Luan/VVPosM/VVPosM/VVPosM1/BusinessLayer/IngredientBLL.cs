@@ -178,8 +178,8 @@ namespace VVPosM1.BusinessLayer
             reEmp.IngredientMeasure = ds.Tables[0].Rows[0]["IngredientMeasure"].ToString();
             reEmp.IngredientExchange = ds.Tables[0].Rows[0]["IngredientExchange"].ToString();
             reEmp.IngredientUnit = ds.Tables[0].Rows[0]["IngredientUnit"].ToString();
-
-        }
+            reEmp.IntakeUnit = ds.Tables[0].Rows[0]["IntakeUnit"].ToString();
+            }
         else
         {
 
@@ -208,9 +208,10 @@ namespace VVPosM1.BusinessLayer
         //{
         queryStr += string.Format(" IngredientExchange = '{0}',", employ.IngredientExchange);
         //}
-        queryStr += string.Format(" IngredientUnit = '{0}'", employ.IngredientUnit);
+        queryStr += string.Format(" IngredientUnit = '{0}',", employ.IngredientUnit);
+        queryStr += string.Format(" IntakeUnit = '{0}'", employ.IntakeUnit);
 
-        queryStr += string.Format(" WHERE IngredientId = '{0}'", employ.IngredientId);
+            queryStr += string.Format(" WHERE IngredientId = '{0}'", employ.IngredientId);
 
             Program.destopService.DataExecute(Program.Username, Program.Password, queryStr, ref errorString);
 
@@ -269,10 +270,11 @@ namespace VVPosM1.BusinessLayer
         }
         if (!string.IsNullOrEmpty(employ.IngredientUnit))
         {
-            queryStr += "`IngredientUnit`";
+            queryStr += "`IngredientUnit`,";
         }
+            queryStr += "`IntakeUnit`";
 
-        queryStr += ") VALUES (";
+            queryStr += ") VALUES (";
 
         if (!string.IsNullOrEmpty(employ.IngredientId))
         {
@@ -292,10 +294,10 @@ namespace VVPosM1.BusinessLayer
         }
         if (!string.IsNullOrEmpty(employ.IngredientUnit))
         {
-            queryStr += string.Format("'{0}'", employ.IngredientUnit);
+            queryStr += string.Format("'{0}',", employ.IngredientUnit);
         }
-
-        queryStr += ")";
+            queryStr += string.Format("'{0}'", employ.IntakeUnit);
+            queryStr += ")";
         Program.destopService.DataExecute(Program.Username, Program.Password, queryStr, ref errorString);
         if (string.IsNullOrEmpty(errorString))
         {
