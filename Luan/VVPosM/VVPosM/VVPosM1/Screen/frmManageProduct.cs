@@ -282,12 +282,13 @@ namespace VVPosM1.Screen
         {
             // check xem có trong db chưa?
             string ProductID = txtProductId.Text.Trim();
+			string name = txtName.Text.Trim();
             Products pro = new Products();
-            pro = proBLL.GetProductWithID(ProductID);
+            pro = proBLL.GetProductWithID(ProductID, name);
 
              proSea = new Products();
 
-            proSea.Name = txtName.Text;
+            proSea.Name = name;
             proSea.Unit = txtUnit.Text;
             proSea.Price = txtPrice.Text;
             proSea.Notes = rtxtDescription.Text;
@@ -329,7 +330,7 @@ namespace VVPosM1.Screen
                     if (i == 1)
                     {
                         lblTB1.Text = Common.clsLanguages.GetResource("InsertSuccess1"); 
-                        txtProductId.Text = ProductID;
+                        //txtProductId.Text = ProductID;
                         proSea.Image = null;
                     }
                     else
