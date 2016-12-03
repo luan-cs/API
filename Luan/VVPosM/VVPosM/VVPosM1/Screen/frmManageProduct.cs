@@ -303,7 +303,7 @@ namespace VVPosM1.Screen
                                    Common.Config.CUSTOM_MESSAGEBOX_ICON.Information,
                                    Common.Config.CUSTOM_MESSAGEBOX_BUTTON.YESNO) == DialogResult.Yes)
                 {
-                    proSea.ProductId = ProductID;
+					proSea.ProductId = !string.IsNullOrWhiteSpace(ProductID) ? ProductID : pro.ProductId;
                     int i = proBLL.Update(proSea);
                     if (i == 1)
                     {

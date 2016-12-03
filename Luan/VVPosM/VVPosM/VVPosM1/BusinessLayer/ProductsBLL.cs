@@ -163,13 +163,14 @@ namespace VVPosM1.BusinessLayer
             }
             return res;
         }
-        public Products GetProductWithID(string id)
+        public Products GetProductWithID(string id, string name = "")
         {
             Products reEmp = new Products();
             DataSet ds = new DataSet();
             string query = @"SELECT *
                             FROM `products`
                             WHERE `ProductId`='" + id + "' ";
+			if (name != "") query += " or Name = '" + name + "'";
             //Program.destopService.DataQuery(Program.Username, Program.Password, query, ref ds, "X", ref errorString);
             Program.destopService.DataQuery(Program.Username, Program.Password, query, ref ds, "X", ref errorString);
             if (string.IsNullOrEmpty(errorString) && ds.Tables[0].Rows.Count > 0)
