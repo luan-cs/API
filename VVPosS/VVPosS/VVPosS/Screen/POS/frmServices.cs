@@ -828,53 +828,55 @@ namespace VVPosS.Screen.POS
                         h_s = 14 * _iCelling + 12;
                     }
 
-                    //if (dtl.IsBuffet == "0" || (dtl.IsBuffet == "1" && double.Parse(dtl.Price) > 0))
-                    //{
-                    Rectangle strCT_STT = new Rectangle(0, y_p, 15, h_s);
-                    data = i.ToString();
-                    e.Graphics.DrawString(data, new Font("Arial", 5, FontStyle.Regular), Brushes.Black, strCT_STT, strfmt_Center);
+					//if (dtl.IsBuffet == "0" || (dtl.IsBuffet == "1" && double.Parse(dtl.Price) > 0))
+					//{
+					Rectangle strCT_STT = new Rectangle(0, y_p, 30, h_s);
+					data = i.ToString();
+					e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, strCT_STT, strfmt_Center);
 
-                    Rectangle strCT_SP = new Rectangle(15, y_p, 80, h_s);
-                    data = dtl.ProductName;
-                    e.Graphics.DrawString(data, new Font("Arial", 5, FontStyle.Regular), Brushes.Black, strCT_SP, strfmt_Left_Center);
+					Rectangle strCT_SP = new Rectangle(30, y_p, 160, h_s);
+					data = dtl.ProductName;
+					e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, strCT_SP, strfmt_Left_Center);
 
-                    Rectangle strCT_SL = new Rectangle(95, y_p, 15, h_s);
-                    data = dtl.Qty;
-                    e.Graphics.DrawString(data, new Font("Arial", 5, FontStyle.Regular), Brushes.Black, strCT_SL, strfmt_Center);
+					//y_p += h_s;
+					//Rectangle strCT_SL = new Rectangle(30, y_p, 80, h_s);
+					//data = dtl.Qty;
+					//e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, strCT_SL, strfmt_Center);
 
-                    Rectangle strTT_DG = new Rectangle(110, y_p, 40, h_s);
-                    //data = (double.Parse(dtl.Price) + (double.Parse(dtl.TaxAmount) / double.Parse(dtl.Qty))).ToString("0,0");
-                    data = dtl.Price;
-                    e.Graphics.DrawString(data, new Font("Arial", 5, FontStyle.Regular), Brushes.Black, strTT_DG, strfmt_Right_Center);
+					y_p += h_s;
+					Rectangle strTT_DG = new Rectangle(30, y_p, 80, h_s);
+					//data = (double.Parse(dtl.Price) + (double.Parse(dtl.TaxAmount) / double.Parse(dtl.Qty))).ToString("0,0");
+					data = dtl.Qty + " x " + dtl.Price;
+					e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, strTT_DG, strfmt_Right_Center);
 
-                    Rectangle strTT_TT = new Rectangle(150, y_p, 40, h_s);
-                    data = dtl.TotalAmount;
-                    e.Graphics.DrawString(data, new Font("Arial", 5, FontStyle.Regular), Brushes.Black, strTT_TT, strfmt_Right_Center);
+					Rectangle strTT_TT = new Rectangle(110, y_p, 80, h_s);
+					data = dtl.TotalAmount;
+					e.Graphics.DrawString(data, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, strTT_TT, strfmt_Right_Center);
 
-                    y_p += h_s;
-                    Rectangle RecLineCT = new Rectangle(0, y_p, 190, 1);
-                    var LineCT = Common.Utility.GetImageFromService("ShopImg", "linect.png");
-                    e.Graphics.DrawImage(LineCT, RecLineCT);
-                    //}
-                    //else
-                    //{
-                    //    Rectangle strCT_SP = new Rectangle(43, y_p, 147, h_s);//60
-                    //    data = dtl.ProductName;
-                    //    e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, strCT_SP, strfmt_Left_Center);
+					y_p += h_s;
+					Rectangle RecLineCT = new Rectangle(0, y_p, 190, 1);
+					var LineCT = Common.Utility.GetImageFromService("ShopImg", "linect.png");
+					e.Graphics.DrawImage(LineCT, RecLineCT);
+					//}
+					//else
+					//{
+					//    Rectangle strCT_SP = new Rectangle(43, y_p, 147, h_s);//60
+					//    data = dtl.ProductName;
+					//    e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, strCT_SP, strfmt_Left_Center);
 
-                    //    Rectangle strCT_SL = new Rectangle(190, y_p, 30, h_s);
-                    //    data = dtl.Qty;
-                    //    e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, strCT_SL, strfmt_Right_Center);
+					//    Rectangle strCT_SL = new Rectangle(190, y_p, 30, h_s);
+					//    data = dtl.Qty;
+					//    e.Graphics.DrawString(data, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, strCT_SL, strfmt_Right_Center);
 
-                    //    y_p += h_s;
-                    //    Rectangle RecLineCT = new Rectangle(43, y_p, 247, 1);
-                    //    var LineCT = Common.Utility.GetImageFromService("ShopImg", "linect.png");
-                    //    e.Graphics.DrawImage(LineCT, RecLineCT);
+					//    y_p += h_s;
+					//    Rectangle RecLineCT = new Rectangle(43, y_p, 247, 1);
+					//    var LineCT = Common.Utility.GetImageFromService("ShopImg", "linect.png");
+					//    e.Graphics.DrawImage(LineCT, RecLineCT);
 
-                    //}
+					//}
 
 
-                }
+				}
             }
 
 
@@ -1607,10 +1609,16 @@ namespace VVPosS.Screen.POS
 
 
                 InsertOrder();
-
-                //print order 
-                DoPrinting();
-            }
+				if (orderBLL.Res)
+				{
+					string isPrint = ConfigurationManager.AppSettings["IsPrint"];
+					if (isPrint == "1")
+					{
+						DoPrinting();
+					}
+				}
+				//print order 
+			}
         }
 
 
